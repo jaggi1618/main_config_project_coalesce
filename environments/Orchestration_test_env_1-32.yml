@@ -1,0 +1,11 @@
+fileVersion: 1
+id: "32"
+mappingDefinitions:
+  SRC:
+    database: SOURCE_DB
+    schema: SOURCE_SCHEMA
+  TARGET:
+    database: TARGET_DB
+    schema: TARGET_SCHEMA
+name: Orchestration_test_env_1
+type: Environment
