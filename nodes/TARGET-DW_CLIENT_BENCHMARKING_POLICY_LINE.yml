@@ -14,9 +14,9 @@ operation:
           DW_UPDATE_USER = 'spdw_dw_client_benchmarking_policy_line_insertUpdate'
       FROM (
           SELECT
-              pl_inner.SOURCE_SYSTEM_POLICY_LINE_ID
+              pl_inner.SOURCE_SYSTEM_POLICY_LINE_ID,pl_inner.DELETED_DATE
           FROM {{this}} AS pl_inner
-          LEFT JOIN {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_POLICY_LINE_STAGING') }} AS stg
+          LEFT JOIN {{ ref('SRC', 'DW_CLIENT_BENCHMARKING_POLICY_LINE_STAGING') }} AS stg
               ON stg.SOURCE_SYSTEM_POLICY_LINE_ID = pl_inner.SOURCE_SYSTEM_POLICY_LINE_ID
           WHERE stg.SOURCE_SYSTEM_POLICY_LINE_ID IS NULL AND pl_inner.DELETED_DATE IS NULL
       ) AS deletes
@@ -28,7 +28,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -518,10 +518,10 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: SRC
             nodeName: STG_DW_CLIENT_BENCHMARKING_POLICY_LINE_INSERT
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'STG_DW_CLIENT_BENCHMARKING_POLICY_LINE_INSERT') }} src
+          joinCondition: FROM {{ ref('SRC', 'STG_DW_CLIENT_BENCHMARKING_POLICY_LINE_INSERT') }} src
         name: DW_CLIENT_BENCHMARKING_POLICY_LINE
         noLinkRefs: []
   name: DW_CLIENT_BENCHMARKING_POLICY_LINE
