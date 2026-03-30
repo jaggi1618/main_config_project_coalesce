@@ -510,6 +510,66 @@ operation:
               - columnCounter: 01804c8f-7407-4e08-9d41-2a1362d2d837
                 stepCounter: fe717646-7c98-4c9c-b169-b3a164b7324c
             transform: SRC.DW_SOURCE_SYSTEM_ID
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70a89f3a-4445-4015-bcac-8e9261af182d
+          stepCounter: 5790a6e8-236b-45e0-84c4-7290d24328d0
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: DELETED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28d51186-c0a9-46aa-9955-3a9f349741a1
+          stepCounter: 5790a6e8-236b-45e0-84c4-7290d24328d0
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b64f75ee-d4d0-419a-82b1-3b5b8b544cad
+          stepCounter: 5790a6e8-236b-45e0-84c4-7290d24328d0
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
