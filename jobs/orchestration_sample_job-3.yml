@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "3"
+includeSelector: "{ location: \"SRC\" name: \"DW_CLIENT_BENCHMARKING_POLICY_LINE_STAGING\" } OR { location: \"SRC\" name: \"STG_DW_CLIENT_BENCHMARKING_POLICY_LINE_INSERT\" } OR { location: \"TARGET\" name: \"DW_CLIENT_BENCHMARKING_POLICY_LINE\" }"
+name: orchestration_sample_job
+type: Job
