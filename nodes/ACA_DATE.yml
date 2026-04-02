@@ -1,0 +1,225 @@
+fileVersion: 1
+id: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+name: ACA_DATE
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f23-3b3b-4682-959c-64860b764b8a
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8c46001-c887-4340-9b43-238d8d3f5727
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: FULL_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1233481-30d0-4ef1-a083-f38b2591e0a2
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DAY_NAME_OF_WEEK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b577741d-e598-472b-8a1a-3507221e78eb
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: DAY_NUMBER_OF_MONTH
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97818e9c-501b-4375-9c98-132b4b415b3a
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MONTH_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1e7a469-f3fd-4402-a4f7-9d7a2205c6d3
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: MONTH_NUMBER_OF_YEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2e88-668d-4a1e-8e8e-c5ac98ab77d3
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: CALENDAR_QUARTER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7343e0-63eb-4674-a748-8df0e461f879
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CALENDAR_QUARTER_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31057868-b78c-4f80-bfd8-11110034a78c
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: CALENDAR_YEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0e36502-3c1a-4c91-95fe-4e31508200f6
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: ALLIANT_US_HOLIDAY_FLG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e89a74aa-71c1-4b13-a4c4-72750e3346d8
+          stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: MONTH_END_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_DATE
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
