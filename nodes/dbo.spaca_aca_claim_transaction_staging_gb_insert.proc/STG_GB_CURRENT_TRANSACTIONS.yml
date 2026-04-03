@@ -1232,7 +1232,6 @@ operation:
           - columnReferences:
               - columnCounter: c796014e-9d22-4919-8692-07a82747385f
                 stepCounter: 676b7713-356a-493e-9020-f55a1599
---- START OF FILE: nodes/STG_GB_CURRENT_TRANSACTIONS.yml ---
 fileVersion: 1
 id: 97816040-420a-4a6c-9418-47e9bb7639bb
 name: STG_GB_CURRENT_TRANSACTIONS
