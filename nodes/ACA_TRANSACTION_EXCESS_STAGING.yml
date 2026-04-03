@@ -1,0 +1,263 @@
+fileVersion: 1
+id: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+name: ACA_TRANSACTION_EXCESS_STAGING
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c8e9d0a-1b2c-4d5e-8f9a-0b1c2d3e4f5a
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d9f0a1b-2c3d-4e5f-9a0b-1c2d3e4f5a6b
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACCIDENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e0a1b2c-3d4e-5f6a-0b1c-2d3e4f5a6b7c
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f1b2c3d-4e5f-6a7b-1c2d-3e4f5a6b7c8d
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: NUMERIC
+        defaultValue: ""
+        description: ""
+        name: CLAIM_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a2b3c4d-5f6a-7b8c-2d3e-4f5a6b7c8d9e
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b3c4d5e-6a7b-8c9d-3e4f-5a6b7c8d9e0f
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: NUMERIC
+        defaultValue: ""
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c4d5e6f-7b8c-9d0e-4f5a-6b7c8d9e0f1a
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: EXCESS_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d5e6f7a-8c9d-0e1f-5a6b-7c8d9e0f1a2b
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: NUMERIC
+        defaultValue: ""
+        description: ""
+        name: RECIPIENT_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e6f7a8b-9d0e-1f2a-6b7c-8d9e0f1a2b3c
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RECORD_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f7a8b9c-0e1f-2a3b-7c8d-9e0f1a2b3c4d
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVED_FOR_FUTURE_USE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a8b9c0d-1f2a-3b4c-8d9e-0f1a2b3c4d5e
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RECIPIENT_INFORMATION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b9c0d1e-2a3b-4c5d-9e0f-1a2b3c4d5e6f
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_CROSS_REFERENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c0d1e2f-3b4c-5d6e-0f1a-2b3c4d5e6f7a
+          stepCounter: 5a8a1e2f-0467-4a0b-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_EXCESS_STAGING
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
