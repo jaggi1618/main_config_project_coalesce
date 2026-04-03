@@ -1,0 +1,207 @@
+fileVersion: 1
+id: 5a73e618-9366-4c74-95e5-337c767e7c85
+name: ASTRUSMODELDATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e347a46c-c6f9-42b7-8ccb-a36c8ed560a8
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32a76f23-3b3b-4682-959c-64860b764b8a
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.ACA_DATE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2d1f0ea-d218-4d51-85e8-5acbe6f30e0e
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: DATE
+        description: ""
+        name: FULL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e8c46001-c887-4340-9b43-238d8d3f5727
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.FULL_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a630f576-928f-4d2c-af7a-d0208b08709e
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DAY_NAME_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1233481-30d0-4ef1-a083-f38b2591e0a2
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.DAY_NAME_OF_WEEK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97813a35-1de6-419b-a3d7-463e2645607b
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: INT
+        description: ""
+        name: DAY_NUMBER_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b577741d-e598-472b-8a1a-3507221e78eb
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.DAY_NUMBER_OF_MONTH
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5a7c293-8684-48ac-9467-3a1b3df5e96f
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MONTH_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97818e9c-501b-4375-9c98-132b4b415b3a
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.MONTH_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bff65574-d55a-49eb-83c9-9524c96ddc4a
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: INT
+        description: ""
+        name: MONTH_NUMBER_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1e7a469-f3fd-4402-a4f7-9d7a2205c6d3
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.MONTH_NUMBER_OF_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f288e0ef-dd30-4e31-89e7-f8cc3f99e4b5
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: INT
+        description: ""
+        name: CALENDAR_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f2b2e88-668d-4a1e-8e8e-c5ac98ab77d3
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.CALENDAR_QUARTER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50466657-b080-4df7-bcad-f6556c52a32c
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CALENDAR_QUARTER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7343e0-63eb-4674-a748-8df0e461f879
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.CALENDAR_QUARTER_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fcb677e4-2451-4099-b1d7-2f663c64c767
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: INT
+        description: ""
+        name: CALENDAR_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 31057868-b78c-4f80-bfd8-11110034a78c
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.CALENDAR_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2361bca-fd0e-436f-b64d-b952a2656924
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: ALLIANT_US_HOLIDAY_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0e36502-3c1a-4c91-95fe-4e31508200f6
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.ALLIANT_US_HOLIDAY_FLG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5d87ec0-08be-4e3a-b850-7058a98f1f54
+          stepCounter: 5a73e618-9366-4c74-95e5-337c767e7c85
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: MONTH_END_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e89a74aa-71c1-4b13-a4c4-72750e3346d8
+                stepCounter: 5698b671-d64e-4f0f-8b5e-26f63f53835e
+            transform: ""
+        transform: ACA_DATE.MONTH_END_FLAG
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_DATE: ACA_DATE
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_DATE
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_DATE') }} "ACA_DATE" WHERE ACA_DATE.ACA_DATE_ID
+            = 19000101 OR (ACA_DATE.ACA_DATE_ID BETWEEN 20150101 AND CAST(TO_VARCHAR(DATE_FROM_PARTS(YEAR(CURRENT_DATE())
+            + 1, 12, 31), 'YYYYMMDD') AS INT))
+        name: ASTRUSMODELDATE
+        noLinkRefs: []
+  name: ASTRUSMODELDATE
+  overrideSQL: false
+  schema: RPT
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

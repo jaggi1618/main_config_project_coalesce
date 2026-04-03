@@ -1,0 +1,662 @@
+fileVersion: 1
+id: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+name: ACA_TRANSACTION_CLAIM
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a283995-5bb1-4475-97b7-573e3519b5d1
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_STATUS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d728d84-4869-4fcf-8406-8b3d640e796e
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_STATUS_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a697841c-3729-4d64-8397-ff02951e7371
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RESERVE_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d32d0c2e-4b47-49d9-b2f7-7201c70e7a33
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CONVERT_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04e339b1-e2c3-4d0f-a99f-e63d41f32a76
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DEATH_RESULT_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e32a6bc-e574-42f0-9118-8eb1fd52458e
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: REPORTING_BASIS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a06429-ca77-4b71-9f9b-a010d8050e50
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIMANT_NAME_FORMAT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 379c6d36-8e8e-473d-8869-90610360a0a9
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: WORKERS_COMPENSATION_CLAIMTYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15e61d36-749e-4e4c-813d-51f7b8ac75d9
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: FRAUD_INDICATOR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a9f1f0e-e215-46aa-a98b-bd1e5c544837
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CATASTROPHE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 014e7a3b-9e45-4227-a006-a83d726b2bb6
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DRIVER_SEX
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5961d763-718e-4a7b-a5d2-f67469a5725f
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: REPORTING_UNIT_NAME_FORMAT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1738747-d0ac-4b68-b3ab-b84cc0c00713
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: INSUIT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 555c9179-8877-4402-bb91-da50cddb8f2b
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DRIVER_CHARGEABLE_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7713d81d-e593-4632-a50e-b7d1e8c9c7f6
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SURGERY_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 476839e9-d419-4824-912b-31d7f6424908
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: EMPLOYER_PREMISES_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67d9889f-26b2-4d08-aa13-5b80036ca6d5
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: NUMBER_OF_DEPENDENTS_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8bb85f4-3d02-4ab8-9586-77889f1d530f
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CONTROVERTED_CASE_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5ef2489-0abf-40e9-b5fe-a3424d852077
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: EMPLOYMENT_STATUS_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d196e838-8424-4f05-b778-98e9b422f254
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b65c19de-631d-4874-a63e-ed42630d8c07
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MULTI_CLAIM_OCCUR_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631df81-1979-4d6d-868d-8c4d284ed78f
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: UNEMPLOYMENT_OFFSET_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a0d0d8-55a2-4a0b-857e-e5c703b0d468
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: FULL_PAY_DAY_OF_INJURY_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3b17d3d-c36e-4ab4-807b-8b940e796695
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: RETURN_TO_WORK_RESTRICTED_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f7c0a87-320c-43bd-a581-22444634f475
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CLAIM_EVER_CONTROVERTED_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1470557-04c2-4809-b7b5-231a5472851a
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: LOST_TIME_CASE_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 602377c8-04f7-4f46-9b16-cd3c89b335fe
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SALARY_CONTINUED_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c0953a8-44f2-4309-9069-42b9308e2f80
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: OTHER_RECOVERY_POTENTIAL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d1ab553-2947-493e-b49b-8390b1c97a89
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOCIAL_SECURITY_OFFSET_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3335759-dd9a-4c28-9441-2a1c0d3810f3
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PENSION_OFFSET_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c035b364-da69-44be-ac55-e461a2c3a51f
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: OTHER_OFFSET_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32cc03f6-4993-4e48-9c60-e88691f13b19
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DEDUCTIBLE_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c5e933d-c1f0-410a-b333-e02d6bce72a3
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DEGREE_OF_LOSSFLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13180ab-f050-482f-87d9-c09a8a70fd4c
+          stepCounter: 597a7a53-48b4-4e4b-b0b3-96b49048a1d1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: APPRAISED_ELIGIBILITY_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_TRANSACTION_CLAIM
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
