@@ -1,0 +1,92 @@
+fileVersion: 1
+id: b15b5b6f-4e7e-4dbC-e0e0-7a8b9c0d1e2f
+name: ASTRUSMODELNCCIINJURYCODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad6fa90d-7c1c-4ff0-e292-8a9b0c1d2e3f
+          stepCounter: b15b5b6f-4e7e-4dbC-e0e0-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NCCI_INJURY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b3c7ccD-4f8f-4ccf-bf6f-5d6e7f8a9b0c
+                stepCounter: 8d2e2e3c-1b4b-4a8f-bdbc-4d5e6f7a8b9c
+            transform: U.SOURCE_SYSTEM_NCCI_INJURY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc7a8b9c-0e1f-4a2b-b3c4-d5e6f7a8b9c0
+          stepCounter: b15b5b6f-4e7e-4dbC-e0e0-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_INJURY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc4d5e6f-7a8b-4c9d-a0e1-f2a3b4c5d6e7
+                stepCounter: 8d2e2e3c-1b4b-4a8f-bdbc-4d5e6f7a8b9c
+            transform: U.NCCI_INJURY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de8b9c0d-1f2a-4b3c-b4d5-e6f7a8b9c0d1
+          stepCounter: b15b5b6f-4e7e-4dbC-e0e0-7a8b9c0d1e2f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_INJURY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd5e6f7a-8b9c-4d0e-b1f2-a3b4c5d6e7f8
+                stepCounter: 8d2e2e3c-1b4b-4a8f-bdbc-4d5e6f7a8b9c
+            transform: U.NCCI_INJURY
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_BRANCH_ESIS
+          - locationName: DBSHIFT
+            nodeName: V_BRANCH_GB_NON_XX
+          - locationName: DBSHIFT
+            nodeName: V_BRANCH_GB_XX
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('DBSHIFT','V_BRANCH_ESIS') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','V_BRANCH_GB_NON_XX') }}
+              UNION ALL
+              SELECT * FROM {{ ref('DBSHIFT','V_BRANCH_GB_XX') }}
+            ) AS U
+        name: ASTRUSMODELNCCIINJURYCODE
+        noLinkRefs: []
+  name: ASTRUSMODELNCCIINJURYCODE
+  overrideSQL: false
+  schema: RPT
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
