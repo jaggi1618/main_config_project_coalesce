@@ -1,0 +1,510 @@
+fileVersion: 1
+id: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+name: ACA_PAYEE_STAGING_ESIS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c4d
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_PAYEE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3f5g7h4-a1b2-3c4d-5e6f-8g9h1i2j3k4l
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_IRS_FORM_1099_TYPE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4f6h8i5-b2c3-4d5e-6f7g-9h1i2j3k4l5m
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: PAYEE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5g7i9j6-c3d4-5e6f-7g8h-1i2j3k4l5m6n
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: PAYEE_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6h8j1k7-d4e5-6f7g-8h9i-2j3k4l5m6n7o
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: g7i9l2m8-e5f6-7g8h-9i1j-3k4l5m6n7o8p
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: h8j1m3n9-f6g7-8h9i-1j2k-4l5m6n7o8p9q
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: i9k2n4o1-g7h8-9i1j-2k3l-5m6n7o8p9q1r
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: j1l3o5p2-h8i9-1j2k-3l4m-6n7o8p9q1r2s
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: CITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: k2m4p6q3-i9j1-2k3l-4m5n-7o8p9q1r2s3t
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: l3n5q7r4-j1k2-3l4m-5n6o-8p9q1r2s3t4u
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: m4o6r8s5-k2l3-4m5n-6o7p-9q1r2s3t4u5v
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: COUNTRY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: n5p7s9t6-l3m4-5n6o-7p8q-1r2s3t4u5v6w
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: o6q8t1u7-m4n5-6o7p-8q9r-2s3t4u5v6w7x
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: IRS_FORM_1099_TYPE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: p7r9u2v8-n5o6-7p8q-9r1s-3t4u5v6w7x8y
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: IRS_FORM_1099_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: q8s1v3w9-o6p7-8q9r-1s2t-4u5v6w7x8y9z
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: r9t2w4x1-p7q8-9r1s-2t3u-5v6w7x8y9z1a
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: s1u3x5y2-q8r9-1s2t-3u4v-6w7x8y9z1a2b
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_LAST_NAME_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: t2v4y6z3-r9s1-2t3u-4v5w-7x8y9z1a2b3c
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_FIRST_NAME_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: u3w5z7a4-s1t2-3u4v-5w6x-8y9z1a2b3c4d
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_ORGANIZATION_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: v4x6a8b5-t2u3-4v5w-6x7y-9z1a2b3c4d5e
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_ADDRESS_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: w5y7b9c6-u3v4-5w6x-7y8z-1a2b3c4d5e6f
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_CITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: x6z8c1d7-v4w5-6x7y-8z9a-2b3c4d5e6f7g
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_STATE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: y7a9d2e8-w5x6-7y8z-9a1b-3c4d5e6f7g8h
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_ZIP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: z8b1e3f9-x6y7-8z9a-1b2c-4d5e6f7g8h9i
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: MAIL_TO_COUNTRY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9c2f4g1-y7z8-9a1b-2c3d-5e6f7g8h9i1j
+          stepCounter: 9a3c9e6d-2e11-4b1a-8c3d-1a8c8e9b0d1e
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_PAYEE_STAGING_ESIS
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
