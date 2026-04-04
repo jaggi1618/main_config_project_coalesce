@@ -1,0 +1,287 @@
+fileVersion: 1
+id: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+        UPDATE {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT') }} C
+        SET
+            PLANNING_ALIAS = CAST(DUP.NEW_PLANNING_ALIAS AS VARCHAR(72)),
+            DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
+            DW_UPDATE_USER = 'sppa_planning_fccs_broker_client_update_duplicate_alias'
+        FROM {{ ref('DBSHIFT', 'V_TMPUPDATEDUPLICATEALIAS') }} DUP
+        WHERE C.PLANNING_ID = DUP.PLANNING_ID
+          AND DUP.DIM_TYPE = 'Client';
+
+        UPDATE {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} B
+        SET
+            PLANNING_ALIAS = DUP.NEW_PLANNING_ALIAS,
+            DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
+            DW_UPDATE_USER = 'sppa_planning_fccs_broker_client_update_duplicate_alias'
+        FROM {{ ref('DBSHIFT', 'V_TMPUPDATEDUPLICATEALIAS') }} DUP
+        WHERE B.PLANNING_ID = DUP.PLANNING_ID
+          AND DUP.DIM_TYPE = 'Broker';
+      END
+    testsEnabled: true
+    truncateBefore: false
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f223f6e1-93c5-43a5-b049-36a567614d3c
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DIMENSION_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32629b3a-590f-4318-8f5b-1172a7251767
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.DIM_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b6040-5e58-4735-a131-7b791444d187
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHANGE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'PlanningAlias'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf892c55-22d7-463d-82a1-0268595088f1
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed1f20ac-826d-4952-bf03-7ac3b4c95b6c
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 153a0673-f9a6-4f4d-b6a1-a476edc15e21
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97858c15-4654-46c9-a9a3-5c78731b676a
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f141695-8ca9-4113-a4c3-1d02c0b5f135
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d144b2f4-7935-4f3b-a506-692ab891f1c2
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a06f36-5415-45d4-8d96-b088562d2d95
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR(72)
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5547849c-bb07-4e69-80ac-a2a11b65e236
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: CAST(SRC.NEW_PLANNING_ALIAS AS VARCHAR(72))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93e62058-005d-4f2b-bdc3-568b6d85a065
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2b8109d-e4bc-4835-a131-7b0b74108866
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.DW_BROKER_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e86b624f-a035-46aa-abf8-8f8ac39c9165
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORIGINAL_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed1f20ac-826d-4952-bf03-7ac3b4c95b6c
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b19e4fc4-6e8d-4f4d-8cfd-15774a3f33ca
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORIGINAL_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97858c15-4654-46c9-a9a3-5c78731b676a
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fff9d59e-4a6c-4861-9c3a-231a477de145
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORIGINAL_PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b571d798-25f3-45c1-9657-1906a589e4c5
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 322c3358-132d-4560-84c6-e97087819c4d
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID_ORIGINAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2b8109d-e4bc-4835-a131-7b0b74108866
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.DW_BROKER_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f7c0500-b6ab-4f9e-a034-60c793f18590
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: BEGIN_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48995c73-f111-4ca5-9836-9e6b4d3c35f2
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.BEGIN_POST_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d1ab31f-0e4c-4712-a8c9-25f3c5521b4a
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: END_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eb99564f-c02c-4734-9783-f8c635583592
+                stepCounter: 56911f9f-683a-4462-8588-47209930fca6
+            transform: SRC.END_POST_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfd8897a-da10-449e-b9b1-e2fd1f7481ba
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b51e138a-40a2-4a0b-85d8-c70e7a2cf9c3
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'sppa_planning_fccs_broker_client_update_duplicate_alias'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6ebf7b4-3a78-4cf6-92c2-b7e1b52a78ee
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32906e30-b472-466d-a3df-2ac26922cfb9
+          stepCounter: 59e2178f-6628-4034-8c83-05b1c8c88c3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'sppa_planning_fccs_broker_client_update_duplicate_alias'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_TMPUPDATEDUPLICATEALIAS: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMPUPDATEDUPLICATEALIAS
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'V_TMPUPDATEDUPLICATEALIAS') }} "SRC"
+        name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES
+        noLinkRefs: []
+  name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

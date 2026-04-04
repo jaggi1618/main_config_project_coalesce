@@ -1,0 +1,210 @@
+fileVersion: 1
+id: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+name: V_TMPDUPLICATEALIAS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 153a5c1b-1025-4fc1-a9f9-d5c22de55375
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DIM_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b94e09f-6839-4d92-990c-6e6b5d6f1a8b
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: A.DIM_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77c08a95-5dd7-4183-a9d0-f4762c505494
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f281bb87-e215-467f-94a1-0268565a0c0a
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: A.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7b55f1f-490b-410a-8d7b-40280f555d49
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c17849b2-38d2-4fd9-ae2f-14ab73a11516
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: A.PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b132174d-7f72-4d7a-b504-20b72a6ccf31
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b131a31d-b547-49f3-b9be-9759c940b33a
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: A.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6046e759-dd55-469b-86d4-8d963c1fbb46
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2b6dd4e-9844-486d-9669-e0d0061e8886
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: A.LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61474ed8-3a9b-4e1b-9441-df0a88062e70
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c35d947-f49c-4c74-ab76-4d1a58145719
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: A.DW_BROKER_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b7b6c7a-9a05-4c6e-b8d9-9c5c2a1c02f0
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: INT
+        description: ""
+        name: ROW_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.ROW_COUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a64c1274-1e0e-4361-b544-24e5a9c9f0a2
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: INT
+        description: ""
+        name: DIM_TYPE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.DIM_TYPE_COUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a76f23-d8c5-4428-bc8b-d72b22e11894
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: MIN_CLIENT_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MIN(AC.POST_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 602166e9-2708-4f24-9b59-9941a5477b96
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: MAX_CLIENT_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MAX(AC.POST_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e58b1c1-4b13-41bb-98a7-7b897e937812
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: MIN_BROKER_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MIN(AB.POST_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: caa1a67f-d897-4c78-8380-45731b81665a
+          stepCounter: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: MAX_BROKER_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MAX(AB.POST_DATE)
+    cteString: |-
+      CTEDUPS AS (
+        SELECT PLANNING_ALIAS, COUNT(1) AS ROW_COUNT, COUNT(DISTINCT DIM_TYPE) AS DIM_TYPE_COUNT
+        FROM {{ ref('DBSHIFT', 'V_CTEPLANNIGALIAS') }}
+        GROUP BY PLANNING_ALIAS
+        HAVING COUNT(1) > 1
+      )
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CTEPLANNIGALIAS: A
+          PLANNING_FCCS_ACTUALS: AC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_CTEPLANNIGALIAS
+          - locationName: DBSHIFT
+            nodeName: PLANNING_FCCS_ACTUALS
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'V_CTEPLANNIGALIAS') }} A
+            INNER JOIN CTEDUPS D ON A.PLANNING_ALIAS = D.PLANNING_ALIAS
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_ACTUALS') }} AC ON A.PLANNING_ID = AC.CLIENT_PLANNING_ID AND A.DIM_TYPE = 'Client'
+            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_ACTUALS') }} AB ON A.PLANNING_ID = AB.BROKER_PLANNING_ID AND A.DIM_TYPE = 'Broker'
+            GROUP BY A.DIM_TYPE, A.PLANNING_ID, A.PLANNING_ALIAS, A.SOURCE_SYSTEM, A.LOOKUP_CODE, A.DW_BROKER_CLIENT_MASTER_ID, D.ROW_COUNT, D.DIM_TYPE_COUNT
+        name: V_TMPDUPLICATEALIAS
+        noLinkRefs: []
+  name: V_TMPDUPLICATEALIAS
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
