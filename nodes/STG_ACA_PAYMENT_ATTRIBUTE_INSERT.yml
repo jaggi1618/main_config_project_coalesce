@@ -1,0 +1,340 @@
+fileVersion: 1
+id: 9a78a632-159c-4809-9b57-19e09d5718a3
+name: STG_ACA_PAYMENT_ATTRIBUTE_INSERT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b068800-4b52-473d-86f3-f54452144c11
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32442d76-1e64-44ac-801e-c15112180a56
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e874a726-28e4-4116-8321-c1e19574d6f8
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_PAYMENT_TYPE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d19642e8-d44a-4367-93e8-54cc419ac903
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.ACA_PAYMENT_TYPE_CODE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c76746ef-42f5-4122-a9f9-e3e9d8e7a6b0
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_PAY_TO_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b1981b-5e4a-4d7a-b5cd-7b3b3a4a82a0
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.ACA_PAY_TO_CODE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a2c5a08-36c9-4a49-93de-c3c2f1325d99
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_MAIL_TO_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2795f5fd-4122-4a0d-a7f4-d53b2d1845dd
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.ACA_MAIL_TO_CODE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13c4c9e-5612-426c-829d-64299b9cfac3
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CHECK_STOCK_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ec63e52-1b1f-4bb2-b430-6a7516da19d3
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.ACA_CHECK_STOCK_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57a9f9d-7f41-477d-8106-9ed3c457f9ed
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56c429de-f910-47b1-9c60-a544b6c3105a
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.PAYMENT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32ef91f8-0e9f-4318-80f2-e737c3852077
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e06ca19-14a5-48b8-b125-992388c3de16
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.PAYMENT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e592671-b841-4470-a36c-9a3d4f13426e
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAY_TO_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 476839aa-0e86-444f-94de-5b430545f917
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.PAY_TO_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b022b70-17aa-4849-a1b4-245ed0e6d5e1
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAY_TO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa0a84e5-9c86-4556-9a5d-b4b1a7d65376
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.PAY_TO
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6360c7f1-7925-46ab-a02b-871d60317e08
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f1b0a31-b847-4f6c-843b-482a93144160
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.MAIL_TO_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d196e8e5-39d0-4054-bb3f-56540c4974f0
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MAIL_TO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631e847-f4e9-46e3-a447-d5ab70b8c4c7
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.MAIL_TO
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96e95c47-3860-49fe-a9d0-86ec13a96868
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHECK_STOCK_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b6710b9-1f48-43d9-ab70-de81de9435ca
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.CHECK_STOCK_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69e984a9-a417-48f8-b39b-e74f88ca4543
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHECK_STOCK_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 320a44fc-c3b0-4592-944a-c0b9389e836b
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.CHECK_STOCK_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c8a-c60a-42cd-91c6-a6b1063683f2
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHECK_HEADING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1a2e7c9-4b13-40f4-9041-32ac73d0a4c2
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.CHECK_HEADING
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f671391-4cf4-49c0-9941-abf3a2233f25
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLAN_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 541f92e8-d143-4424-9dfc-bb8760205568
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.PLAN_SEQUENCE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2245b77-d716-43b9-b883-e18641a108a8
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLAN_CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6313ef0-f38b-4c03-9d8e-1f8d46d2994e
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.PLAN_CLIENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d338ef2-ac9e-4e41-a1e1-e170884fd3da
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GB_INTERNAL_USE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32ecb42c-2c26-4074-a690-344c20757a3d
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.GB_INTERNAL_USE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d30b92e5-ed5e-49b4-b976-586b6a4897f2
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID_WINNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3f37b98-0c7f-4c12-9c17-1f4a9b4d8122
+                stepCounter: 593b482a-430c-4573-acb1-0985223a311b
+            transform: S.ACA_SOURCE_SYSTEM_ID_WINNER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a68383a1-1c58-4581-9b16-905c93c4c81f
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1982b53-41bb-4034-93e1-7ca08eb01037
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'spaca_aca_payment_attribute_insertUpdate'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f59392c6-d183-4903-87bb-7b713876e53d
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 923d8376-787d-41a4-af62-42173167b077
+          stepCounter: 9a78a632-159c-4809-9b57-19e09d5718a3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'spaca_aca_payment_attribute_insertUpdate'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_PAYMENT_ATTRIBUTE_STAGING: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_PAYMENT_ATTRIBUTE_STAGING
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_PAYMENT_ATTRIBUTE_STAGING') }} "S"
+        name: STG_ACA_PAYMENT_ATTRIBUTE_INSERT
+        noLinkRefs: []
+  name: STG_ACA_PAYMENT_ATTRIBUTE_INSERT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
