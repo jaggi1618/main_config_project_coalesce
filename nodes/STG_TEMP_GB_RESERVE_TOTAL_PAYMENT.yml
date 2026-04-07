@@ -1,0 +1,119 @@
+fileVersion: 1
+id: 18191a1b-ecff-4ef4-16c7-d8e9f0a1b2c3
+name: STG_TEMP_GB_RESERVE_TOTAL_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9eafbdc-ef90-4a12-n9o0-p1q2r3s4t5u6
+          stepCounter: 18191a1b-ecff-4ef4-16c7-d8e9f0a1b2c3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a2861a4-9f99-4d87-9b88-2926715f33f2
+                stepCounter: 5979c3f0-43a9-4458-963d-4c3d82a5c53b
+            transform: PMT.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eafbdcec-f0a1-4b23-o0p1-q2r3s4t5u6v7
+          stepCounter: 18191a1b-ecff-4ef4-16c7-d8e9f0a1b2c3
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82e057f-1d87-4340-9e66-8b2b64d9c72e
+                stepCounter: 5979c3f0-43a9-4458-963d-4c3d82a5c53b
+            transform: PMT.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbdceddd-01b2-4c34-p1q2-r3s4t5u6v7w8
+          stepCounter: 18191a1b-ecff-4ef4-16c7-d8e9f0a1b2c3
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f4a6b8c-e9fa-4a12-d3e4-f5a6b7c8d9e0
+                stepCounter: e5e6f7a8-b9ca-4bc1-e3f4-a5b6c7d8e9f0
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdcedeee-12c3-4d45-q2r3-s4t5u6v7w8x9
+          stepCounter: 18191a1b-ecff-4ef4-16c7-d8e9f0a1b2c3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 60234c9c-50fd-4f0b-9c2b-426b645a4980
+                stepCounter: 5979c3f0-43a9-4458-963d-4c3d82a5c53b
+            transform: MAX(PMT.RESERVE_TYPE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dcededff-23d4-4e56-r3s4-t5u6v7w8x9y0
+          stepCounter: 18191a1b-ecff-4ef4-16c7-d8e9f0a1b2c3
+        config: {}
+        dataType: NUMERIC(19, 2)
+        description: ""
+        name: PAYMENT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47b53805-4f0f-488f-a957-65775acb9e83
+                stepCounter: 5979c3f0-43a9-4458-963d-4c3d82a5c53b
+            transform: SUM(PMT.PAYMENT_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_PAYMENT_TRANSACTION: pmt
+          STG_TEMP_GB_RESERVE_NEW_TRANSACTION: c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: STG_TEMP_GB_RESERVE_NEW_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_PAYMENT_TRANSACTION') }} AS pmt
+            INNER JOIN {{ ref('DBSHIFT', 'STG_TEMP_GB_RESERVE_NEW_TRANSACTION') }} AS c ON C.SOURCE_SYSTEM_CLAIM_ID = PMT.SOURCE_SYSTEM_CLAIM_ID AND C.ACA_RESERVE_TYPE_ID = PMT.ACA_RESERVE_TYPE_ID AND PMT.TRANSACTION_DATE <= C.TRANSACTION_DATE
+            WHERE PMT.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+            GROUP BY PMT.SOURCE_SYSTEM_CLAIM_ID, PMT.ACA_RESERVE_TYPE_ID, C.TRANSACTION_DATE
+        name: STG_TEMP_GB_RESERVE_TOTAL_PAYMENT
+        noLinkRefs: []
+  name: STG_TEMP_GB_RESERVE_TOTAL_PAYMENT
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

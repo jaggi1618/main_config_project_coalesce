@@ -1,0 +1,129 @@
+fileVersion: 1
+id: 0708090a-dbee-4de3-05b6-c7d8e9f0a1b2
+name: STG_TEMP_GB_RESERVE_EXISTING_REMAINING_RESERVE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4f5a6b7-9a45-45cd-i4j5-k6l7m8n9o0p1
+          stepCounter: 0708090a-dbee-4de3-05b6-c7d8e9f0a1b2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b57e3f84-fcf6-4a94-b152-446979667500
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: RES.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5a6b7c8-ab56-46de-j5k6-l7m8n9o0p1q2
+          stepCounter: 0708090a-dbee-4de3-05b6-c7d8e9f0a1b2
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e82e057f-1d87-4340-9e66-8b2b64d9c72e
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: RES.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6b7c8d9-bc67-47ef-k6l7-m8n9o0p1q2r3
+          stepCounter: 0708090a-dbee-4de3-05b6-c7d8e9f0a1b2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 50f61405-188b-497d-b054-d3a016629737
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: MAX(RES.RESERVE_TYPE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7c8d9ea-cd78-48f0-l7m8-n9o0p1q2r3s4
+          stepCounter: 0708090a-dbee-4de3-05b6-c7d8e9f0a1b2
+        config: {}
+        dataType: NUMERIC
+        description: ""
+        name: RESERVE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1a6d63e-b873-41cd-9721-68936dd0ed6c
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: SUM(RES.RESERVE_AMOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8d9eafb-de89-4901-m8n9-o0p1q2r3s4t5
+          stepCounter: 0708090a-dbee-4de3-05b6-c7d8e9f0a1b2
+        config: {}
+        dataType: INT
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b078972-23c3-4d22-94b2-297f0a823c14
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: COALESCE(MAX(RES.TRANSACTION_SEQUENCE_NUMBER), 0)
+    cteString: |-
+      WITH MIN_TRANSACTION_DATE AS (
+          SELECT
+              SOURCE_SYSTEM_CLAIM_ID,
+              ACA_RESERVE_TYPE_ID,
+              MIN(ACA_DATE_ID_TRANSACTION_DATE) AS ACA_DATE_ID_TRANSACTION_DATE
+          FROM {{ ref('DBSHIFT', 'STG_TEMP_GB_RESERVE_NEW_TRANSACTION') }}
+          GROUP BY SOURCE_SYSTEM_CLAIM_ID, ACA_RESERVE_TYPE_ID
+      )
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_RESERVE_TRANSACTION: res
+          MIN_TRANSACTION_DATE: c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: STG_TEMP_GB_RESERVE_NEW_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_RESERVE_TRANSACTION') }} AS res
+            INNER JOIN MIN_TRANSACTION_DATE AS c ON C.SOURCE_SYSTEM_CLAIM_ID = RES.SOURCE_SYSTEM_CLAIM_ID
+                AND C.ACA_RESERVE_TYPE_ID = RES.ACA_RESERVE_TYPE_ID
+                AND C.ACA_DATE_ID_TRANSACTION_DATE > RES.ACA_DATE_ID_TRANSACTION_DATE
+            WHERE RES.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+            GROUP BY RES.SOURCE_SYSTEM_CLAIM_ID, RES.ACA_RESERVE_TYPE_ID
+        name: STG_TEMP_GB_RESERVE_EXISTING_REMAINING_RESERVE
+        noLinkRefs: []
+  name: STG_TEMP_GB_RESERVE_EXISTING_REMAINING_RESERVE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
