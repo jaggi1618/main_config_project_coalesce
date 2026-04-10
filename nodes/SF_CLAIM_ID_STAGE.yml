@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 7d9e8f5c-7b2c-4a0e-ad4a-5b1f5d9e6f3b
+name: SF_CLAIM_ID_STAGE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f1a0b7e-9d4e-4c2a-cf6c-7d3b7f1a8b5c
+          stepCounter: 7d9e8f5c-7b2c-4a0e-ad4a-5b1f5d9e6f3b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a2b1c8f-0e5f-4d3b-df7d-8e4c8a2b9c6d
+          stepCounter: 7d9e8f5c-7b2c-4a0e-ad4a-5b1f5d9e6f3b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_SALESFORCE_CLAIM_SPECIALTY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SF_CLAIM_ID_STAGE
+  schema: STG
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
