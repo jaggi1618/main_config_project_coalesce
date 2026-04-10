@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 5b43d735-3341-455b-b935-7c067e424ac7
+name: ACA_POLICY
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1738c64-00e1-455b-a634-8c086423985a
+          stepCounter: 5b43d735-3341-455b-b935-7c067e424ac7
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 423e1d2c-8a1a-4933-a3d2-3833b7e71f45
+          stepCounter: 5b43d735-3341-455b-b935-7c067e424ac7
+        config: {}
+        dataType: VARBINARY
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d3345d0-9f5b-4c07-b35e-c15f9185a0c8
+          stepCounter: 5b43d735-3341-455b-b935-7c067e424ac7
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a2861a4-9f99-4d87-9b88-2926715f33f2
+          stepCounter: 5b43d735-3341-455b-b935-7c067e424ac7
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_POLICY
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

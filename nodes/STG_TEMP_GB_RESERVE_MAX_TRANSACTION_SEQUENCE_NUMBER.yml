@@ -1,0 +1,82 @@
+fileVersion: 1
+id: f6f7g8h9-cadd-4cd2-f4a5-b6c7d8e9f0a1
+name: STG_TEMP_GB_RESERVE_MAX_TRANSACTION_SEQUENCE_NUMBER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2d3e4f5-7823-43ab-g2h3-i4j5k6l7m8n9
+          stepCounter: f6f7g8h9-cadd-4cd2-f4a5-b6c7d8e9f0a1
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b57e3f84-fcf6-4a94-b152-446979667500
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: T.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3e4f5a6-8934-44bc-h3i4-j5k6l7m8n9o0
+          stepCounter: f6f7g8h9-cadd-4cd2-f4a5-b6c7d8e9f0a1
+        config: {}
+        dataType: INT
+        description: ""
+        name: MAX_TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b078972-23c3-4d22-94b2-297f0a823c14
+                stepCounter: 3c59dea4-0318-4f90-bf4e-57267dc58d1d
+            transform: MAX(T.TRANSACTION_SEQUENCE_NUMBER)
+    cteString: |-
+      WITH MIN_TRANSACTION_DATE AS (
+          SELECT
+              SOURCE_SYSTEM_CLAIM_ID,
+              MIN(ACA_DATE_ID_TRANSACTION_DATE) AS ACA_DATE_ID_TRANSACTION_DATE
+          FROM {{ ref('DBSHIFT', 'STG_TEMP_GB_RESERVE_NEW_TRANSACTION') }}
+          GROUP BY SOURCE_SYSTEM_CLAIM_ID
+      )
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_RESERVE_TRANSACTION: t
+          MIN_TRANSACTION_DATE: c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: DBSHIFT
+            nodeName: STG_TEMP_GB_RESERVE_NEW_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'ACA_RESERVE_TRANSACTION') }} AS T
+            INNER JOIN MIN_TRANSACTION_DATE AS C ON C.SOURCE_SYSTEM_CLAIM_ID = T.SOURCE_SYSTEM_CLAIM_ID
+                AND C.ACA_DATE_ID_TRANSACTION_DATE > T.ACA_DATE_ID_TRANSACTION_DATE
+            GROUP BY T.SOURCE_SYSTEM_CLAIM_ID
+        name: STG_TEMP_GB_RESERVE_MAX_TRANSACTION_SEQUENCE_NUMBER
+        noLinkRefs: []
+  name: STG_TEMP_GB_RESERVE_MAX_TRANSACTION_SEQUENCE_NUMBER
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
