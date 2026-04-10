@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -105,14 +105,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          PLANNING_FCCS_CLIENT: C
+          C: 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_CLIENT
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT') }} "C"
+          joinCondition: FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT') }} "C"
         name: V_TMP_EXISTING_PLANNING_CLIENT
         noLinkRefs: []
   name: V_TMP_EXISTING_PLANNING_CLIENT

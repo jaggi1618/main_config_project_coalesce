@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 67166a10-f19f-455e-861f-d0691c6c096a
-name: V_HIERARCHY_BRANCH_PARENTS
+id: 5605590f-e08e-444d-950e-cfa80b5bfa59
+name: V_HIERARCHY_BRANCH_MEMBERS
 operation:
   config:
     insertStrategy: INSERT
@@ -12,31 +12,19 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a4e4b5d6-8c4e-4f3b-8d7e-1a2b3c4d5e6f
-          stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+          columnCounter: e8c8f9ba-2a8c-4d7f-cb1c-5e6f7a8b9c0d
+          stepCounter: 5605590f-e08e-444d-950e-cfa80b5bfa59
         config: {}
         dataType: VARCHAR
         description: ""
         name: PARENT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: '''Total_Existing_and_General_Clients'''
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: b5f5c6e7-9d5f-4a4c-9e8f-2b3c4d5e6f7a
-          stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: MEMBER
         nullable: true
         sourceColumnReferences:
           - columnReferences:
@@ -45,8 +33,22 @@ operation:
             transform: SRC.GROUP_NAME
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: c6a6d7f8-0e6a-4b5d-af9a-3c4d5e6f7a8b
-          stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+          columnCounter: f9d90acb-3b9d-4e80-dc2d-6f7a8b9c0d1e
+          stepCounter: 5605590f-e08e-444d-950e-cfa80b5bfa59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5f5c6e7-9d5f-4a4c-9e8f-2b3c4d5e6f7a
+                stepCounter: 59388c30-f3b1-4770-9831-f18b3e8e2b8c
+            transform: SRC.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0aeab1dc-4cad-4f91-ed3e-7a8b9c0d1e2f
+          stepCounter: 5605590f-e08e-444d-950e-cfa80b5bfa59
         config: {}
         dataType: NUMBER
         description: ""
@@ -59,8 +61,8 @@ operation:
             transform: ABS(SRC.GROUP_ID)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: d7b7e8a9-1f7b-4c6e-ba0b-4d5e6f7a8b9c
-          stepCounter: 67166a10-f19f-455e-861f-d0691c6c096a
+          columnCounter: 1bfbc2ed-5dbe-40a2-fe4f-8b9c0d1e2f3a
+          stepCounter: 5605590f-e08e-444d-950e-cfa80b5bfa59
         config: {}
         dataType: NUMBER
         description: ""
@@ -68,23 +70,22 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "3"
+            transform: "4"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          V_TMP_NEW_PLANNING_CLIENT: SRC
+          SRC: 59388c30-f3b1-4770-9831-f18b3e8e2b8c
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: V_TMP_NEW_PLANNING_CLIENT
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'V_TMP_NEW_PLANNING_CLIENT') }} "SRC"
-            GROUP BY SRC.GROUP_NAME, ABS(SRC.GROUP_ID)
-        name: V_HIERARCHY_BRANCH_PARENTS
+          joinCondition: FROM {{ ref('TARGET', 'V_TMP_NEW_PLANNING_CLIENT') }} "SRC"
+        name: V_HIERARCHY_BRANCH_MEMBERS
         noLinkRefs: []
-  name: V_HIERARCHY_BRANCH_PARENTS
+  name: V_HIERARCHY_BRANCH_MEMBERS
   overrideSQL: false
   schema: ""
   sqlType: Stage

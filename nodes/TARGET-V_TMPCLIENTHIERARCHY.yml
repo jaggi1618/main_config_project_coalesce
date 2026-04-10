@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -80,17 +80,17 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
-            nodeName: V_HIERARCHY_BRANCH_PARENTS
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: V_HIERARCHY_BRANCH_MEMBERS
+          - locationName: TARGET
+            nodeName: V_HIERARCHY_BRANCH_PARENTS
         join:
           joinCondition: |-
             FROM (
-              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('DBSHIFT', 'V_HIERARCHY_BRANCH_PARENTS') }}
+              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('TARGET', 'V_HIERARCHY_BRANCH_PARENTS') }}
               UNION
-              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('DBSHIFT', 'V_HIERARCHY_BRANCH_MEMBERS') }}
-            ) "u"
+              SELECT PARENT, MEMBER, GROUP_ID, SORT_ORDER FROM {{ ref('TARGET', 'V_HIERARCHY_BRANCH_MEMBERS') }}
+            ) "U"
         name: V_TMPCLIENTHIERARCHY
         noLinkRefs: []
   name: V_TMPCLIENTHIERARCHY

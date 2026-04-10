@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -103,23 +103,23 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          V_TMP_NEW_PLANNING_CLIENT: N
-          V_TMP_EXISTING_PLANNING_CLIENT: O
-          PLANNING_FCCS_BROKER_CLIENT_CHANGES: BCC
+          BCC: 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+          "N": 59388c30-f3b1-4770-9831-f18b3e8e2b8c
+          O: 48277b21-e2a0-466f-8720-e07a2d7d1a7b
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
-            nodeName: V_TMP_NEW_PLANNING_CLIENT
-          - locationName: DBSHIFT
-            nodeName: V_TMP_EXISTING_PLANNING_CLIENT
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+          - locationName: TARGET
+            nodeName: V_TMP_EXISTING_PLANNING_CLIENT
+          - locationName: TARGET
+            nodeName: V_TMP_NEW_PLANNING_CLIENT
         join:
           joinCondition: |-
-            FROM {{ ref('DBSHIFT', 'V_TMP_NEW_PLANNING_CLIENT') }} N
-            INNER JOIN {{ ref('DBSHIFT', 'V_TMP_EXISTING_PLANNING_CLIENT') }} O ON N.SOURCE_SYSTEM = O.SOURCE_SYSTEM AND N.DW_CLIENT_MASTER_ID = O.DW_CLIENT_MASTER_ID
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER_CLIENT_CHANGES') }} BCC ON N.DW_CLIENT_MASTER_ID = BCC.DW_BROKER_CLIENT_MASTER_ID AND N.SOURCE_SYSTEM = BCC.SOURCE_SYSTEM AND BCC.DIMENSION_TYPE = 'Client' AND BCC.CHANGE_TYPE = 'LookupCode'
+            FROM {{ ref('TARGET', 'V_TMP_NEW_PLANNING_CLIENT') }} N
+            INNER JOIN {{ ref('TARGET', 'V_TMP_EXISTING_PLANNING_CLIENT') }} O ON N.SOURCE_SYSTEM = O.SOURCE_SYSTEM AND N.DW_CLIENT_MASTER_ID = O.DW_CLIENT_MASTER_ID
+            LEFT OUTER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_BROKER_CLIENT_CHANGES') }} BCC ON N.DW_CLIENT_MASTER_ID = BCC.DW_BROKER_CLIENT_MASTER_ID AND N.SOURCE_SYSTEM = BCC.SOURCE_SYSTEM AND BCC.DIMENSION_TYPE = 'Client' AND BCC.CHANGE_TYPE = 'LookupCode'
             WHERE N.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE <> O.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE AND BCC.PLANNING_ID IS NULL
         name: V_CTE_LOOKUP_CODE_CHANGES
         noLinkRefs: []
