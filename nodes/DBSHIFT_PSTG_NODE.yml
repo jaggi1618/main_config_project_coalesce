@@ -1,0 +1,144 @@
+fileVersion: 1
+id: 11c76822-0d17-4860-91a5-e6a620d4f55e
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      UPDATE ALLIANT_CLAIMS_ASTRUS_STAGE.DBSHIFT.ACA_TRANSACTION_PAYMENT_STAGING
+      SET 
+      	PAYMENT_MESSAGE = NULL
+      	, PAYEE_LASTNAME = NULL
+      	, PAYEE_ORGANIZATION_NAME = NULL
+      	, PAYEE_ADDRESSLINE_ONE = NULL
+      	, PAYEE_ADDRESSLINE_TWO = NULL
+      	, PAYEE_ADDRESSLINE_THREE = NULL
+      	, PAYEE_ADDRESS = NULL
+      	, PAYEE_IRS_TAX_IDENTIFICATION_NUMBER = NULL
+      	, MAIL_TO_LASTNAME = NULL
+      	, MAIL_TO_ORGANIZATIONNAME = NULL
+      	, MAIL_TO_ADDRESSLINEONE = NULL
+      	, MAIL_TO_ADDRESSLINETWO = NULL
+      	, MAIL_TO_ADDRESSLINETHREE = NULL
+      	, MAIL_TO_ADDRESS = NULL
+      	, CLIENT_NUMBER_BANK = NULL
+      	, BANK_NUMBER = NULL
+      	, ACCOUNT_NUMBER = NULL
+      	, ACA_DATE_UPDATED = CURRENT_TIMESTAMP()
+      	, ACA_UPDATE_USER = 'spaca_aca_transaction_payment_staging_update_null';
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_transaction_payment_staging_update_null
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9a93011-82d8-4a58-86d1-419a4e951f2b
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+        transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d517743-987a-472e-966c-f2369680c44a
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "1"
+        transform: "1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2e58c70-692a-43d9-9f7e-7517c595088f
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "TRUE"
+        transform: "TRUE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4f42001-c8a8-44e2-8b83-d5d143c1537b
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP_NTZ)
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP_NTZ)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5a6b093-195f-46ac-b0b3-e2e7b8f219c2
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS TIMESTAMP_NTZ)
+        transform: CAST(NULL AS TIMESTAMP_NTZ)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8e0d37e-6e8a-4952-b611-e7a935574510
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP_NTZ)
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP_NTZ)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91d2c2f7-720c-43f1-b92c-63e8a48b59d9
+          stepCounter: 11c76822-0d17-4860-91a5-e6a620d4f55e
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP_NTZ)
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP_NTZ)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
