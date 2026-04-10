@@ -1,0 +1,187 @@
+fileVersion: 1
+id: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          USE DATABASE ALLIANT_ONE;
+
+          UPDATE ALLIANT_ONE.STG.AO_RESPONSE_FEED_STAGING S
+          SET
+              DW_CLIENT_ID = SOURCE.NEW_DW_CLIENT_ID,
+              DW_POLICY_ID = SOURCE.NEW_DW_POLICY_ID,
+              SF_ACCOUNT_OWNER_ID = SOURCE.NEW_SF_ACCOUNT_OWNER_ID
+          FROM (
+              SELECT
+                  S_INNER.EPIC_UNIQPOLICY,
+                  S_INNER.EPIC_CLIENT_LOOKUP_CODE,
+                  S_INNER.SFACCTID,
+                  IFNULL(CC.DW_CLIENT_ID, -1) AS NEW_DW_CLIENT_ID,
+                  IFNULL(PC.DW_POLICY_ID, -1) AS NEW_DW_POLICY_ID,
+                  SA.OWNERID AS NEW_SF_ACCOUNT_OWNER_ID
+              FROM ALLIANT_ONE.STG.AO_RESPONSE_FEED_STAGING AS S_INNER
+              LEFT JOIN ALLIANT_DW.DBO.DW_POLICY_CURRENT PC ON TRY_CAST(S_INNER.EPIC_UNIQPOLICY AS VARCHAR(50)) = PC.SOURCE_SYSTEM_POLICY_ID AND PC.SOURCE_SYSTEM = 'EPIC'
+              LEFT JOIN ALLIANT_DW.DBO.DW_CLIENT_CURRENT CC ON S_INNER.EPIC_CLIENT_LOOKUP_CODE = CC.LOOKUP_CODE
+              LEFT JOIN ALLIANT_DW.REF.SALESFORCE_ACCOUNT SA ON S_INNER.SFACCTID = SA.ID
+          ) AS SOURCE
+          WHERE EQUAL_NULL(S.EPIC_UNIQPOLICY, SOURCE.EPIC_UNIQPOLICY)
+            AND EQUAL_NULL(S.EPIC_CLIENT_LOOKUP_CODE, SOURCE.EPIC_CLIENT_LOOKUP_CODE)
+            AND EQUAL_NULL(S.SFACCTID, SOURCE.SFACCTID);
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: DBSHIFT_DB
+  deployEnabled: true
+  description: UPDATE-only conversion of spao_ao_response_feed_staging_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: BINARY(20)
+        defaultValue: ""
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: SHA1_BINARY(UPPER(TRIM(CAST('N/A' AS VARCHAR))))
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c3d4e5f-6a7b-4c8d-9e0f-1a2b3c4d5e6f
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d4e5f6a-7b8c-4d9e-0f1a-2b3c4d5e6f7a
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "'Y'"
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e5f6a7b-8c9d-4e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f6a7b8c-9d0e-4f1a-2b3c-4d5e6f7a8b9c
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST('9999-12-31 00:00:00.000' AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a7b8c9d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b8c9d0e-1f2a-4b3c-4d5e-6f7a8b9c0d1e
+          stepCounter: 5a4a5b6c-7d8e-4f9a-0b1c-2d3e4f5a6b7c
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBSHIFT_SCHEMA
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
