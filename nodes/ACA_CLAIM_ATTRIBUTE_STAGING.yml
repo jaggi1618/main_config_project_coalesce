@@ -660,7 +660,6 @@ operation:
           - columnReferences:
               - columnCounter: 8295a021-47e7-44a0-5f7e-e708ccddf717
                 stepCounter: 3c
---
         stepCounter: 112f43d8-7935-4235-859a-543b81177659
         config: {}
         dataType: VARCHAR
