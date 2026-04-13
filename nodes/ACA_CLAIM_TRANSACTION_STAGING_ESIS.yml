@@ -1,0 +1,1360 @@
+fileVersion: 1
+id: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+name: ACA_CLAIM_TRANSACTION_STAGING_ESIS
+operation:
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2b2c9a-0e9b-4e8c-8f2b-8c4d2e0f0b2a
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f3c3d0b-1f0c-4f9d-9f3c-9d5e3f1g1c3b
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2g4d4e1c-2g1d-4g0e-0g4d-0e6f4g2h2d4c
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3h5e5f2d-3h2e-4h1f-1h5e-1f7g5h3i3e5d
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4i6f6g3e-4i3f-4i2g-2i6f-2g8h6i4j4f6e
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5j7g7h4f-5j4g-4j3h-3j7g-3h9i7j5k5g7f
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6k8h8i5g-6k5h-4k4i-4k8h-4i0j8k6l6h8g
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7l9i9j6h-7l6i-4l5j-5l9i-5j1k9l7m7i9h
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_DATE_ID_ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8m0j0k7i-8m7j-4m6k-6m0j-6k2l0m8n8j0i
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_ACCIDENT_SOURCE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9n1k1l8j-9n8k-4n7l-7n1k-7l3m1n9o9k1j
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ACA_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a02l2m9k-a09l-4o8m-8o2l-8m4n2o0p0l2k
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13m3n0l-b10m-4p9n-9p3m-9n5o3p1q1m3l
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c24n4o1m-c21n-4q0o-0q4n-0o6p4q2r2n4m
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d35o5p2n-d32o-4r1p-1r5o-1p7q5r3s3o5n
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e46p6q3o-e43p-4s2q-2s6p-2q8r6s4t4p6o
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f57q7r4p-f54q-4t3r-3t7q-3r9s7t5u5q7p
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 068r8s5q-065r-4u4s-4u8r-4s0t8u6v6r8q
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 179s9t6r-176s-4v5t-5v9s-5t1u9v7w7s9r
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(8)
+        description: ""
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 280t0u7s-287t-4w6u-6w0t-6u2v0w8x8t0s
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 391u1v8t-398u-4x7v-7x1u-7v3w1x9y9u1t
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a2v2w9u-4a9v-4y8w-8y2v-8w4x2y0z0v2u
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b3w3x0v-5b0w-4z9x-9z3w-9x5y3z1a1w3v
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c4x4y1w-6c1x-4a0y-a04x-a06z4a2b2x4w
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: ACCIDENT_SOURCE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d5y5z2x-7d2y-4b1z-b15y-b17a5b3c3y5x
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: ACCIDENT_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e6z6a3y-8e3z-4c2a-c26z-c28b6c4d4z6y
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        name: ACCIDENT_ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f7a7b4z-9f4a-4d3b-d37a-d39c7d5e5a7z
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: PART_OF_BODY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a08b8c5a-a05b-4e4c-e48b-e40d8e6f6b8a
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b19c9d6b-b16c-4f5d-f59c-f51e9f7g7c9b
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: NATURE_OF_LOSS_CODE_BODILY_INJURY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c20d0e7c-c27d-4g6e-g60d-g62f0g8h8d0c
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d31e1f8d-d38e-4h7f-h71e-h73g1h9i9e1d
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: NCCI_LOSS_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e42f2g9e-e49f-4i8g-i82f-i84h2i0j0f2e
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(8000)
+        description: ""
+        name: DESCRIPTION_OF_LOSS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f53g3h0f-f50g-4j9h-j93g-j95i3j1k1g3f
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: BENEFIT_JURISDICTION_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 064h4i1g-061h-4k0i-k04h-k06j4k2l2h4g
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: EXPOSURE_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 175i5j2h-172i-4l1j-l15i-l17k5l3m3i5h
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        name: EXPOSURE_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 286j6k3i-283j-4m2k-m26j-m28l6m4n4j6i
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 397k7l4j-394k-4n3l-n37k-n39m7n5o5k7j
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: FULL_STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a8l8m5k-4a5l-4o4m-o48l-o40n8o6p6l8k
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EMPLOYER_NOTIFICATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b9m9n6l-5b6m-4p5n-p59m-p51o9p7q7m9l
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(8000)
+        description: ""
+        name: VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c0n0o7m-6c7n-4q6o-q60n-q62p0q8r8n0m
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        name: CLAIM_ADJUSTING_BRANCH_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d1o1p8n-7d8o-4r7p-r71o-r73q1r9s9o1n
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        name: ADJUSTER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e2p2q9o-8e9p-4s8q-s82p-s84r2s0t0p2o
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: NUMBER_OF_DEPENDENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f3q3r0p-9f0q-4t9r-t93q-t95s3t1u1q3p
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a04r4s1q-a01r-4u0s-u04r-u06t4u2v2r4q
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(8000)
+        description: ""
+        name: CLAIMANT_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b15s5t2r-b12s-4v1t-v15s-v17u5v3w3s5r
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(8000)
+        description: ""
+        name: CLAIMANT_SSN_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c26t6u3s-c23t-4w2u-w26t-w28v6w4x4t6s
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EMPLOYEE_LAST_WORK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d37u7v4t-d34u-4x3v-x37u-x39w7x5y5u7t
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        name: COMPENSATION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e48v8w5u-e45v-4y4w-y48v-y40x8y6z6v8u
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: NCCI_INJURY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f59w9x6v-f56w-4z5x-z59w-z51y9z7a7w9v
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DISABILITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 060x0y7w-067x-4a6y-a60x-a62z0a8b8x0w
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: RETURN_TO_WORK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 171y1z8x-178y-4b7z-b71y-b73a1b9c9y1x
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MAX_MEDICAL_IMPROVEMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 282z2a9y-289z-4c8a-c82z-c84b2c0d0z2y
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: NUMERIC(19,2)
+        description: ""
+        name: POST_INJURY_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 393a3b0z-390a-4d9b-d93a-d95c3d1e1a3z
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        name: PERCENTAGE_OF_IMPAIRMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a4b4c1a-4a1b-4e0c-e04b-e06d4e2f2b4a
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(40)
+        description: ""
+        name: INSURER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b5c5d2b-5b2c-4f1d-f15c-f17e5f3g3c5b
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: NUMERIC(19,2)
+        description: ""
+        name: OTHER_WEEKLY_PAYMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c6d6e3c-6c3d-4g2e-g26d-g28f6g4h4d6c
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ATTORNEY_DISCLOSURE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d7e7f4d-7d4e-4h3f-h37e-h39g7h5i5e7d
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: REPORTING_BASIS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e8f8g5e-8e5f-4i4g-i48f-i40h8i6j6f8e
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATETIME
+        description: ""
+        name: OCCURRENCE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f9g9h6f-9f6g-4j5h-j59g-j51i9j7k7g9f
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(14)
+        description: ""
+        name: MULTI_CLAIM_OCCUR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a00h0i7g-a07h-4k6i-k60h-k62j0k8l8h0g
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: NCCI_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b11i1j8h-b18i-4l7j-l71i-l73k1l9m9i1h
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: LOSS_PROGRAM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c22j2k9i-c29j-4m8k-m82j-m84l2m0n0j2i
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DENIAL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d33k3l0j-d30k-4n9l-n93k-n95m3n1o1k3j
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: NUMERIC(19,2)
+        description: ""
+        name: WEEKLY_BENEFIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e44l4m1k-e41l-4o0m-o04l-o06n4o2p2l4k
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: NCCI_TYPE_OF_LOSS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f55m5n2l-f52m-4p1n-p15m-p17o5p3q3m5l
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        name: NCCI_PPO_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 066n6o3m-063n-4q2o-q26n-q28p6q4r4n6m
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(8)
+        description: ""
+        name: TOTAL_LOST_WORK_DAYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 177o7p4n-174o-4r3p-r37o-r39q7r5s5o7n
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(40)
+        description: ""
+        name: CLIENT_OPTIONAL_CLAIM_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 288p8q5o-285p-4s4q-s48p-s40r8s6t6p8o
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: INSURED_VEHICLE_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 399q9r6p-396q-4t5r-t59q-t51s9t7u7q9p
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        name: INSURED_VEHICLE_MAKE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a0r0s7q-4a7r-4u6s-u60r-u62t0u8v8r0q
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: BENEFICIARY_INFORMATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b1s1t8r-5b8s-4v7t-v71s-v73u1v9w9s1r
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: REPORTING_UNIT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c2t2u9s-6c9t-4w8u-w82t-w84v2w0x0t2s
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: RETURN_TO_WORK_FULL_DUTY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d3u3v0t-7d0u-4x9v-x93u-x95w3x1y1u3t
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: RETURN_TO_WORK_RELEASE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e4v4w1u-8e1v-4y0w-y04v-y06x4y2z2v4u
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REPRESENTATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f5w5x2v-9f2w-4z1x-z15w-z17y5z3a3w5v
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALARY_CONTINUED_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a06x6y3w-a03x-4a2y-a26x-a28z6a4b4x6w
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALARY_CONTINUED_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b17y7z4x-b14y-4b3z-b37y-b39a7b5c5y7x
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MEDICAL_TO_INDEMNITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c28z8a5y-c25z-4c4a-c48z-c40b8c6d6z8y
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d39a9b6z-d36a-4d5b-d59a-d51c9d7e7a9z
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e40b0c7a-e47b-4e6c-e60b-e62d0e8f8b0a
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f51c1d8b-f58c-4f7d-f71c-f73e1f9g9c1b
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARBINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 062d2e9c-069d-4g8e-g82d-g84f2g0h0d2c
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 173e3f0d-170e-4h9f-h93e-h95g3h1i1e3d
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: ACA_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 284f4g1e-281f-4i0g-i04f-i06h4i2j2f4e
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: NEXT_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 395g5h2f-392g-4j1h-j15g-j17i5j3k3g5f
+          stepCounter: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: MAX_TRANSACTION_DATE_PER_CLAIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+  name: ACA_CLAIM_TRANSACTION_STAGING_ESIS
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
