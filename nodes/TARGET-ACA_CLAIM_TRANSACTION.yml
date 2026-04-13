@@ -1,14 +1,14 @@
 fileVersion: 1
 id: 9e2e5i2e-2f2f-4e7h-2i8e-5e2g2i2h2i8e
-name: DIM_ACA_CLAIM_TRANSACTION
+name: ACA_CLAIM_TRANSACTION
 operation:
   config:
     insertStrategy: INSERT
     postSQL: |
       BEGIN
-          USE DATABASE ALLIANT_CLAIMS_ASTRUS;
+          USE DATABASE ALLIANT_CLIAMS_ASTRUS_STAGE;
 
-          UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION AS D
+          UPDATE ALLIANT_CLIAMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION AS D
           SET D.ACA_POLICY_ID = S.ACA_POLICY_ID,
               D.ACA_CLAIM_ID = S.ACA_CLAIM_ID,
               D.ACA_CLAIMANT_ID = S.ACA_CLAIMANT_ID,
@@ -30,7 +30,7 @@ operation:
               D.ACCIDENT_TYPE_CODE = S.ACCIDENT_TYPE_CODE,
               D.ACCIDENT_SOURCE_CODE = S.ACCIDENT_SOURCE_CODE,
               D.ACCIDENT_CITY_CODE = S.ACCIDENT_CITY_CODE,
-              D.ACCIDENT_ACCIDENT_STATE_CODE = S.ACCIDENT_STATE_CODE,
+              D.ACCIDENT_STATE_CODE = S.ACCIDENT_STATE_CODE,
               D.ACCIDENT_ZIP_CODE = S.ACCIDENT_ZIP_CODE,
               D.PART_OF_BODY_CODE = S.PART_OF_BODY_CODE,
               D.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE = S.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE,
@@ -87,7 +87,7 @@ operation:
               D.SOURCE_SYSTEM_CLAIMANT_ID = S.SOURCE_SYSTEM_CLAIMANT_ID,
               D.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID = S.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID,
               D.SOURCE_SYSTEM_POLICY_ID = S.SOURCE_SYSTEM_POLICY_ID
-          FROM {{ ref('DBSHIFT', 'VW_TMP_ACA_CLAIM_TRANSACTION') }} AS S
+          FROM {{ ref('TARGET', 'VW_TMP_ACA_CLAIM_TRANSACTION') }} AS S
           WHERE S.SOURCE_SYSTEM_CLAIM_ID = D.SOURCE_SYSTEM_CLAIM_ID
             AND S.ACA_SOURCE_SYSTEM_ID = D.ACA_SOURCE_SYSTEM_ID
             AND S.ACA_TRANSACTION_DATE = D.ACA_TRANSACTION_DATE
@@ -174,11 +174,11 @@ operation:
             );
 
 
-          UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION T
+          UPDATE ALLIANT_CLIAMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION T
           SET ACA_CURRENT_FLAG = STG.ACA_CURRENT_FLAG,
               ACA_UPDATE_USER = CONCAT('spaca_aca_claim_transaction_esis_insertUpdate', ' - flag update'),
               ACA_DATE_UPDATED = CURRENT_TIMESTAMP()
-          FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS') }} STG
+          FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS') }} STG
           WHERE T.SOURCE_SYSTEM_CLAIM_ID = STG.SOURCE_SYSTEM_CLAIM_ID
             AND T.ACA_SOURCE_SYSTEM_ID = STG.ACA_SOURCE_SYSTEM_ID
             AND T.ACA_TRANSACTION_DATE = STG.ACA_TRANSACTION_DATE
@@ -192,7 +192,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -1632,16 +1632,15 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_ACA_CLAIM_TRANSACTION_ESIS_INSERT: SRC
+          SRC: 8d1d4h1d-1e1e-4d6g-1h7d-4d1f1h1g1h7d
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: STG_ACA_CLAIM_TRANSACTION_ESIS_INSERT
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'STG_ACA_CLAIM_TRANSACTION_ESIS_INSERT')
-            }} "SRC"
-        name: DIM_ACA_CLAIM_TRANSACTION
+          joinCondition: FROM {{ ref('TARGET', 'STG_ACA_CLAIM_TRANSACTION_ESIS_INSERT') }} "SRC"
+        name: ACA_CLAIM_TRANSACTION
         noLinkRefs: []
   name: ACA_CLAIM_TRANSACTION
   overrideSQL: false

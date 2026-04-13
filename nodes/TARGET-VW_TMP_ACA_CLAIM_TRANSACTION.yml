@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -1472,7 +1472,7 @@ operation:
         name: ACA_CREATE_USER
         nullable: true
         sourceColumnReferences: []
-        transform: '''spaca_aca_claim_transaction_esis_insertUpdate'''
+        transform: "'spaca_aca_claim_transaction_esis_insertUpdate'"
       - acceptedValues:
           strictMatch: false
           values: []
@@ -1500,25 +1500,22 @@ operation:
         name: ACA_UPDATE_USER
         nullable: true
         sourceColumnReferences: []
-        transform: '''spaca_aca_claim_transaction_esis_insertUpdate'''
+        transform: "'spaca_aca_claim_transaction_esis_insertUpdate'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_CLAIM_TRANSACTION_STAGING_ESIS: CTT
-          ACA_DATE: D
+          CTT: 5a8a1e8a-8b8b-4a3d-8e4a-1a8c8e8d8e4a
+          D: 8a5e0e0a-0b0b-4b0d-0e0a-0a0c0e0d0e0a
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_CLAIM_TRANSACTION_STAGING_ESIS
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_DATE
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS')
-            }} "CTT" LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_DATE') }} "D" ON
-            TRUE AND D.FULL_DATE BETWEEN CTT.SOURCE_SYSTEM_TRANSACTION_DATE AND
-            IFNULL(CTT.NEXT_TRANSACTION_DATE, CTT.MAX_TRANSACTION_DATE_PER_CLAIM)
+          joinCondition: FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS') }} "CTT" LEFT OUTER JOIN {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_DATE') }} "D" ON TRUE AND D.FULL_DATE BETWEEN CTT.SOURCE_SYSTEM_TRANSACTION_DATE AND IFNULL(CTT.NEXT_TRANSACTION_DATE, CTT.MAX_TRANSACTION_DATE_PER_CLAIM)
         name: VW_TMP_ACA_CLAIM_TRANSACTION
         noLinkRefs: []
   name: VW_TMP_ACA_CLAIM_TRANSACTION

@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -1517,15 +1517,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          VW_TMP_ACA_CLAIM_TRANSACTION: CTT
+          CTT: 7c0c3g0c-0d0d-4c5f-0g6c-3c0e0g0f0g6c
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: VW_TMP_ACA_CLAIM_TRANSACTION
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'VW_TMP_ACA_CLAIM_TRANSACTION')
-            }} "CTT"
+          joinCondition: FROM {{ ref('TARGET', 'VW_TMP_ACA_CLAIM_TRANSACTION') }} "CTT"
         name: STG_ACA_CLAIM_TRANSACTION_ESIS_INSERT
         noLinkRefs: []
   name: STG_ACA_CLAIM_TRANSACTION_ESIS_INSERT
