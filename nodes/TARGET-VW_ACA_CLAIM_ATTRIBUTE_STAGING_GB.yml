@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -657,14 +657,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_CLAIM_ATTRIBUTE_STAGING_GB: SRC
+          SRC: 59a1f7c3-3758-45a7-96a1-a62174627042
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_CLAIM_ATTRIBUTE_STAGING_GB
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_ATTRIBUTE_STAGING_GB') }} "SRC"
+          joinCondition: FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIM_ATTRIBUTE_STAGING_GB') }} "SRC"
         name: VW_ACA_CLAIM_ATTRIBUTE_STAGING_GB
         noLinkRefs: []
   name: VW_ACA_CLAIM_ATTRIBUTE_STAGING_GB

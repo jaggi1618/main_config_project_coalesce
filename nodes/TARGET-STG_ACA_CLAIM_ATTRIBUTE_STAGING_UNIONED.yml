@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -668,16 +668,16 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
-            nodeName: VW_ACA_CLAIM_ATTRIBUTE_STAGING_GB
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: VW_ACA_CLAIM_ATTRIBUTE_STAGING_ESIS
+          - locationName: TARGET
+            nodeName: VW_ACA_CLAIM_ATTRIBUTE_STAGING_GB
         join:
           joinCondition: |-
             FROM (
-              SELECT * FROM {{ ref('DBSHIFT', 'VW_ACA_CLAIM_ATTRIBUTE_STAGING_GB') }}
+              SELECT * FROM {{ ref('TARGET', 'VW_ACA_CLAIM_ATTRIBUTE_STAGING_GB') }}
               UNION
-              SELECT * FROM {{ ref('DBSHIFT', 'VW_ACA_CLAIM_ATTRIBUTE_STAGING_ESIS') }}
+              SELECT * FROM {{ ref('TARGET', 'VW_ACA_CLAIM_ATTRIBUTE_STAGING_ESIS') }}
             ) "U"
         name: STG_ACA_CLAIM_ATTRIBUTE_STAGING_UNIONED
         noLinkRefs: []

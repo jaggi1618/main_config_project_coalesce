@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -657,20 +657,17 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_CLAIM_ATTRIBUTE_STAGING_ESIS: E
-          ACA_CLAIM_ATTRIBUTE_STAGING_GB: G
+          E: 6e4a2b92-5639-4467-8495-9781f8f3c7e7
+          G: 59a1f7c3-3758-45a7-96a1-a62174627042
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_CLAIM_ATTRIBUTE_STAGING_ESIS
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_CLAIM_ATTRIBUTE_STAGING_GB
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_ATTRIBUTE_STAGING_ESIS') }} "E"
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_CLAIM_ATTRIBUTE_STAGING_GB') }} "G"
-            ON E.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID = G.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
-            WHERE G.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID IS NULL
+          joinCondition: FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIM_ATTRIBUTE_STAGING_ESIS') }} "E" LEFT OUTER JOIN {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIM_ATTRIBUTE_STAGING_GB') }} "G" ON E.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID = G.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID WHERE G.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID IS NULL
         name: VW_ACA_CLAIM_ATTRIBUTE_STAGING_ESIS
         noLinkRefs: []
   name: VW_ACA_CLAIM_ATTRIBUTE_STAGING_ESIS

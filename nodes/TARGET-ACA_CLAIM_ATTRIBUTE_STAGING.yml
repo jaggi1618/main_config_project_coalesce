@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -22,7 +22,7 @@ operation:
           columnCounter: 0f3c5b8e-6d9b-4497-a773-1f1c7d2e3f4a
           stepCounter: 112f43d8-7935-4235-859a-543b81177659
         config: {}
-        dataType: VARCHAR
+        dataType: BINARY
         description: ""
         name: SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
         nullable: true
@@ -665,15 +665,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_ACA_CLAIM_ATTRIBUTE_STAGING_UNIONED: SRC
+          SRC: 3c2d4957-36e2-45e5-a359-598d93c4e365
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: STG_ACA_CLAIM_ATTRIBUTE_STAGING_UNIONED
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'STG_ACA_CLAIM_ATTRIBUTE_STAGING_UNIONED')
-            }} "SRC"
+          joinCondition: FROM {{ ref('TARGET', 'STG_ACA_CLAIM_ATTRIBUTE_STAGING_UNIONED') }} "SRC"
         name: ACA_CLAIM_ATTRIBUTE_STAGING
         noLinkRefs: []
   name: ACA_CLAIM_ATTRIBUTE_STAGING
