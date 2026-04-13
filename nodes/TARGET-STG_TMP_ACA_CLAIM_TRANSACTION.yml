@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -1201,17 +1201,17 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_CLAIM_TRANSACTION_STAGING_GB: CTT
-          ACA_DATE: D
+          CTT: 3c59e3a0-8a8e-4a8e-a2f2-3c59e3a08a8e
+          D: 5a8e3b20-9a8e-4a8e-a2f2-5a8e3b209a8e
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_CLAIM_TRANSACTION_STAGING_GB
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_DATE
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIM_TRANSACTION_STAGING_GB') }} AS CTT LEFT OUTER JOIN {{ ref('DBSHIFT', 'ACA_DATE') }} AS D ON 1=1 AND D.FULL_DATE BETWEEN CTT.SOURCE_SYSTEM_TRANSACTION_DATE AND IFNULL(CTT.NEXT_TRANSACTION_DATE, CTT.MAX_TRANSACTION_DATE_PER_CLAIM)
+          joinCondition: FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIM_TRANSACTION_STAGING_GB') }} AS CTT LEFT OUTER JOIN {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_DATE') }} AS D ON 1=1 AND D.FULL_DATE BETWEEN CTT.SOURCE_SYSTEM_TRANSACTION_DATE AND IFNULL(CTT.NEXT_TRANSACTION_DATE, CTT.MAX_TRANSACTION_DATE_PER_CLAIM)
         name: STG_TMP_ACA_CLAIM_TRANSACTION
         noLinkRefs: []
   name: STG_TMP_ACA_CLAIM_TRANSACTION
