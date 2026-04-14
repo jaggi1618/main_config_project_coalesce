@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -462,7 +462,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-        transform: '''sppa_planning_fccs_actuals_insert'''
+        transform: "'sppa_planning_fccs_actuals_insert'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2d19f6a5-7b58-45e0-843e-d5d30dd7456d
@@ -488,25 +488,28 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-        transform: '''sppa_planning_fccs_actuals_insert'''
+        transform: "'sppa_planning_fccs_actuals_insert'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          A: 61e95e8e-d9c4-4d8e-b5c6-43d7890f5c88
+          B: 3c622a57-b2de-40de-8e31-d85698b64e56
+          C: 5971a1fa-1f81-432d-886f-e3c66063b2f5
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_ACTUALS_STAGING
-          - locationName: DBSHIFT
-            nodeName: PLANNING_FCCS_CLIENT
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_BROKER
+          - locationName: PLANNING_ALLIANT
+            nodeName: PLANNING_FCCS_CLIENT
         join:
           joinCondition: |-
-            FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_ACTUALS_STAGING') }} AS A
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT') }} AS C ON A.CLIENT_PLANNING_ID = C.PLANNING_ID
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} AS B ON A.BROKER_PLANNING_ID = B.PLANNING_ID
+            FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_ACTUALS_STAGING') }} AS A
+            LEFT OUTER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT') }} AS C ON A.CLIENT_PLANNING_ID = C.PLANNING_ID
+            LEFT OUTER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_BROKER') }} AS B ON A.BROKER_PLANNING_ID = B.PLANNING_ID
             GROUP BY A.POST_DATE, A.FISCAL_YEAR, A.PERIOD, A.GL_ACCOUNT, A.STRUCTURE_KEY, A.DW_STRUCTURE_ID, A.OPERATING_GROUP, C.PARENT_PLANNING_ID, A.CLIENT_PLANNING_ID, A.CLIENT_LOOKUP_CODE, A.CLIENT_NAME, A.CLIENT_ALIAS, A.DW_CLIENT_MASTER_ID, A.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, A.SOURCE_SYSTEM_CLIENT_ID, B.PARENT_PLANNING_ID, A.BROKER_PLANNING_ID, A.BROKER_LOOKUP_CODE, A.BROKER_NAME, A.BROKER_ALIAS, A.DW_BROKER_MASTER_ID, A.SOURCE_SYSTEM_BROKER_LOOKUP_CODE, A.SOURCE_SYSTEM_BROKER_ID, A.CURRENCY_CODE, A.TTM_BEGIN_POST_DATE, A.TTM_END_POST_DATE
         name: STG_PLANNING_FCCS_ACTUALS
         noLinkRefs: []

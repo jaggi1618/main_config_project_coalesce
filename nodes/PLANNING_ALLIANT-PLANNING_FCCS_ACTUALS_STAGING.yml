@@ -5,7 +5,7 @@ operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: DBSHIFT
+  locationName: PLANNING_ALLIANT
   metadata:
     columns:
       - acceptedValues:
