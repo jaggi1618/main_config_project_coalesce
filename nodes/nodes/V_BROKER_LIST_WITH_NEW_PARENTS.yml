@@ -1,0 +1,162 @@
+fileVersion: 1
+id: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+name: V_BROKER_LIST_WITH_NEW_PARENTS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d9b8c7d-3f2e-4a19-8d0c-1d8a7b6c5d4e
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c8a7b6c-2a1d-4b08-7e1b-2c796a5b4c3d
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BROKER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b796a5b-1b0c-4c17-6f2a-3b68594a3b2c
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EXISTING_PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a68594a-0c1b-4d26-5a3b-4a5748392a1b
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EXISTING_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59574839-fd2a-4e35-4b4a-59463728190a
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: NEW_PARENT_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68463728-ee39-4f44-3c5b-6835261708f9
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NEW_PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77352617-df48-4a53-2d6a-77241506f7e8
+          stepCounter: ae3f6d7e-4a5c-4b8d-9a6f-5aaD7e8f9a0b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NEW_PARENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: |-
+            WITH MAX_GROUP_INFO AS (
+                SELECT
+                    MAX(TRY_CAST(SUBSTRING(PARENT_PLANNING_ID, 1, CHARINDEX('_', PARENT_PLANNING_ID) - 1) AS INT)) AS MAX_GROUP_ID,
+                    (
+                        SELECT COUNT(1)
+                        FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }}
+                        WHERE TRY_CAST(SUBSTRING(PARENT_PLANNING_ID, 1, CHARINDEX('_', PARENT_PLANNING_ID) - 1) AS INT) =
+                              (SELECT MAX(TRY_CAST(SUBSTRING(PARENT_PLANNING_ID, 1, CHARINDEX('_', PARENT_PLANNING_ID) - 1) AS INT)) FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }})
+                    ) AS COUNT_OF_MAX_GROUP_ID
+                FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }}
+            ),
+            BROKERS_TO_UPDATE AS (
+                SELECT
+                    *,
+                    ROW_NUMBER() OVER (ORDER BY PLANNING_ID) AS UPDATE_SEQUENCE
+                FROM {{ ref('DBSHIFT', 'V_BROKER_LIST_TO_UPDATE') }}
+            )
+            SELECT
+                B.PLANNING_ID,
+                B.BROKER_NAME,
+                B.EXISTING_PARENT_PLANNING_ID,
+                B.EXISTING_GROUP_ID,
+                IFF(
+                    M.MAX_GROUP_ID IS NOT NULL AND B.EXISTING_GROUP_ID <> M.MAX_GROUP_ID AND B.UPDATE_SEQUENCE <= (300 - M.COUNT_OF_MAX_GROUP_ID),
+                    M.MAX_GROUP_ID,
+                    COALESCE(M.MAX_GROUP_ID, 0) + 1 + FLOOR(
+                        (B.UPDATE_SEQUENCE - IFF(M.MAX_GROUP_ID IS NOT NULL AND B.EXISTING_GROUP_ID <> M.MAX_GROUP_ID, (300 - M.COUNT_OF_MAX_GROUP_ID), 0) - 1) / 300.00
+                    )
+                ) AS NEW_PARENT_GROUP_ID,
+                NEW_PARENT_GROUP_ID || '_Producer_Parent' AS NEW_PARENT_PLANNING_ID,
+                IFF(
+                    NEW_PARENT_GROUP_ID > COALESCE(M.MAX_GROUP_ID, 0),
+                    'Y',
+                    'N'
+                ) AS NEW_PARENT_FLAG
+            FROM BROKERS_TO_UPDATE B
+            CROSS JOIN MAX_GROUP_INFO M
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_BROKER_LIST_TO_UPDATE
+          - locationName: DBSHIFT
+            nodeName: PLANNING_FCCS_BROKER
+        join:
+          joinCondition: ""
+        name: V_BROKER_LIST_WITH_NEW_PARENTS
+        noLinkRefs: []
+  name: V_BROKER_LIST_WITH_NEW_PARENTS
+  overrideSQL: false
+  schema: DBSHIFT_V
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

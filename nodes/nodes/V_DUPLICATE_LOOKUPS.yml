@@ -1,0 +1,128 @@
+fileVersion: 1
+id: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+name: V_DUPLICATE_LOOKUPS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b9a8c7d-5f2e-4a19-8d0c-1b8a7b6c5d4e
+          stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_FCCS_BROKER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4b4a3928-5d5c-4e4b-8a3b-4b5d9a0a1b2c
+                stepCounter: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
+            transform: C.PLANNING_FCCS_BROKER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a897b6c-4a1d-4b08-7e1b-2a796a5b4c3d
+          stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c5b4a39-6c4d-4d3c-9f2a-3c6e0a1b2c3d
+                stepCounter: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
+            transform: C.PARENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39786a5b-3b0c-4c17-6f2a-3968594a3b2c
+          stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a392817-4e6b-4f5a-9b4a-5a4c89f90a1b
+                stepCounter: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
+            transform: C.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4867594a-2c1b-4d26-5a3b-485748392a1b
+          stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BROKER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69281706-3f7a-4a69-8c5b-693b78e8f90a
+                stepCounter: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
+            transform: C.BROKER_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57564839-1d2a-4e35-4b4a-57463728190a
+          stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e7b6d5c-8a2f-4b1e-9d0c-1e8f2a3d4b5a
+                stepCounter: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
+            transform: C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66453728-0e39-4f44-3c5b-6635261708f9
+          stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: RANK() OVER(PARTITION BY C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE ORDER BY
+              C.CURRENT_FLAG, C.DW_DATE_CREATED, C.PLANNING_FCCS_BROKER_ID)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PLANNING_FCCS_BROKER: c
+          V_AGGREGATED_DUPLICATES: dup
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: PLANNING_FCCS_BROKER
+          - locationName: DBSHIFT
+            nodeName: V_AGGREGATED_DUPLICATES
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} "C" INNER JOIN
+            {{ ref('DBSHIFT', 'V_AGGREGATED_DUPLICATES') }} "DUP" ON C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+            = DUP.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+        name: V_DUPLICATE_LOOKUPS
+        noLinkRefs: []
+  name: V_DUPLICATE_LOOKUPS
+  overrideSQL: false
+  schema: DBSHIFT_V
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

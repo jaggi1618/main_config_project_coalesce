@@ -1,0 +1,78 @@
+fileVersion: 1
+id: bf4a7e8f-3b6d-4c9e-8b7a-6bbE8f9a0b1c
+name: FCT_BROKER_PARENT_ID_CORRECTION_APPLY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN;
+      INSERT INTO PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER (PARENT_PLANNING_ID, PLANNING_ID, BROKER_NAME, BROKER_LOOKUP_CODE, PLANNING_ALIAS, SOURCE_SYSTEM_BROKER_LOOKUP_CODE, SOURCE_SYSTEM_BROKER_ID, DW_BROKER_MASTER_ID, SOURCE_SYSTEM, DW_SOURCE_SYSTEM_ID, BROKER_STATUS_INDICATOR, CURRENT_FLAG, DW_DATE_CREATED, DW_CREATE_USER, DW_DATE_UPDATED, DW_UPDATE_USER)
+      SELECT DISTINCT 'All_Producer' AS PARENT_PLANNING_ID, L.NEW_PARENT_PLANNING_ID AS PLANNING_ID, L.NEW_PARENT_PLANNING_ID AS BROKER_NAME, L.NEW_PARENT_PLANNING_ID AS BROKER_LOOKUP_CODE, L.NEW_PARENT_PLANNING_ID AS PLANNING_ALIAS, L.NEW_PARENT_PLANNING_ID AS SOURCE_SYSTEM_BROKER_LOOKUP_CODE, NULL AS SOURCE_SYSTEM_BROKER_ID, NULL AS DW_BROKER_MASTER_ID, NULL AS SOURCE_SYSTEM, NULL AS DW_SOURCE_SYSTEM_ID, 'N' AS BROKER_STATUS_INDICATOR, 'Y' AS CURRENT_FLAG, CURRENT_TIMESTAMP() AS DW_DATE_CREATED, 'sppa_planning_fccs_broker_update_duplicate_lookup_alias_parent_id' AS DW_CREATE_USER, CURRENT_TIMESTAMP() AS DW_DATE_UPDATED, 'sppa_planning_fccs_broker_update_duplicate_lookup_alias_parent_id' AS DW_UPDATE_USER
+      FROM {{ ref('DBSHIFT', 'V_BROKER_LIST_WITH_NEW_PARENTS') }} AS L
+      LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} AS B ON L.NEW_PARENT_PLANNING_ID = B.PLANNING_ID AND B.PARENT_PLANNING_ID = 'All_Producer'
+      WHERE B.PLANNING_ID IS NULL AND L.NEW_PARENT_FLAG = 'Y';
+
+      UPDATE {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} AS C
+      SET PARENT_PLANNING_ID = L.NEW_PARENT_PLANNING_ID, BROKER_STATUS_INDICATOR = 'U', CURRENT_FLAG = 'Y', DW_DATE_UPDATED = CURRENT_TIMESTAMP(), DW_UPDATE_USER = 'sppa_planning_fccs_broker_update_duplicate_lookup_alias_parent_id'
+      FROM {{ ref('DBSHIFT', 'V_BROKER_LIST_WITH_NEW_PARENTS') }} AS L
+      WHERE C.PLANNING_ID = L.PLANNING_ID AND C.PARENT_PLANNING_ID <> L.NEW_PARENT_PLANNING_ID;
+
+      INSERT INTO PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER_CLIENT_CHANGES (DIMENSION_TYPE, CHANGE_TYPE, PLANNING_ID, LOOKUP_CODE, SOURCE_SYSTEM, PLANNING_ALIAS, DW_BROKER_CLIENT_MASTER_ID, STATUS_INDICATOR, BEGIN_POST_DATE, END_POST_DATE, PARENT_PLANNING_ID, ORIGINAL_PARENT_PLANNING_ID, DW_DATE_CREATED, DW_CREATE_USER, DW_DATE_UPDATED, DW_UPDATE_USER)
+      WITH ACTUALS_AGG AS (
+          SELECT S.BROKER_PLANNING_ID, MIN(S.POST_DATE) AS BEGIN_POST_DATE, MAX(S.POST_DATE) AS END_POST_DATE
+          FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_ACTUALS_STAGING') }} AS S
+          INNER JOIN {{ ref('DBSHIFT', 'V_BROKER_LIST_WITH_NEW_PARENTS') }} AS BL ON S.BROKER_PLANNING_ID = BL.PLANNING_ID
+          GROUP BY S.BROKER_PLANNING_ID
+      )
+      SELECT 'Broker' AS DIMENSION_TYPE, 'ParentID' AS CHANGE_TYPE, B.PLANNING_ID, B.SOURCE_SYSTEM_BROKER_LOOKUP_CODE AS LOOKUP_CODE, B.SOURCE_SYSTEM, B.PLANNING_ALIAS, B.DW_BROKER_MASTER_ID AS DW_BROKER_CLIENT_MASTER_ID, B.BROKER_STATUS_INDICATOR AS STATUS_INDICATOR, A.BEGIN_POST_DATE, A.END_POST_DATE, B.PARENT_PLANNING_ID, L.EXISTING_PARENT_PLANNING_ID AS ORIGINAL_PARENT_PLANNING_ID, CURRENT_TIMESTAMP() AS DW_DATE_CREATED, 'sppa_planning_fccs_broker_update_duplicate_lookup_alias_parent_id' AS DW_CREATE_USER, CURRENT_TIMESTAMP() AS DW_DATE_UPDATED, 'sppa_planning_fccs_broker_update_duplicate_lookup_alias_parent_id' AS DW_UPDATE_USER
+      FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} AS B
+      INNER JOIN {{ ref('DBSHIFT', 'V_BROKER_LIST_WITH_NEW_PARENTS') }} AS L ON B.PLANNING_ID = L.PLANNING_ID
+      INNER JOIN ACTUALS_AGG AS A ON L.PLANNING_ID = A.BROKER_PLANNING_ID;
+
+      COMMIT;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e9a8b7c-2d5e-4f3a-9c2b-1e8a7b6c5d4e
+          stepCounter: bf4a7e8f-3b6d-4c9e-8b7a-6bbE8f9a0b1c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'APPLIED CORRECTIONS'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d897a6b-1c4d-4a29-8d1a-2d796a5b4c3d
+          stepCounter: bf4a7e8f-3b6d-4c9e-8b7a-6bbE8f9a0b1c
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: FCT_BROKER_PARENT_ID_CORRECTION_APPLY
+  overrideSQL: false
+  schema: DBSHIFT_CONTROL
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

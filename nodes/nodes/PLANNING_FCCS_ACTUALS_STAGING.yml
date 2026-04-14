@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 6b9b2f3a-8c1e-4d4f-9c2b-1f8e3b4e5c6d
+name: PLANNING_FCCS_ACTUALS_STAGING
+operation:
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f8c7e6d-9b3f-4e5a-8d3c-2f9a4b5c6d7e
+          stepCounter: 6b9b2f3a-8c1e-4d4f-9c2b-1f8e3b4e5c6d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: BROKER_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e7b6d5c-8a4e-4f6b-9e4d-3e8b5c6d7e8f
+          stepCounter: 6b9b2f3a-8c1e-4d4f-9c2b-1f8e3b4e5c6d
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: POST_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_ACTUALS_STAGING
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
