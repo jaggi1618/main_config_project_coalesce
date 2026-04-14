@@ -1,0 +1,167 @@
+fileVersion: 1
+id: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+name: CTEDUPS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0202f08a-920f-44ed-afbd-5c1c3a315075
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DIM_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b94e09f-6839-4d92-990c-6e6b5d6f1a8b
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8445a83-b1b8-45c7-a658-5bb18fada11b
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f281bb87-e215-467f-94a1-0268565a0c0a
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3488d47-657f-4321-ad82-db7f2c86b12c
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c17849b2-38d2-4fd9-ae2f-14ab73a11516
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2cec150a-8563-49a2-a09a-d53fcaea07ee
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b131a31d-b547-49f3-b9be-9759c940b33a
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53d3ddad-985a-4fee-a31d-eaad5e7030a8
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2b6dd4e-9844-486d-9669-e0d0061e8886
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d12da04-5b66-414c-9a07-88dab197ec06
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c35d947-f49c-4c74-ab76-4d1a58145719
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4398648c-4e21-4985-ba14-217fc5d0b068
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: DIM_TYPE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b94e09f-6839-4d92-990c-6e6b5d6f1a8b
+                stepCounter: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+            transform: COUNT(DISTINCT(DIM_TYPE))
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6493f84c-fdb9-434a-a0cf-7b26f4cb496b
+          stepCounter: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: ROW_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(1)
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CTEPLANNIGALIAS: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CTEPLANNIGALIAS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_CTEPLANNIGALIAS') }} 
+            GROUP BY ALL
+            HAVING COUNT(1) > 1
+        name: CTEDUPS
+        noLinkRefs: []
+  name: CTEDUPS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

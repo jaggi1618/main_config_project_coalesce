@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -183,22 +183,29 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          V_CTEPLANNIGALIAS: A
-          PLANNING_FCCS_ACTUALS: AC
+          A: 5790b8f3-8b1b-4395-97c2-19e9de0c9213
+          AB: 569f1400-f99a-471a-96e0-91a657c7d427
+          AC: 569f1400-f99a-471a-96e0-91a657c7d427
+          D: 6d5dbd62-6d4b-4d98-8448-4527d50a9306
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
-            nodeName: V_CTEPLANNIGALIAS
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_ACTUALS
+          - locationName: TARGET
+            nodeName: CTEDUPS
+          - locationName: TARGET
+            nodeName: V_CTEPLANNIGALIAS
         join:
           joinCondition: |-
-            FROM {{ ref('DBSHIFT', 'V_CTEPLANNIGALIAS') }} A
-            INNER JOIN CTEDUPS D ON A.PLANNING_ALIAS = D.PLANNING_ALIAS
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_ACTUALS') }} AC ON A.PLANNING_ID = AC.CLIENT_PLANNING_ID AND A.DIM_TYPE = 'Client'
-            LEFT OUTER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_ACTUALS') }} AB ON A.PLANNING_ID = AB.BROKER_PLANNING_ID AND A.DIM_TYPE = 'Broker'
-            GROUP BY A.DIM_TYPE, A.PLANNING_ID, A.PLANNING_ALIAS, A.SOURCE_SYSTEM, A.LOOKUP_CODE, A.DW_BROKER_CLIENT_MASTER_ID, D.ROW_COUNT, D.DIM_TYPE_COUNT
+            FROM {{ ref('TARGET', 'V_CTEPLANNIGALIAS') }} A
+            INNER JOIN {{ ref('TARGET', 'CTEDUPS') }} D ON A.PLANNING_ALIAS = D.PLANNING_ALIAS
+            LEFT OUTER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_ACTUALS') }} AC 
+              ON A.PLANNING_ID = AC.CLIENT_PLANNING_ID AND A.DIM_TYPE = 'Client'
+            LEFT OUTER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_ACTUALS') }} AB 
+              ON A.PLANNING_ID = AB.BROKER_PLANNING_ID AND A.DIM_TYPE = 'Broker'
+            GROUP BY A.DIM_TYPE, A.PLANNING_ID, A.PLANNING_ALIAS, A.SOURCE_SYSTEM, 
+              A.LOOKUP_CODE, A.DW_BROKER_CLIENT_MASTER_ID, D.ROW_COUNT, D.DIM_TYPE_COUNT
         name: V_TMPDUPLICATEALIAS
         noLinkRefs: []
   name: V_TMPDUPLICATEALIAS

@@ -7,21 +7,21 @@ operation:
     postSQL: ""
     preSQL: |-
       BEGIN
-        UPDATE {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT') }} C
+        UPDATE {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT') }} C
         SET
             PLANNING_ALIAS = CAST(DUP.NEW_PLANNING_ALIAS AS VARCHAR(72)),
             DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
             DW_UPDATE_USER = 'sppa_planning_fccs_broker_client_update_duplicate_alias'
-        FROM {{ ref('DBSHIFT', 'V_TMPUPDATEDUPLICATEALIAS') }} DUP
+        FROM {{ ref('TARGET', 'V_TMPUPDATEDUPLICATEALIAS') }} DUP
         WHERE C.PLANNING_ID = DUP.PLANNING_ID
           AND DUP.DIM_TYPE = 'Client';
 
-        UPDATE {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} B
+        UPDATE {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_BROKER') }} B
         SET
             PLANNING_ALIAS = DUP.NEW_PLANNING_ALIAS,
             DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
             DW_UPDATE_USER = 'sppa_planning_fccs_broker_client_update_duplicate_alias'
-        FROM {{ ref('DBSHIFT', 'V_TMPUPDATEDUPLICATEALIAS') }} DUP
+        FROM {{ ref('TARGET', 'V_TMPUPDATEDUPLICATEALIAS') }} DUP
         WHERE B.PLANNING_ID = DUP.PLANNING_ID
           AND DUP.DIM_TYPE = 'Broker';
       END
@@ -31,7 +31,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -268,14 +268,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          V_TMPUPDATEDUPLICATEALIAS: SRC
+          SRC: 56911f9f-683a-4462-8588-47209930fca6
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: V_TMPUPDATEDUPLICATEALIAS
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'V_TMPUPDATEDUPLICATEALIAS') }} "SRC"
+          joinCondition: FROM {{ ref('TARGET', 'V_TMPUPDATEDUPLICATEALIAS') }} "SRC"
         name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES
         noLinkRefs: []
   name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES

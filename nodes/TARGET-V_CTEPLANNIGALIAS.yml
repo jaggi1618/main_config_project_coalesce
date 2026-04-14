@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -96,16 +96,16 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
-            nodeName: PLANNING_FCCS_CLIENT
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_BROKER
+          - locationName: PLANNING_ALLIANT
+            nodeName: PLANNING_FCCS_CLIENT
         join:
           joinCondition: |-
             FROM (
-              SELECT 'Client' AS DIM_TYPE, PLANNING_ID, PLANNING_ALIAS, SOURCE_SYSTEM, SOURCE_SYSTEM_CLIENT_LOOKUP_CODE AS LOOKUP_CODE, DW_CLIENT_MASTER_ID AS DW_BROKER_CLIENT_MASTER_ID FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT') }}
+              SELECT 'Client' AS DIM_TYPE, PLANNING_ID, PLANNING_ALIAS, SOURCE_SYSTEM, SOURCE_SYSTEM_CLIENT_LOOKUP_CODE AS LOOKUP_CODE, DW_CLIENT_MASTER_ID AS DW_BROKER_CLIENT_MASTER_ID FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT') }}
               UNION
-              SELECT 'Broker' AS DIM_TYPE, PLANNING_ID, PLANNING_ALIAS, SOURCE_SYSTEM, SOURCE_SYSTEM_BROKER_LOOKUP_CODE AS LOOKUP_CODE, DW_BROKER_MASTER_ID AS DW_BROKER_CLIENT_MASTER_ID FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }}
+              SELECT 'Broker' AS DIM_TYPE, PLANNING_ID, PLANNING_ALIAS, SOURCE_SYSTEM, SOURCE_SYSTEM_BROKER_LOOKUP_CODE AS LOOKUP_CODE, DW_BROKER_MASTER_ID AS DW_BROKER_CLIENT_MASTER_ID FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_BROKER') }}
             ) "SRC"
         name: V_CTEPLANNIGALIAS
         noLinkRefs: []

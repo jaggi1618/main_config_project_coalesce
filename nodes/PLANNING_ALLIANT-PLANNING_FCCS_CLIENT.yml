@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 5970c639-67d9-43c2-a9b0-a544b6f0088b
-name: PLANNING_FCCS_BROKER
+id: 111c1d84-c89b-4e1b-9f93-5490403f1911
+name: PLANNING_FCCS_CLIENT
 operation:
   database: PLANNING_ALLIANT
   deployEnabled: true
   description: ""
-  locationName: DBSHIFT
+  locationName: PLANNING_ALLIANT
   metadata:
     columns:
       - acceptedValues:
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 42646c0d-d4d1-4279-8b01-e28329606117
-          stepCounter: 5970c639-67d9-43c2-a9b0-a544b6f0088b
+          columnCounter: a63b4694-81d0-42f0-928d-327c59807530
+          stepCounter: 111c1d84-c89b-4e1b-9f93-5490403f1911
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b191c9f4-1234-4b53-a555-d16ed3d49f0a
-          stepCounter: 5970c639-67d9-43c2-a9b0-a544b6f0088b
+          columnCounter: e82e1d7a-115b-4c74-89c0-9118c7e937d9
+          stepCounter: 111c1d84-c89b-4e1b-9f93-5490403f1911
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -51,8 +51,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d1a4c901-b5f6-4ef3-9a3d-a4170311d4e0
-          stepCounter: 5970c639-67d9-43c2-a9b0-a544b6f0088b
+          columnCounter: 5d697858-a55e-49d7-83d7-844c53c43cc5
+          stepCounter: 111c1d84-c89b-4e1b-9f93-5490403f1911
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c79e5033-6625-422f-af58-3d6d630d4a7c
-          stepCounter: 5970c639-67d9-43c2-a9b0-a544b6f0088b
+          columnCounter: 3223021f-c68e-49b8-b57d-fcc730245a1c
+          stepCounter: 111c1d84-c89b-4e1b-9f93-5490403f1911
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5046e7f8-953b-487c-87b6-e786b45a666e
-          stepCounter: 5970c639-67d9-43c2-a9b0-a544b6f0088b
+          columnCounter: 8b7e289c-a128-4b71-9f9b-64ecfde8e5b4
+          stepCounter: 111c1d84-c89b-4e1b-9f93-5490403f1911
         config: {}
         dataType: INT
         defaultValue: ""
         description: ""
-        name: DW_BROKER_MASTER_ID
+        name: DW_CLIENT_MASTER_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +103,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: PLANNING_FCCS_BROKER
+  name: PLANNING_FCCS_CLIENT
   schema: DBO
   sqlType: Source
   type: sourceInput

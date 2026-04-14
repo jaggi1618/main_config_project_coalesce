@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -231,15 +231,17 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          V_TMPDUPLICATEALIAS: D
+          D: 59c63b15-9c88-43d9-9520-21ed6f0c4366
+          R: fc5836e9-c674-4ce3-9f47-8fb04ece7f3f
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
+            nodeName: CTEDUPSWITHREVENUE
+          - locationName: TARGET
             nodeName: V_TMPDUPLICATEALIAS
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'V_TMPDUPLICATEALIAS') }} D
-            INNER JOIN CTEDUPSWITHREVENUE R ON D.PLANNING_ALIAS = R.PLANNING_ALIAS
+          joinCondition: FROM {{ ref('TARGET', 'V_TMPDUPLICATEALIAS') }} D INNER JOIN {{ ref('TARGET', 'CTEDUPSWITHREVENUE') }} R ON D.PLANNING_ALIAS = R.PLANNING_ALIAS
         name: V_TMPUPDATEDUPLICATEALIAS
         noLinkRefs: []
   name: V_TMPUPDATEDUPLICATEALIAS
