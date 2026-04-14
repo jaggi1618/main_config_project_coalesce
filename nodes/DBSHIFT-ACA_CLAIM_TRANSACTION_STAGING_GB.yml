@@ -1486,8 +1486,7 @@ operation:
           - locationName: DBSHIFT
             nodeName: STG_COMBINED_TRANSACTIONS
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'STG_COMBINED_TRANSACTIONS') }} AS
-            "SRC"
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_COMBINED_TRANSACTIONS') }} AS "SRC"
         name: ACA_CLAIM_TRANSACTION_STAGING_GB
         noLinkRefs: []
   name: ACA_CLAIM_TRANSACTION_STAGING_GB

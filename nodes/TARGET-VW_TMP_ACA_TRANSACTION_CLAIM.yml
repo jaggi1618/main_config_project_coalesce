@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -88,9 +88,7 @@ operation:
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
               - columnCounter: 48e71569-b5d1-432a-a9e9-fd48039e1159
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: IFF(ATC.CLAIMANT_NAME_FORMAT = 'I', NULLIF(TRIM(CONCAT(NULLIF(TRIM(ATC.CLAIMANT_FIRSTNAME),
-              ''), ' ', NULLIF(TRIM(CAST(NULL AS VARCHAR)), ''))), ''), NULLIF(TRIM(CAST(NULL
-              AS VARCHAR)), ''))
+            transform: IFF(ATC.CLAIMANT_NAME_FORMAT = 'I', NULLIF(TRIM(CONCAT(NULLIF(TRIM(ATC.CLAIMANT_FIRSTNAME), ''), ' ', NULLIF(TRIM(CAST(NULL AS VARCHAR)), ''))), ''), NULLIF(TRIM(CAST(NULL AS VARCHAR)), ''))
       - appliedColumnTests: {}
         columnReference:
           columnCounter: eb99b1a5-e1c9-4ab9-bd58-b80c102a9b3a
@@ -122,25 +120,22 @@ operation:
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
               - columnCounter: 5d15a51a-7b89-4b21-a3f1-f0b15e4f483b
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ROW_NUMBER() OVER (PARTITION BY ATC.UNIQUE_CLAIM_ID, ATC.TRANSACTION_DATE
-              ORDER BY ATC.STATUS_DATE DESC, ATC.ACA_TRANSACTION_CLAIM_ID DESC)
+            transform: ROW_NUMBER() OVER (PARTITION BY ATC.UNIQUE_CLAIM_ID, ATC.TRANSACTION_DATE ORDER BY ATC.STATUS_DATE DESC, ATC.ACA_TRANSACTION_CLAIM_ID DESC)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_TRANSACTION_CLAIM: ATC
-          VW_ATC_RNUM: ATC_RNUM
+          ATC: 676b7713-356a-493e-9020-f55a15998a1a
+          ATC_RNUM: 111b157a-6950-482a-ac53-73132c3f1e1a
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_TRANSACTION_CLAIM
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: VW_ATC_RNUM
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} AS "ATC"
-            INNER JOIN {{ ref('DBSHIFT', 'VW_ATC_RNUM') }} AS "ATC_RNUM" ON ATC.ACA_TRANSACTION_CLAIM_ID
-            = ATC_RNUM.ACA_TRANSACTION_CLAIM_ID WHERE ATC_RNUM.ROW_NUM_SEQ = 1
+          joinCondition: FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_TRANSACTION_CLAIM') }} AS "ATC" INNER JOIN {{ ref('TARGET', 'VW_ATC_RNUM') }} AS "ATC_RNUM" ON ATC.ACA_TRANSACTION_CLAIM_ID = ATC_RNUM.ACA_TRANSACTION_CLAIM_ID WHERE ATC_RNUM.ROW_NUM_SEQ = 1
         name: VW_TMP_ACA_TRANSACTION_CLAIM
         noLinkRefs: []
   name: VW_TMP_ACA_TRANSACTION_CLAIM

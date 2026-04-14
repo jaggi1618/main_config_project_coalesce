@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 543ef810-67c2-4820-912b-3c467140f85b
-name: STG_GB_NEW_TRANSACTIONS
+id: 97816040-420a-4a6c-9418-47e9bb7639bb
+name: STG_GB_CURRENT_TRANSACTIONS
 operation:
   config:
     insertStrategy: INSERT
@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -22,8 +22,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3232070e-110f-488b-a4ff-a044d081f26f
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5694c965-cd33-4c9f-85d6-ecf059c258d4
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -32,16 +32,16 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: a6312a7d-b108-410a-81a6-f343a41c1071
+              - columnCounter: a6345ecb-c56b-4e4f-8e43-162ef4f16a69
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.UNIQUE_CLAIM_ID
+            transform: CT.SOURCE_SYSTEM_CLAIM_ID
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6c39f1c-43f9-4623-a2b1-12c82806871a
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 0f2f4585-78e9-4e12-b5e1-7009951684c9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -49,22 +49,15 @@ operation:
         name: SOURCE_SYSTEM_CLAIMANT_ID
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: b130e525-4c07-4402-a169-1c97a809fdd3
-                stepCounter: 59388c34-a1e6-4903-b0e6-a83d46777b7f
-              - columnCounter: e1944111-6648-4054-998f-a99f36f94f99
-                stepCounter: 59388c34-a1e6-4903-b0e6-a83d46777b7f
-              - columnCounter: eb99b1a5-e1c9-4ab9-bd58-b80c102a9b3a
-                stepCounter: 59388c34-a1e6-4903-b0e6-a83d46777b7f
-            transform: IFF(T.CLAIMANT IS NULL, NULL, MD5(OBJECT_TO_STRING(OBJECT_CONSTRUCT('claimant_type',
-              T.CLAIMANT_TYPE, 'claimant', T.CLAIMANT, 'ssn', T.CLAIMANT_SSN))))
+          - columnReferences: []
+            transform: CT.SOURCE_SYSTEM_CLAIMANT_ID
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 512b1d7d-5a39-4467-8736-61cdbf6f1837
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 322c3653-333e-4009-bb4f-ff8e4b7c10b7
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -72,20 +65,15 @@ operation:
         name: SOURCE_SYSTEM_POLICY_ID
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 2d1df36f-e3d8-4a6c-9457-3f338c2901c5
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-              - columnCounter: b57ef95f-9988-4683-9b80-1a48c281df69
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: MD5(OBJECT_TO_STRING(OBJECT_CONSTRUCT('policy_number', ATC.POLICY_NUMBER30,
-              'effective_date', TRY_CAST(ATC.POLICY_EFFECTIVE_DATE AS DATE))))
+          - columnReferences: []
+            transform: CT.SOURCE_SYSTEM_POLICY_ID
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f3d51cc0-7985-451e-962f-0428f57df5e9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5d38ac55-d14c-4573-a6cd-77708518e154
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -94,36 +82,14 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: MD5(OBJECT_TO_STRING(OBJECT_CONSTRUCT('claim_status_code',
-              ATC.CLAIM_STATUS, 'reserve_type_code', ATC.RESERVE_TYPE_CODE, 'convert_code',
-              ATC.CONVERT_CODE, 'death_result_code', ATC.DEATH_RESULT_CODE, 'reporting_basis_code',
-              ATC.REPORTING_BASIS_CODE, 'claimant_type_code', ATC.CLAIMANT_NAME_FORMAT,
-              'workers_compensation_claim_type_code', ATC.WORKERS_COMPENSATION_CLAIMTYPE,
-              'fraud_indicator_code', ATC.FRAUD_INDICATOR, 'catastrophe_code',
-              ATC.CATASTROPHE_CODE, 'driver_gender', ATC.DRIVER_SEX, 'reporting_unit_type_code',
-              ATC.REPORTING_UNIT_NAME_FORMAT, 'insuit_flag', ATC.INSUIT_FLAG,
-              'driver_chargeable_flag', ATC.DRIVER_CHARGEABLE_FLAG, 'surgery_flag',
-              ATC.SURGERY_FLAG, 'employer_premises_flag', ATC.EMPLOYER_PREMISES_FLAG,
-              'number_of_dependents_flag', ATC.NUMBER_OF_DEPENDENTS_FLAG, 'controverted_case_flag',
-              ATC.CONTROVERTED_CASE_FLAG, 'employment_status_flag', ATC.EMPLOYMENT_STATUS_FLAG,
-              'attorney_authorized_representative_flag', ATC.ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG,
-              'multi_claim_occur_flag', ATC.MULTI_CLAIM_OCCUR_FLAG, 'unemployment_offset_flag',
-              ATC.UNEMPLOYMENT_OFFSET_FLAG, 'full_pay_day_of_injury_flag', ATC.FULL_PAY_DAY_OF_INJURY_FLAG,
-              'return_to_work_restricted_flag', ATC.RETURN_TO_WORK_RESTRICTED_FLAG,
-              'claim_ever_controverted_flag', ATC.CLAIM_EVER_CONTROVERTED_FLAG,
-              'lost_time_case_flag', ATC.LOST_TIME_CASE_FLAG, 'salary_continued_flag',
-              ATC.SALARY_CONTINUED_FLAG, 'other_recovery_potential_flag', ATC.OTHER_RECOVERY_POTENTIAL,
-              'social_security_offset_flag', ATC.SOCIAL_SECURITY_OFFSET_FLAG,
-              'pension_offset_flag', ATC.PENSION_OFFSET_FLAG, 'other_offset_flag',
-              ATC.OTHER_OFFSET_FLAG, 'deductible_flag', ATC.DEDUCTIBLE_FLAG, 'degree_of_loss_code',
-              ATC.DEGREE_OF_LOSSFLAG, 'appraised_eligibility_code', ATC.APPRAISED_ELIGIBILITY_FLAG)))
+            transform: CT.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c03e30f5-37f2-4416-950c-e2f7b809a7b7
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: e86d1494-b384-473d-88b5-e65b403d159b
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -131,18 +97,15 @@ operation:
         name: SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: b4b8686e-b64d-4581-9b62-38605e55c707
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: MD5(OBJECT_TO_STRING(OBJECT_CONSTRUCT('claim_coverage_code',
-              '-1', 'accident_source_code', ATC.ACCIDENT_SOURCE_CODE)))
+          - columnReferences: []
+            transform: CT.SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: b5f591f8-8c10-449d-b657-b45d2d0b555d
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -150,17 +113,15 @@ operation:
         name: SOURCE_SYSTEM_TRANSACTION_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6516104f-9e58-406d-b8d4-53940bb253da
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.TRANSACTION_DATE
+          - columnReferences: []
+            transform: CT.SOURCE_SYSTEM_TRANSACTION_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 2d19e078-4337-4f81-a72e-0a568b201a4e
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -168,17 +129,15 @@ operation:
         name: POLICY_NUMBER
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 2d1df36f-e3d8-4a6c-9457-3f338c2901c5
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.POLICY_NUMBER30
+          - columnReferences: []
+            transform: CT.POLICY_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 37b01d51-d30d-4537-8b09-3286595ab350
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -189,14 +148,14 @@ operation:
           - columnReferences:
               - columnCounter: b57ef95f-9988-4683-9b80-1a48c281df69
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.POLICY_EFFECTIVE_DATE
+            transform: CT.POLICY_EFFECTIVE_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 32a76f24-39f2-4bd5-a4f6-7b2d58066c11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 476839bb-a292-4147-9752-921d7b385e09
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -207,14 +166,14 @@ operation:
           - columnReferences:
               - columnCounter: b41315b9-7b3c-4b36-a51f-d748281a1796
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.POLICY_EXPIRATION_DATE
+            transform: CT.POLICY_EXPIRATION_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 8251e06a-5431-4191-8815-5606d1565cd9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 18274c35-d227-4a0b-ae9e-64d8962c0762
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -222,17 +181,15 @@ operation:
         name: CLAIM_STATUS_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: c796014e-9d22-4919-8692-07a82747385f
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.CLAIM_STATUS
+          - columnReferences: []
+            transform: CT.CLAIM_STATUS_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 48970878-0c6f-474d-9669-e58f000b0b8c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: c03e30f5-37f2-4416-950c-e2f7b809a7b7
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -243,14 +200,14 @@ operation:
           - columnReferences:
               - columnCounter: 162985f4-3079-4d64-ab20-2b1b590e0b3c
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.CLAIM_STATUS_DESCRIPTION
+            transform: CT.CLAIM_STATUS
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 77b91d24-d2e4-4a46-88ab-d343467c6999
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -261,14 +218,14 @@ operation:
           - columnReferences:
               - columnCounter: 13c32e98-251f-4f24-915f-c9d300b14c77
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.STATUS_DATE
+            transform: CT.STATUS_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a18a666e-b3f2-4952-a63e-6d042146e2a2
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -279,14 +236,14 @@ operation:
           - columnReferences:
               - columnCounter: 0f9a5676-e8e6-4277-a160-b08c4ed942b0
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.REPORTED_DATE
+            transform: CT.REPORTED_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 154784a3-ff1f-4137-b2f7-fbb509b23b49
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -297,14 +254,14 @@ operation:
           - columnReferences:
               - columnCounter: d364d2d4-0994-4d8b-80aa-3b567d022b39
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ACCIDENT_DATE
+            transform: CT.ACCIDENT_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3a2862d7-9519-4b49-b004-9842a8b34f77
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 32a76f24-39f2-4bd5-a4f6-7b2d58066c11
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -315,14 +272,14 @@ operation:
           - columnReferences:
               - columnCounter: b2e84777-a720-410e-8e8e-d830b80f70fa
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ACCIDENT_TYPE_CODE
+            transform: CT.ACCIDENT_TYPE_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 01f5f308-569d-4763-9d8a-63b7e6f662a6
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 8251e06a-5431-4191-8815-5606d1565cd9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -333,14 +290,14 @@ operation:
           - columnReferences:
               - columnCounter: b4b8686e-b64d-4581-9b62-38605e55c707
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ACCIDENT_SOURCE_CODE
+            transform: CT.ACCIDENT_SOURCE_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 48970878-0c6f-474d-9669-e58f000b0b8c
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -351,14 +308,14 @@ operation:
           - columnReferences:
               - columnCounter: f285cf4b-d096-419b-b9f1-ac88e99441ec
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ACCIDENT_CITY_CODE
+            transform: CT.ACCIDENT_CITY_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d8a95d03-2475-4335-b203-1e5b47a988d5
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 77b91d24-d2e4-4a46-88ab-d343467c6999
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -366,17 +323,15 @@ operation:
         name: ACCIDENT_STATE_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 5d5351ef-8d6c-482a-9ac9-93e1554523d4
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ACCIDENT_STATE
+          - columnReferences: []
+            transform: CT.ACCIDENT_STATE_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f4585-78e9-4e12-b5e1-7009951684c9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: a18a666e-b3f2-4952-a63e-6d042146e2a2
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -387,14 +342,14 @@ operation:
           - columnReferences:
               - columnCounter: 56972749-d779-4a94-b1c4-118c7c91c01e
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ACCIDENT_ZIPCODE
+            transform: CT.ACCIDENT_ZIPCODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 322c3653-333e-4009-bb4f-ff8e4b7c10b7
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 154784a3-ff1f-4137-b2f7-fbb509b23b49
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -405,14 +360,14 @@ operation:
           - columnReferences:
               - columnCounter: d24e1837-e522-4113-a7ca-158a74136952
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.PART_OF_BODY_CODE
+            transform: CT.PART_OF_BODY_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5d38ac55-d14c-4573-a6cd-77708518e154
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 3a2862d7-9519-4b49-b004-9842a8b34f77
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -423,14 +378,14 @@ operation:
           - columnReferences:
               - columnCounter: 479d5018-9721-4d1a-826d-e498c0d5402a
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+            transform: CT.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e86d1494-b384-473d-88b5-e65b403d159b
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 01f5f308-569d-4763-9d8a-63b7e6f662a6
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -441,14 +396,14 @@ operation:
           - columnReferences:
               - columnCounter: 7751996d-1406-4074-a02a-969c3a3d56d7
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NATURE_OF_LOSS_CODE_BODILY_INJURY
+            transform: CT.NATURE_OF_LOSS_CODE_BODILY_INJURY
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b5f591f8-8c10-449d-b657-b45d2d0b555d
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -456,17 +411,15 @@ operation:
         name: METHOD_OF_SETTLEMENT_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: f223eb39-9d7a-4ddc-88e9-4e5033c4f74d
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.METHOD_OF_SETTLEMENT
+          - columnReferences: []
+            transform: CT.METHOD_OF_SETTLEMENT_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2d19e078-4337-4f81-a72e-0a568b201a4e
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: d8a95d03-2475-4335-b203-1e5b47a988d5
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -477,14 +430,14 @@ operation:
           - columnReferences:
               - columnCounter: 0a9e7f5f-6a7e-402a-bf3b-9e8c467a5482
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NCCI_LOSS_COVERAGE_CODE
+            transform: CT.NCCI_LOSS_COVERAGE_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37b01d51-d30d-4537-8b09-3286595ab350
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5694c965-cd33-4c9f-85d6-ecf059c258d4
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -499,8 +452,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 8251e06a-5431-4191-8815-5606d1565cd9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: e86d1494-b384-473d-88b5-e65b403d159b
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: BINARY
         defaultValue: ""
@@ -509,14 +462,14 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS BINARY)
+            transform: CT.DESCRIPTION_OF_LOSS_ENCRYPTED
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 476839bb-a292-4147-9752-921d7b385e09
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: b5f591f8-8c10-449d-b657-b45d2d0b555d
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -524,17 +477,15 @@ operation:
         name: BENEFIT_JURISDICTION_STATE_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: c796014e-9d22-4919-8692-07a82747385f
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.BENEFIT_JURISDICTION_STATE
+          - columnReferences: []
+            transform: CT.BENEFIT_JURISDICTION_STATE_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 18274c35-d227-4a0b-ae9e-64d8962c0762
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 2d19e078-4337-4f81-a72e-0a568b201a4e
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -542,17 +493,15 @@ operation:
         name: EXPOSURE_STATE_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: bf89f1f0-327c-4734-93e1-d575c6131d2b
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.EXPOSURE_STATE
+          - columnReferences: []
+            transform: CT.EXPOSURE_STATE_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3232070e-110f-488b-a4ff-a044d081f26f
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 37b01d51-d30d-4537-8b09-3286595ab350
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -560,17 +509,15 @@ operation:
         name: EXPOSURE_COUNTRY_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: a6345ecb-c56b-4e4f-8e43-162ef4f16a69
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.EXPOSURE_COUNTRY
+          - columnReferences: []
+            transform: CT.EXPOSURE_COUNTRY_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a6c39f1c-43f9-4623-a2b1-12c82806871a
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 476839bb-a292-4147-9752-921d7b385e09
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -581,14 +528,14 @@ operation:
           - columnReferences:
               - columnCounter: 2d1df36f-e3d8-4a6c-9457-3f338c2901c5
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.STATE_CLAIM_NUMBER
+            transform: CT.STATE_CLAIM_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 512b1d7d-5a39-4467-8736-61cdbf6f1837
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 18274c35-d227-4a0b-ae9e-64d8962c0762
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -599,14 +546,14 @@ operation:
           - columnReferences:
               - columnCounter: b57ef95f-9988-4683-9b80-1a48c281df69
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.FULL_STATE_CLAIM_NUMBER
+            transform: CT.FULL_STATE_CLAIM_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f3d51cc0-7985-451e-962f-0428f57df5e9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 3232070e-110f-488b-a4ff-a044d081f26f
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -614,17 +561,15 @@ operation:
         name: EMPLOYER_NOTIFICATION_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 48e71569-b5d1-432a-a9e9-fd48039e1159
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.EMPLOYER_NOTIFICIATION_DATE
+          - columnReferences: []
+            transform: CT.EMPLOYER_NOTIFICATION_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c03e30f5-37f2-4416-950c-e2f7b809a7b7
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: a6c39f1c-43f9-4623-a2b1-12c82806871a
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -639,8 +584,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 512b1d7d-5a39-4467-8736-61cdbf6f1837
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: BINARY
         defaultValue: ""
@@ -649,14 +594,14 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS BINARY)
+            transform: CT.VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: f3d51cc0-7985-451e-962f-0428f57df5e9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -667,14 +612,14 @@ operation:
           - columnReferences:
               - columnCounter: 6516104f-9e58-406d-b8d4-53940bb253da
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.CLAIM_ADJUSTING_BRANCH_NUMBER
+            transform: CT.CLAIM_ADJUSTING_BRANCH_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: c03e30f5-37f2-4416-950c-e2f7b809a7b7
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -685,14 +630,14 @@ operation:
           - columnReferences:
               - columnCounter: 13c32e98-251f-4f24-915f-c9d300b14c77
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ADJUSTER_NUMBER
+            transform: CT.ADJUSTER_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 77b91d24-d2e4-4a46-88ab-d343467c6999
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
@@ -703,50 +648,46 @@ operation:
           - columnReferences:
               - columnCounter: 2d3345d3-8b77-4b72-b7e9-d9d303f889ef
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NUMBER_OF_DEPENDENTS
+            transform: CT.NUMBER_OF_DEPENDENTS
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 48970878-0c6f-474d-9669-e58f000b0b8c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
-        dataType: VARCHAR(12)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
         name: CLAIMANT_TYPE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: e1944111-6648-4054-998f-a99f36f94f99
-                stepCounter: 59388c34-a1e6-4903-b0e6-a83d46777b7f
-            transform: T.CLAIMANT_TYPE
+          - columnReferences: []
+            transform: CT.CLAIMANT_TYPE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a18a666e-b3f2-4952-a63e-6d042146e2a2
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
-        dataType: VARCHAR(100)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
         name: CLAIMANT
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: b130e525-4c07-4402-a169-1c97a809fdd3
-                stepCounter: 59388c34-a1e6-4903-b0e6-a83d46777b7f
-            transform: T.CLAIMANT
+          - columnReferences: []
+            transform: NULLIF(TRIM(CAST(NULL AS VARCHAR)), '')
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 154784a3-ff1f-4137-b2f7-fbb509b23b49
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 32a76f24-39f2-4bd5-a4f6-7b2d58066c11
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: BINARY
         defaultValue: ""
@@ -755,32 +696,30 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS BINARY)
+            transform: CT.CLAIMANT_ENCRYPTED
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3a2862d7-9519-4b49-b004-9842a8b34f77
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 8251e06a-5431-4191-8815-5606d1565cd9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
-        dataType: VARCHAR(11)
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
         name: CLAIMANT_SSN
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: eb99b1a5-e1c9-4ab9-bd58-b80c102a9b3a
-                stepCounter: 59388c34-a1e6-4903-b0e6-a83d46777b7f
-            transform: T.CLAIMANT_SSN
+          - columnReferences: []
+            transform: NULLIF(TRIM(CAST(NULL AS VARCHAR)), '')
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 01f5f308-569d-4763-9d8a-63b7e6f662a6
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 48970878-0c6f-474d-9669-e58f000b0b8c
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: BINARY
         defaultValue: ""
@@ -789,14 +728,14 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS BINARY)
+            transform: CT.CLAIMANT_SSN_ENCRYPTED
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 77b91d24-d2e4-4a46-88ab-d343467c6999
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -804,17 +743,15 @@ operation:
         name: EMPLOYEE_LAST_WORK_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: d364d2d4-0994-4d8b-80aa-3b567d022b39
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.DATE_LAST_WORKED
+          - columnReferences: []
+            transform: CT.EMPLOYEE_LAST_WORK_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d8a95d03-2475-4335-b203-1e5b47a988d5
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: a18a666e-b3f2-4952-a63e-6d042146e2a2
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,2)
         defaultValue: ""
@@ -825,14 +762,14 @@ operation:
           - columnReferences:
               - columnCounter: 5d5351ef-8d6c-482a-9ac9-93e1554523d4
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.COMPENSATION_RATE
+            transform: CT.COMPENSATION_RATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f4585-78e9-4e12-b5e1-7009951684c9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 154784a3-ff1f-4137-b2f7-fbb509b23b49
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -843,14 +780,14 @@ operation:
           - columnReferences:
               - columnCounter: 56972749-d779-4a94-b1c4-118c7c91c01e
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NCCI_INJURY_CODE
+            transform: CT.NCCI_INJURY_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5d38ac55-d14c-4573-a6cd-77708518e154
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 3a2862d7-9519-4b49-b004-9842a8b34f77
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -861,14 +798,14 @@ operation:
           - columnReferences:
               - columnCounter: d24e1837-e522-4113-a7ca-158a74136952
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.DISABILITY_DATE
+            transform: CT.DISABILITY_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e86d1494-b384-473d-88b5-e65b403d159b
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 01f5f308-569d-4763-9d8a-63b7e6f662a6
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -879,14 +816,14 @@ operation:
           - columnReferences:
               - columnCounter: 479d5018-9721-4d1a-826d-e498c0d5402a
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.RETURN_TO_WORK_DATE
+            transform: CT.RETURN_TO_WORK_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b5f591f8-8c10-449d-b657-b45d2d0b555d
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -897,14 +834,14 @@ operation:
           - columnReferences:
               - columnCounter: 7751996d-1406-4074-a02a-969c3a3d56d7
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.MAX_MEDICAL_IMPROVEMENT_DATE
+            transform: CT.MAX_MEDICAL_IMPROVEMENT_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2d19e078-4337-4f81-a72e-0a568b201a4e
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: d8a95d03-2475-4335-b203-1e5b47a988d5
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,2)
         defaultValue: ""
@@ -915,14 +852,14 @@ operation:
           - columnReferences:
               - columnCounter: f223eb39-9d7a-4ddc-88e9-4e5033c4f74d
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.POST_INJURY_WEEKLY_WAGE
+            transform: CT.POST_INJURY_WEEKLY_WAGE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37b01d51-d30d-4537-8b09-3286595ab350
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5694c965-cd33-4c9f-85d6-ecf059c258d4
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,2)
         defaultValue: ""
@@ -933,14 +870,14 @@ operation:
           - columnReferences:
               - columnCounter: 0a9e7f5f-6a7e-402a-bf3b-9e8c467a5482
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.PERCENTAGE_OF_IMPAIRMENT
+            transform: CT.PERCENTAGE_OF_IMPAIRMENT
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 476839bb-a292-4147-9752-921d7b385e09
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 0f2f4585-78e9-4e12-b5e1-7009951684c9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -951,14 +888,14 @@ operation:
           - columnReferences:
               - columnCounter: 162985f4-3079-4d64-ab20-2b1b590e0b3c
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.INSURER_NAME
+            transform: CT.INSURER_NAME
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 18274c35-d227-4a0b-ae9e-64d8962c0762
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 322c3653-333e-4009-bb4f-ff8e4b7c10b7
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,2)
         defaultValue: ""
@@ -969,14 +906,14 @@ operation:
           - columnReferences:
               - columnCounter: f31766a5-7b58-45fe-85a2-c4302c3fc6e4
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.OTHER_WEEKLY_PAYMENTS
+            transform: CT.OTHER_WEEKLY_PAYMENTS
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 322c3653-333e-4009-bb4f-ff8e4b7c10b7
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5d38ac55-d14c-4573-a6cd-77708518e154
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -987,14 +924,14 @@ operation:
           - columnReferences:
               - columnCounter: 1a8c9038-1647-497d-947b-1188339c9053
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.ATTORNEY_DISCLOSURE_DATE
+            transform: CT.ATTORNEY_DISCLOSURE_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 8251e06a-5431-4191-8815-5606d1565cd9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: e86d1494-b384-473d-88b5-e65b403d159b
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1005,14 +942,14 @@ operation:
           - columnReferences:
               - columnCounter: 3108c35b-1188-4c8f-a9b1-52ddf7f07019
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.REPORT_BASIS_DATE
+            transform: CT.REPORT_BASIS_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 32a76f24-39f2-4bd5-a4f6-7b2d58066c11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: b5f591f8-8c10-449d-b657-b45d2d0b555d
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1023,14 +960,14 @@ operation:
           - columnReferences:
               - columnCounter: b13175c5-e5f6-4f81-872f-4122d21a556f
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.OCCURRENCE_DATE
+            transform: CT.OCCURRENCE_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 2d19e078-4337-4f81-a72e-0a568b201a4e
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1041,14 +978,14 @@ operation:
           - columnReferences:
               - columnCounter: 322c3653-333e-4009-bb4f-ff8e4b7c10b7
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.MULTI_CLAIM_OCCUR_CODE
+            transform: CT.MULTI_CLAIM_OCCUR_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 37b01d51-d30d-4537-8b09-3286595ab350
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1059,14 +996,14 @@ operation:
           - columnReferences:
               - columnCounter: b4b8686e-b64d-4581-9b62-38605e55c707
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NCCI_METHOD_OF_SETTLEMENT_CODE
+            transform: CT.NCCI_METHOD_OF_SETTLEMENT_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 476839bb-a292-4147-9752-921d7b385e09
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1077,14 +1014,14 @@ operation:
           - columnReferences:
               - columnCounter: 93dd6279-8800-47e9-bc8c-9b7e9a265691
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.LOSS_PROGRAM_NUMBER
+            transform: CT.LOSS_PROGRAM_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f3d51cc0-7985-451e-962f-0428f57df5e9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 18274c35-d227-4a0b-ae9e-64d8962c0762
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1095,14 +1032,14 @@ operation:
           - columnReferences:
               - columnCounter: b41315b9-7b3c-4b36-a51f-d748281a1796
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.DENIAL_DATE
+            transform: CT.DENIAL_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 512b1d7d-5a39-4467-8736-61cdbf6f1837
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 3232070e-110f-488b-a4ff-a044d081f26f
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,2)
         defaultValue: ""
@@ -1113,14 +1050,14 @@ operation:
           - columnReferences:
               - columnCounter: 0f9a5676-e8e6-4277-a160-b08c4ed942b0
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.WEEKLY_BENEFIT
+            transform: CT.WEEKLY_BENEFIT
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
           columnCounter: a6c39f1c-43f9-4623-a2b1-12c82806871a
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1128,17 +1065,15 @@ operation:
         name: NCCI_TYPE_OF_LOSS_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: b2e84777-a720-410e-8e8e-d830b80f70fa
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NCCI_TYPE_OF_LOSS_FLAG
+          - columnReferences: []
+            transform: CT.NCCI_TYPE_OF_LOSS_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3232070e-110f-488b-a4ff-a044d081f26f
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 512b1d7d-5a39-4467-8736-61cdbf6f1837
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1146,17 +1081,15 @@ operation:
         name: NCCI_PPO_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: f285cf4b-d096-419b-b9f1-ac88e99441ec
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.NCCI_PPO_FLAG
+          - columnReferences: []
+            transform: CT.NCCI_PPO_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 18274c35-d227-4a0b-ae9e-64d8962c0762
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: f3d51cc0-7985-451e-962f-0428f57df5e9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
@@ -1164,17 +1097,15 @@ operation:
         name: TOTAL_LOST_WORK_DAYS
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 5d15a51a-7b89-4b21-a3f1-f0b15e4f483b
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.TOTAL_LOST_WORK_DAYS
+          - columnReferences: []
+            transform: CT.TOTAL_LOST_WORK_DAYS
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 476839bb-a292-4147-9752-921d7b385e09
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: c03e30f5-37f2-4416-950c-e2f7b809a7b7
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1182,17 +1113,15 @@ operation:
         name: CLIENT_OPTIONAL_CLAIM_CODE
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: a6312a7d-b108-410a-81a6-f343a41c1071
-                stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.CLIENT_OPTIONAL_CLAIM_CODES
+          - columnReferences: []
+            transform: CT.CLIENT_OPTIONAL_CLAIM_CODE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37b01d51-d30d-4537-8b09-3286595ab350
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
@@ -1203,14 +1132,14 @@ operation:
           - columnReferences:
               - columnCounter: 2d3345d3-8b77-4b72-b7e9-d9d303f889ef
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.INSURED_VEHICLE_YEAR
+            transform: CT.INSURED_VEHICLE_YEAR
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2d19e078-4337-4f81-a72e-0a568b201a4e
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1221,14 +1150,14 @@ operation:
           - columnReferences:
               - columnCounter: 48e71569-b5d1-432a-a9e9-fd48039e1159
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.INSURED_VEHICLE_MAKE
+            transform: CT.INSURED_VEHICLE_MAKE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b5f591f8-8c10-449d-b657-b45d2d0b555d
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1239,14 +1168,14 @@ operation:
           - columnReferences:
               - columnCounter: 2d1df36f-e3d8-4a6c-9457-3f338c2901c5
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.BENEFICIARY_INFORMATION
+            transform: CT.BENEFICIARY_INFORMATION
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e86d1494-b384-473d-88b5-e65b403d159b
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 32a76f24-39f2-4bd5-a4f6-7b2d58066c11
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1257,14 +1186,14 @@ operation:
           - columnReferences:
               - columnCounter: b57ef95f-9988-4683-9b80-1a48c281df69
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.REPORTING_UNIT_NUMBER
+            transform: CT.REPORTING_UNIT_NUMBER
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5d38ac55-d14c-4573-a6cd-77708518e154
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 8251e06a-5431-4191-8815-5606d1565cd9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1275,14 +1204,14 @@ operation:
           - columnReferences:
               - columnCounter: c796014e-9d22-4919-8692-07a82747385f
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.RETURN_TO_WORK_FULL_DUTY_DATE
+            transform: CT.RETURN_TO_WORK_FULL_DUTY_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f4585-78e9-4e12-b5e1-7009951684c9
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 48970878-0c6f-474d-9669-e58f000b0b8c
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1293,14 +1222,14 @@ operation:
           - columnReferences:
               - columnCounter: bf89f1f0-327c-4734-93e1-d575c6131d2b
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.RETURN_TO_WORK_RELEASE_DATE
+            transform: CT.RETURN_TO_WORK_RELEASE_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d8a95d03-2475-4335-b203-1e5b47a988d5
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 77b91d24-d2e4-4a46-88ab-d343467c6999
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1311,14 +1240,14 @@ operation:
           - columnReferences:
               - columnCounter: d364d2d4-0994-4d8b-80aa-3b567d022b39
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.REPRESENTATION_DATE
+            transform: CT.REPRESENTATION_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: a18a666e-b3f2-4952-a63e-6d042146e2a2
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1329,14 +1258,14 @@ operation:
           - columnReferences:
               - columnCounter: 5d5351ef-8d6c-482a-9ac9-93e1554523d4
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.SALARY_CONTINUED_START_DATE
+            transform: CT.SALARY_CONTINUED_START_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 01f5f308-569d-4763-9d8a-63b7e6f662a6
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 154784a3-ff1f-4137-b2f7-fbb509b23b49
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1347,14 +1276,14 @@ operation:
           - columnReferences:
               - columnCounter: 56972749-d779-4a94-b1c4-118c7c91c01e
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.SALARY_CONTINUED_END_DATE
+            transform: CT.SALARY_CONTINUED_END_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
           columnCounter: 3a2862d7-9519-4b49-b004-9842a8b34f77
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1365,14 +1294,14 @@ operation:
           - columnReferences:
               - columnCounter: d24e1837-e522-4113-a7ca-158a74136952
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.MEDICAL_TO_INDEMNITY_DATE
+            transform: CT.MEDICAL_TO_INDEMNITY_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 154784a3-ff1f-4137-b2f7-fbb509b23b49
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 01f5f308-569d-4763-9d8a-63b7e6f662a6
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -1383,14 +1312,14 @@ operation:
           - columnReferences:
               - columnCounter: 479d5018-9721-4d1a-826d-e498c0d5402a
                 stepCounter: 676b7713-356a-493e-9020-f55a15998a1a
-            transform: ATC.LAST_REVIEW_DATE
+            transform: CT.LAST_REVIEW_DATE
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 77b91d24-d2e4-4a46-88ab-d343467c6999
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: d166299b-5134-45e0-aa31-e1f14417a86f
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1405,8 +1334,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 48970878-0c6f-474d-9669-e58f000b0b8c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: d8a95d03-2475-4335-b203-1e5b47a988d5
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
@@ -1417,15 +1346,14 @@ operation:
           - columnReferences:
               - columnCounter: a18a666e-b3f2-4952-a63e-6d042146e2a2
                 stepCounter: 59a16f6b-5d25-4648-8314-b159f81cd420
-            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM')
-              }} WHERE SOURCE_SYSTEM = 'GB')
+            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 32a76f24-39f2-4bd5-a4f6-7b2d58066c11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5694c965-cd33-4c9f-85d6-ecf059c258d4
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: TIMESTAMP_NTZ
         defaultValue: ""
@@ -1440,8 +1368,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c11e1f81-591e-450f-a952-473d0979eb11
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 0f2f4585-78e9-4e12-b5e1-7009951684c9
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1456,8 +1384,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6b36141c-8b85-4a25-992e-503c80ff6f08
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 322c3653-333e-4009-bb4f-ff8e4b7c10b7
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: TIMESTAMP_NTZ
         defaultValue: ""
@@ -1472,8 +1400,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9e061845-a4b0-4f51-b844-323ecb8e734c
-          stepCounter: 543ef810-67c2-4820-912b-3c467140f85b
+          columnCounter: 5d38ac55-d14c-4573-a6cd-77708518e154
+          stepCounter: 97816040-420a-4a6c-9418-47e9bb7639bb
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -1483,29 +1411,65 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: "'spaca_aca_claim_transaction_staging_gb_insert'"
-    cteString: ""
+    cteString: |-
+      WITH distinct_claims AS (
+          SELECT DISTINCT
+              UNIQUE_CLAIM_ID
+          FROM {{ ref('DBSHIFT', 'VW_TMP_ACA_TRANSACTION_CLAIM') }}
+      ),
+      max_dates AS (
+          SELECT
+              SOURCE_SYSTEM_CLAIM_ID,
+              MAX(ACA_TRANSACTION_DATE) AS ACA_TRANSACTION_DATE
+          FROM {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }}
+          WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+          GROUP BY SOURCE_SYSTEM_CLAIM_ID
+      )
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          VW_TMP_ACA_TRANSACTION_CLAIM: T
-          ACA_TRANSACTION_CLAIM: ATC
+          CT: 676b7713-356a-493e-9020-f55a15998a1a
+          SS: 59a16f6b-5d25-4648-8314-b159f81cd420
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
-            nodeName: VW_TMP_ACA_TRANSACTION_CLAIM
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_TRANSACTION_CLAIM
           - locationName: DBSHIFT
             nodeName: ACA_SOURCE_SYSTEM
+          - locationName: TARGET
+            nodeName: VW_TMP_ACA_TRANSACTION_CLAIM
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'VW_TMP_ACA_TRANSACTION_CLAIM') }}
-            AS "T" INNER JOIN {{ ref('DBSHIFT', 'ACA_TRANSACTION_CLAIM') }} AS
-            "ATC" ON T.ACA_TRANSACTION_CLAIM_ID = ATC.ACA_TRANSACTION_CLAIM_ID WHERE
-            T.ROW_NUM_SEQ = 1
-        name: STG_GB_NEW_TRANSACTIONS
+          joinCondition: |-
+            FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_TRANSACTION_CLAIM') }} AS ct
+            INNER JOIN {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_SOURCE_SYSTEM') }} AS ss
+              ON ct.ACA_SOURCE_SYSTEM_ID = ss.ACA_SOURCE_SYSTEM_ID
+              AND ss.SOURCE_SYSTEM = 'GB'
+            INNER JOIN (
+              SELECT DISTINCT unique_claim_id AS UNIQUE_CLAIM_ID
+              FROM {{ ref('TARGET', 'VW_TMP_ACA_TRANSACTION_CLAIM') }}
+            ) AS t 
+              ON ct.SOURCE_SYSTEM_CLAIM_ID = t.UNIQUE_CLAIM_ID
+            INNER JOIN (
+              SELECT source_system_claim_id AS SOURCE_SYSTEM_CLAIM_ID, 
+                     MAX(aca_transaction_date) AS ACA_TRANSACTION_DATE
+              FROM {{ ref('ALLIANT_CLAIM_ASTRUS', 'ACA_CLAIM_TRANSACTION') }}
+              WHERE aca_source_system_id = (
+                SELECT ACA_SOURCE_SYSTEM_ID 
+                FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_SOURCE_SYSTEM') }} 
+                WHERE SOURCE_SYSTEM = 'GB'
+              )
+              GROUP BY source_system_claim_id
+            ) AS act 
+              ON act.SOURCE_SYSTEM_CLAIM_ID = ct.SOURCE_SYSTEM_CLAIM_ID 
+              AND act.ACA_TRANSACTION_DATE = ct.ACA_TRANSACTION_DATE
+        name: STG_GB_CURRENT_TRANSACTIONS
         noLinkRefs: []
-  name: STG_GB_NEW_TRANSACTIONS
+  name: STG_GB_CURRENT_TRANSACTIONS
   overrideSQL: false
   schema: DBSHIFT_TRANSFORM
   sqlType: View
