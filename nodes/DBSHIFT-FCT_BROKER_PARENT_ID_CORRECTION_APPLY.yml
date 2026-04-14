@@ -68,7 +68,13 @@ operation:
             transform: CURRENT_TIMESTAMP()
     cteString: ""
     enabledColumnTestIDs: []
-    sourceMapping: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: FCT_BROKER_PARENT_ID_CORRECTION_APPLY
+        noLinkRefs: []
   name: FCT_BROKER_PARENT_ID_CORRECTION_APPLY
   overrideSQL: false
   schema: DBSHIFT_CONTROL

@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: PLANNING_ALLIANT
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -72,21 +72,19 @@ operation:
           - columnReferences:
               - columnCounter: 2a897b6c-4a1d-4b08-7e1b-2a796a5b4c3d
                 stepCounter: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
-            transform: TRY_CAST(REPLACE(D.PARENT_PLANNING_ID, '_Producer_Parent', '')
-              AS INT)
+            transform: TRY_CAST(REPLACE(D.PARENT_PLANNING_ID, '_Producer_Parent', '') AS INT)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          V_DUPLICATE_LOOKUPS: d
+          D: 8d1d4b5c-6e3a-4f6b-9e4d-3e8b5c6d7e8f
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: V_DUPLICATE_LOOKUPS
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'V_DUPLICATE_LOOKUPS') }} "D" WHERE
-            D.ROW_ID <> 1
+          joinCondition: FROM {{ ref('TARGET', 'V_DUPLICATE_LOOKUPS') }} "D" WHERE D.ROW_ID <> 1
         name: V_BROKER_LIST_TO_UPDATE
         noLinkRefs: []
   name: V_BROKER_LIST_TO_UPDATE

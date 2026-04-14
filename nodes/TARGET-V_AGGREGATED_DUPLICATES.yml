@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -59,15 +59,15 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          PLANNING_FCCS_BROKER: pfb
+          PFB: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_BROKER
         join:
           joinCondition: |-
-            FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} "PFB"
+            FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_BROKER') }} PFB
             GROUP BY PFB.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
             HAVING COUNT(DISTINCT PFB.DW_SOURCE_SYSTEM_ID) > 1 AND COUNT(DISTINCT PFB.PARENT_PLANNING_ID) = 1
         name: V_AGGREGATED_DUPLICATES

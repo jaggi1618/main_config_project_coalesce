@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -98,25 +98,22 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: RANK() OVER(PARTITION BY C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE ORDER BY
-              C.CURRENT_FLAG, C.DW_DATE_CREATED, C.PLANNING_FCCS_BROKER_ID)
+            transform: RANK() OVER(PARTITION BY C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE ORDER BY C.CURRENT_FLAG, C.DW_DATE_CREATED, C.PLANNING_FCCS_BROKER_ID)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          PLANNING_FCCS_BROKER: c
-          V_AGGREGATED_DUPLICATES: dup
+          C: 5a8a1e2f-9b0d-4c3e-8b1a-0e9f2a3d4b5c
+          DUP: 7c0c3a4b-7d2f-4e5a-8d3c-2f9a4b5c6d7e
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_BROKER
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: V_AGGREGATED_DUPLICATES
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_BROKER') }} "C" INNER JOIN
-            {{ ref('DBSHIFT', 'V_AGGREGATED_DUPLICATES') }} "DUP" ON C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
-            = DUP.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+          joinCondition: FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_BROKER') }} "C" INNER JOIN {{ ref('TARGET', 'V_AGGREGATED_DUPLICATES') }} "DUP" ON C.SOURCE_SYSTEM_BROKER_LOOKUP_CODE = DUP.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
         name: V_DUPLICATE_LOOKUPS
         noLinkRefs: []
   name: V_DUPLICATE_LOOKUPS
