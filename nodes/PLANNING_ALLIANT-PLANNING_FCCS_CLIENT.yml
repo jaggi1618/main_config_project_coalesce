@@ -8,46 +8,48 @@ operation:
       BEGIN
           USE DATABASE PLANNING_ALLIANT;
 
-      	-- Do the Updates
-      	UPDATE	PC
-      	SET		PC.CLIENT_NAME		= PCS.CLIENT_NAME
-      			, PC.PLANNING_ALIAS	= PCS.PLANNING_ALIAS
-      			, PC.CLIENT_STATUS_INDICATOR = 'U'
-      			, PC.DW_DATE_UPDATED = CURRENT_TIMESTAMP()
-      			, PC.DW_UPDATE_USER  = 'sppa_planning_fccs_client_insertUpdate'
-      	FROM	PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT AS PC
-      	 INNER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT_STAGING') }} AS PCS  ON PC.PLANNING_ID = PCS.PLANNING_ID AND PCS.CLIENT_STATUS_INDICATOR = 'U';
+          -- Do the Updates
+          UPDATE PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT
+          SET    CLIENT_NAME                = PCS.CLIENT_NAME
+                 , PLANNING_ALIAS          = PCS.PLANNING_ALIAS
+                 , CLIENT_STATUS_INDICATOR = 'U'
+                 , DW_DATE_UPDATED         = CURRENT_TIMESTAMP()
+                 , DW_UPDATE_USER          = 'sppa_planning_fccs_client_insertUpdate'
+          FROM   PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT AS PC
+          INNER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT_STAGING') }} AS PCS 
+                 ON PC.PLANNING_ID = PCS.PLANNING_ID 
+                 AND PCS.CLIENT_STATUS_INDICATOR = 'U';
 
-
-      	-- Update current_flag to 'Y'
-      	UPDATE	PC
-      	SET		CURRENT_FLAG      = 'Y'
-      			, DW_DATE_UPDATED = CURRENT_TIMESTAMP()
-      			, DW_UPDATE_USER  = 'sppa_planning_fccs_client_insertUpdate'
-      	FROM	PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT AS PC
-      	INNER JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT_STAGING') }} AS STG ON PC.PLANNING_ID = STG.PLANNING_ID
-      	AND		IFNULL(PC.CURRENT_FLAG, '') <> 'Y';
+          -- Update SYSTEM_CURRENT_FLAG to 'Y'
+          UPDATE PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT
+          SET    SYSTEM_CURRENT_FLAG = 'Y'
+                 , DW_DATE_UPDATED   = CURRENT_TIMESTAMP()
+                 , DW_UPDATE_USER    = 'sppa_planning_fccs_client_insertUpdate'
+          FROM   PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT AS PC
+          INNER JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT_STAGING') }} AS STG 
+                 ON PC.PLANNING_ID = STG.PLANNING_ID
+          WHERE  IFNULL(PC.SYSTEM_CURRENT_FLAG, '') <> 'Y';
 
       END;
     preSQL: |-
       BEGIN
           USE DATABASE PLANNING_ALLIANT;
 
-      	-- First set status to NULL
-      	UPDATE	PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT
-      	SET		CLIENT_STATUS_INDICATOR = NULL
-      	WHERE CLIENT_STATUS_INDICATOR IS NOT NULL;
+          -- First set status to NULL
+          UPDATE PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT
+          SET    CLIENT_STATUS_INDICATOR = NULL
+          WHERE  CLIENT_STATUS_INDICATOR IS NOT NULL;
 
-      	
-      	-- Set current_flag to 'N'
-      	UPDATE	PC
-      	SET		CURRENT_FLAG	  = 'N' 
-      			, DW_DATE_UPDATED = CURRENT_TIMESTAMP()
-      			, DW_UPDATE_USER  = 'sppa_planning_fccs_client_insertUpdate'
-      	FROM	PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT AS PC
-      	LEFT JOIN {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT_STAGING') }} AS STG ON PC.PLANNING_ID = STG.PLANNING_ID
-      	WHERE	IFNULL(PC.CURRENT_FLAG, 'Y') = 'Y'
-      	AND		STG.PLANNING_ID IS NULL;
+          -- Set SYSTEM_CURRENT_FLAG to 'N'
+          UPDATE PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT
+          SET    SYSTEM_CURRENT_FLAG = 'N'
+                 , DW_DATE_UPDATED   = CURRENT_TIMESTAMP()
+                 , DW_UPDATE_USER    = 'sppa_planning_fccs_client_insertUpdate'
+          FROM   PLANNING_ALLIANT.DBO.PLANNING_FCCS_CLIENT AS PC
+          LEFT JOIN {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT_STAGING') }} AS STG 
+                 ON PC.PLANNING_ID = STG.PLANNING_ID
+          WHERE  IFNULL(PC.SYSTEM_CURRENT_FLAG, 'Y') = 'Y'
+          AND    STG.PLANNING_ID IS NULL;
 
       END;
     testsEnabled: true
@@ -56,7 +58,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: PLANNING_ALLIANT
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -388,15 +390,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_PLANNING_FCCS_CLIENT_INSERT: src
+          SRC: 54a4a58b-7004-44ed-9602-466d691e1d03
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: TARGET
             nodeName: STG_PLANNING_FCCS_CLIENT_INSERT
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'STG_PLANNING_FCCS_CLIENT_INSERT')
-            }} "src"
+          joinCondition: FROM {{ ref('TARGET', 'STG_PLANNING_FCCS_CLIENT_INSERT') }} SRC
         name: PLANNING_FCCS_CLIENT
         noLinkRefs: []
   name: PLANNING_FCCS_CLIENT

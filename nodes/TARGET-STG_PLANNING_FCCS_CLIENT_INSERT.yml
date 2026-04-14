@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -194,7 +194,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''sppa_planning_fccs_client_insertUpdate'''
+            transform: "'sppa_planning_fccs_client_insertUpdate'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: ca43034d-e9c5-412f-abf3-78f99723bb7c
@@ -218,20 +218,19 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: '''sppa_planning_fccs_client_insertUpdate'''
+            transform: "'sppa_planning_fccs_client_insertUpdate'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          PLANNING_FCCS_CLIENT_STAGING: stg
+          STG: 61009149-6523-455b-b9f1-a1ab3e46c760
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: PLANNING_ALLIANT
             nodeName: PLANNING_FCCS_CLIENT_STAGING
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'PLANNING_FCCS_CLIENT_STAGING') }} "stg"
-            WHERE STG.CLIENT_STATUS_INDICATOR = 'N'
+          joinCondition: FROM {{ ref('PLANNING_ALLIANT', 'PLANNING_FCCS_CLIENT_STAGING') }} STG WHERE STG.CLIENT_STATUS_INDICATOR = 'N'
         name: STG_PLANNING_FCCS_CLIENT_INSERT
         noLinkRefs: []
   name: STG_PLANNING_FCCS_CLIENT_INSERT
