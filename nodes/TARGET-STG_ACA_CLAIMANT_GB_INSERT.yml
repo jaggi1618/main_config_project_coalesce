@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: DBSHIFT
+  locationName: TARGET
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -475,14 +475,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ACA_CLAIMANT_STAGING_GB: b
+          B: 569e5593-3d77-448f-aa6a-20072b226e64
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: DBSHIFT
+          - locationName: ALLIANT_CLAIM_ASTRUS_STAGE
             nodeName: ACA_CLAIMANT_STAGING_GB
         join:
-          joinCondition: FROM {{ ref('DBSHIFT', 'ACA_CLAIMANT_STAGING_GB') }} "b"
+          joinCondition: FROM {{ ref('ALLIANT_CLAIM_ASTRUS_STAGE', 'ACA_CLAIMANT_STAGING_GB') }} B
         name: STG_ACA_CLAIMANT_GB_INSERT
         noLinkRefs: []
   name: STG_ACA_CLAIMANT_GB_INSERT
