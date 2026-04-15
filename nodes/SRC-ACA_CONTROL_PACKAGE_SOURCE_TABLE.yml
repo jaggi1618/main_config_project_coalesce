@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 61009149-6523-455b-b9f1-a1ab3e46c760
-name: PLANNING_FCCS_CLIENT_STAGING
+id: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+name: ACA_CONTROL_PACKAGE_SOURCE_TABLE
 operation:
-  database: PLANNING_ALLIANT
+  database: ""
   deployEnabled: true
   description: ""
-  locationName: PLANNING_ALLIANT
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,32 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 97818e00-54e7-4951-b844-33a7593c6f0c
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: 5ce20282-5a32-4c42-b5ba-bda93f096624
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: PARENT_PLANNING_ID
+        name: ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8c2e81a-e9d3-44a3-ad20-0d08fc941578
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: ACA_DATE_UPDATED
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e8c67923-d6c2-48a0-9831-a0a4309386c9
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: 172c732c-fdad-4ad7-af56-a42af6cb2039
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: PLANNING_ID
+        name: SOURCE_GROUP_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b1904a0e-a616-43b6-96b4-0c159841f37e
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: 1ba7e6bd-d27c-4f1e-ba31-4db855a25328
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: CLIENT_NAME
+        name: BACKED_UP_FLAG
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9534fef9-8b83-4a1e-8e8f-7d9a105c3127
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: e57218f1-228e-4f47-99fd-8bdeb81cc16a
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(128)
         defaultValue: ""
         description: ""
-        name: CLIENT_LOOKUP_CODE
+        name: DATABASE_NAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a206b02a-28ac-4b67-9d7a-59427b0c8d19
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: 6dc29749-f5f0-4351-ac38-d9f1d0f6c459
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(128)
         defaultValue: ""
         description: ""
-        name: PLANNING_ALIAS
+        name: SCHEMA_NAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,13 +127,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2e26048d-29c2-487b-8458-7c87c06c888d
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: 4051fffe-8225-49ec-9015-972d3e2b60b8
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(128)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        name: TABLE_NAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -127,13 +146,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 77a16f27-6f0a-49eb-abcc-2f741d7d0a64
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: cd97002e-3ad3-4898-a8d3-0340951f3c5b
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(128)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CLIENT_ID
+        name: BACKUP_TABLE_NAME_POSTFIX
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -146,13 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: d166299b-d72e-4b72-8703-e8631b26ec17
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
+          columnCounter: fe9056f4-4b01-4ff3-b3c0-0d0682b085cb
+          stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
         config: {}
-        dataType: INT
+        dataType: VARCHAR(256)
         defaultValue: ""
         description: ""
-        name: DW_CLIENT_MASTER_ID
+        name: ACA_UPDATE_USER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -160,65 +179,8 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 8b674a58-0320-410a-b336-b5d1209b5ca3
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
-        config: {}
-        dataType: VARCHAR
-        defaultValue: ""
-        description: ""
-        name: SOURCE_SYSTEM
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 7f1e7392-4952-4a0b-967b-142646d7e003
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
-        config: {}
-        dataType: INT
-        defaultValue: ""
-        description: ""
-        name: DW_SOURCE_SYSTEM_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e341e2a0-da67-4632-a746-814144177d07
-          stepCounter: 61009149-6523-455b-b9f1-a1ab3e46c760
-        config: {}
-        dataType: VARCHAR
-        defaultValue: ""
-        description: ""
-        name: CLIENT_STATUS_INDICATOR
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: PLANNING_FCCS_CLIENT_STAGING
-  schema: DBO
+  name: ACA_CONTROL_PACKAGE_SOURCE_TABLE
+  schema: ""
   sqlType: Source
   type: sourceInput
   version: 1

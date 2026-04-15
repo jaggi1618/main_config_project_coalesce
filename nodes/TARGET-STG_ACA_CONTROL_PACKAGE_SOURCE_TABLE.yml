@@ -1,0 +1,185 @@
+fileVersion: 1
+id: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+name: STG_ACA_CONTROL_PACKAGE_SOURCE_TABLE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+          LET drop_sql VARCHAR(16777216);
+          LET backup_sql VARCHAR(16777216);
+
+          -- STEP 1: Drop existing unbacked-up backup tables
+          SELECT 'BEGIN ' || LISTAGG(
+                     'EXECUTE IMMEDIATE ''DROP TABLE IF EXISTS '
+                     || database_name || '.' || schema_name || '.' || table_name || backup_table_name_postfix
+                     || ''';'
+                 , ' ') || ' END;'
+            INTO :drop_sql
+            FROM {{ ref_no_link('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+           WHERE backed_up_flag = 0
+             AND source_group_id = 1;
+
+          IF (:drop_sql IS NOT NULL AND :drop_sql != 'BEGIN  END;') THEN
+              EXECUTE IMMEDIATE :drop_sql;
+          END IF;
+
+          -- STEP 2: Create backup tables + truncate source tables
+          SELECT 'BEGIN ' || LISTAGG(
+                     'EXECUTE IMMEDIATE ''CREATE TABLE '
+                     || database_name || '.' || schema_name || '.' || table_name || backup_table_name_postfix
+                     || ' AS SELECT * FROM ' || database_name || '.' || schema_name || '.' || table_name
+                     || '''; '
+                     || 'EXECUTE IMMEDIATE ''TRUNCATE TABLE '
+                     || database_name || '.' || schema_name || '.' || table_name
+                     || ''';'
+                 , ' ') || ' END;'
+            INTO :backup_sql
+            FROM {{ ref_no_link('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+           WHERE backed_up_flag = 0
+             AND source_group_id = 1;
+
+          IF (:backup_sql IS NOT NULL AND :backup_sql != 'BEGIN  END;') THEN
+              EXECUTE IMMEDIATE :backup_sql;
+          END IF;
+
+          -- STEP 3: Bulk UPDATE flag
+          UPDATE {{ ref_no_link('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+             SET backed_up_flag = 1,
+                 aca_date_updated = CURRENT_TIMESTAMP(),
+                 aca_update_user = 'spaca_aca_control_package_source_table_update'
+           WHERE backed_up_flag = 0
+             AND source_group_id = 1;
+
+      END;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 149cace6-6a2c-4856-a3d4-34b12d7779c0
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ce20282-5a32-4c42-b5ba-bda93f096624
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72361d77-634b-4db6-8d2e-8c72148e51dc
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: DATABASE_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e57218f1-228e-4f47-99fd-8bdeb81cc16a
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02b970e8-d0c9-485c-9330-d6de0382e701
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: SCHEMA_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6dc29749-f5f0-4351-ac38-d9f1d0f6c459
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3fc2c1b1-499f-477b-bb40-c60ff0460d95
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: TABLE_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4051fffe-8225-49ec-9015-972d3e2b60b8
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a12e7be-4a94-4e17-a205-718f12070156
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: BACKUP_TABLE_NAME_POSTFIX
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd97002e-3ad3-4898-a8d3-0340951f3c5b
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50375d25-fd99-4484-a9dd-e25ee6fe86f8
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8c2e81a-e9d3-44a3-ad20-0d08fc941578
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6a2d462-478a-4f27-ac87-f6d02a2307a4
+          stepCounter: b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe9056f4-4b01-4ff3-b3c0-0d0682b085cb
+                stepCounter: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CONTROL_PACKAGE_SOURCE_TABLE: 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: ACA_CONTROL_PACKAGE_SOURCE_TABLE
+        join:
+          joinCondition: FROM {{ ref('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }} "ACA_CONTROL_PACKAGE_SOURCE_TABLE"
+        name: STG_ACA_CONTROL_PACKAGE_SOURCE_TABLE
+        noLinkRefs: []
+  name: STG_ACA_CONTROL_PACKAGE_SOURCE_TABLE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
