@@ -1,0 +1,204 @@
+fileVersion: 1
+id: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+name: CTEEXPERIENCE
+type: Node
+operation:
+  name: CTEEXPERIENCE
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_TRANSACTION_EXPERIENCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f3f3f3f-3f3f-3f3f-3f3f-3f3f3f3f3f3f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.ACA_TRANSACTION_EXPERIENCE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f4f4f4f-4f4f-4f4f-4f4f-4f4f4f4f4f4f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f5f5f5f-5f5f-5f5f-5f5f-5f5f5f5f5f5f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f6f6f6f-6f6f-6f6f-6f6f-6f6f6f6f6f6f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_AMOUNT1
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a5a5a5a-5a5a-5a5a-5a5a-5a5a5a5a5a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f7f7f7f-7f7f-7f7f-7f7f-7f7f7f7f7f7f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_AMOUNT2
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a6a6a6a-6a6a-6a6a-6a6a-6a6a6a6a6a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_AMOUNT3
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a7a7a7a-7a7a-7a7a-7a7a-7a7a7a7a7a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f9f9f9f-9f9f-9f9f-9f9f-9f9f9f9f9f9f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_AMOUNT4
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a0a0a0a-0a0a-0a0a-0a0a-0a0a0a0a0a0a
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_AMOUNT5
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a9a9a9a-9a9a-9a9a-9a9a-9a9a9a9a9a18
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1b
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_AMOUNT6
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b0b0b0b-0b0b-0b0b-0b0b-0b0b0b0b0b19
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: TOTAL_EXPERIENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a2b
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ACA_TRANSACTION_EXPERIENCE.TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b1b1b1b-1b1b-1b1b-1b1b-1b1b1b1b1b19
+          stepCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ''
+        name: ROW_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f4f4f4f-4f4f-4f4f-4f4f-4f4f4f4f4f4f
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - columnCounter: 3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3b
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - columnCounter: 4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a4b
+                stepCounter: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+            transform: ROW_NUMBER() OVER (PARTITION BY ACA_TRANSACTION_EXPERIENCE.UNIQUE_CLAIM_ID
+              ORDER BY ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_TRANSACTION_DATE DESC,
+              ACA_TRANSACTION_EXPERIENCE.TRANSACTION_SEQUENCE_NUMBER ASC)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_EXPERIENCE: ACA_TRANSACTION_EXPERIENCE
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_TRANSACTION_EXPERIENCE
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_TRANSACTION_EXPERIENCE'')
+            }} AS ACA_TRANSACTION_EXPERIENCE
+
+            WHERE ACA_TRANSACTION_EXPERIENCE.EXPERIENCE_TRANSACTION_DATE <= {{ parameters.TRANSDATE
+            }}'
+        name: CTEEXPERIENCE
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

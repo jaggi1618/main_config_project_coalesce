@@ -1,0 +1,178 @@
+fileVersion: 1
+id: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+name: TMP_RECOVERY_CURRENT
+type: Node
+operation:
+  name: TMP_RECOVERY_CURRENT
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a9a9a9a-9a9a-9a9a-9a9a-9a9a9a9a9a24
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b9b9b9b-9b9b-9b9b-9b9b-9b9b9b9b9b9c
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: TP.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b0b0b0b-0b0b-0b0b-0b0b-0b0b0b0b0b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c0c0c0c-0c0c-0c0c-0c0c-0c0c0c0c0c0d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: TP.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b1b1b1b-1b1b-1b1b-1b1b-1b1b1b1b1b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLASS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a6a6a6a-6a6a-6a6a-6a6a-6a6a6a6a6a6b
+                stepCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+            transform: ACC.CLASS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: RECOVERY_AMOUNT1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c1c1c1c-1c1c-1c1c-1c1c-1c1c1c1c1c1d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: SUM(TP.RECOVERY_AMOUNT1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: RECOVERY_AMOUNT2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c2c2c2c-2c2c-2c2c-2c2c-2c2c2c2c2c2d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: SUM(TP.RECOVERY_AMOUNT2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b4b4b4b-4b4b-4b4b-4b4b-4b4b4b4b4b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: RECOVERY_AMOUNT3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c3c3c3c-3c3c-3c3c-3c3c-3c3c3c3c3c3d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: SUM(TP.RECOVERY_AMOUNT3)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: RECOVERY_AMOUNT4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c4c4c4c-4c4c-4c4c-4c4c-4c4c4c4c4c4d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: SUM(TP.RECOVERY_AMOUNT4)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b6b6b6b-6b6b-6b6b-6b6b-6b6b6b6b6b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: RECOVERY_AMOUNT5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c5c5c5c-5c5c-5c5c-5c5c-5c5c5c5c5c5d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: SUM(TP.RECOVERY_AMOUNT5)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b7b7b7b-7b7b-7b7b-7b7b-7b7b7b7b7b25
+          stepCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: RECOVERY_AMOUNT6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c6c6c6c-6c6c-6c6c-6c6c-6c6c6c6c6c6d
+                stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+            transform: SUM(TP.RECOVERY_AMOUNT6)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TP: TP
+          ACC: ACC
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_COVERAGE_CODE
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_TRANSACTION_THIRD_PARTY_RECOVERY'')
+            }} AS TP
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_COVERAGE_CODE'')
+            }} AS ACC ON TP.CLAIM_COVERAGE_CODE = ACC.CODE
+
+            WHERE TP.THIRD_PARTY_RECOVERY_TRANSACTION_DATE <= {{ parameters.TRANSDATE
+            }}
+
+            GROUP BY TP.UNIQUE_CLAIM_ID, TP.CLAIM_COVERAGE_CODE, ACC.CLASS'
+        name: TMP_RECOVERY_CURRENT
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

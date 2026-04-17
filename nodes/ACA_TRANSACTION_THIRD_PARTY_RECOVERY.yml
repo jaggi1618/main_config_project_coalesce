@@ -1,0 +1,151 @@
+fileVersion: 1
+id: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+type: Node
+operation:
+  name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b9b9b9b-9b9b-9b9b-9b9b-9b9b9b9b9b9c
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c0c0c0c-0c0c-0c0c-0c0c-0c0c0c0c0c0d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c1c1c1c-1c1c-1c1c-1c1c-1c1c1c1c1c1d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ''
+        description: ''
+        name: RECOVERY_AMOUNT1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c2c2c2c-2c2c-2c2c-2c2c-2c2c2c2c2c2d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ''
+        description: ''
+        name: RECOVERY_AMOUNT2
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c3c3c3c-3c3c-3c3c-3c3c-3c3c3c3c3c3d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ''
+        description: ''
+        name: RECOVERY_AMOUNT3
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c4c4c4c-4c4c-4c4c-4c4c-4c4c4c4c4c4d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ''
+        description: ''
+        name: RECOVERY_AMOUNT4
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c5c5c5c-5c5c-5c5c-5c5c-5c5c5c5c5c5d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ''
+        description: ''
+        name: RECOVERY_AMOUNT5
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c6c6c6c-6c6c-6c6c-6c6c-6c6c6c6c6c6d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: NUMBER(38,2)
+        defaultValue: ''
+        description: ''
+        name: RECOVERY_AMOUNT6
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c7c7c7c-7c7c-7c7c-7c7c-7c7c7c7c7c7d
+          stepCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        config: {}
+        dataType: DATE
+        defaultValue: ''
+        description: ''
+        name: THIRD_PARTY_RECOVERY_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1

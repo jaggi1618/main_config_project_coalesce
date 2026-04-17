@@ -1,0 +1,85 @@
+fileVersion: 1
+id: d3e4f5a6-b7c8-d9e0-f1a2-b3c4d5e6f7a8
+name: PYRAMID_MAX_LEVEL
+type: Node
+operation:
+  name: PYRAMID_MAX_LEVEL
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c8c8c8c-8c8c-8c8c-8c8c-8c8c8c8c8c8d
+          stepCounter: d3e4f5a6-b7c8-d9e0-f1a2-b3c4d5e6f7a8
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLIENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e7e7e7e-7e7e-7e7e-7e7e-7e7e7e7e7e7e
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: ACA_PYRAMID.CLIENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c9c9c9c-9c9c-9c9c-9c9c-9c9c9c9c9c9d
+          stepCounter: d3e4f5a6-b7c8-d9e0-f1a2-b3c4d5e6f7a8
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e8e8e8e-8e8e-8e8e-8e8e-8e8e8e8e8e8e
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: ACA_PYRAMID.UNIT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d0d0d0d-0d0d-0d0d-0d0d-0d0d0d0d0d0e
+          stepCounter: d3e4f5a6-b7c8-d9e0-f1a2-b3c4d5e6f7a8
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: LEVEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e9e9e9e-9e9e-9e9e-9e9e-9e9e9e9e9e9e
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: MAX(ACA_PYRAMID.LEVEL)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_PYRAMID: ACA_PYRAMID
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PYRAMID
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_PYRAMID'')
+            }} AS ACA_PYRAMID
+
+            GROUP BY ACA_PYRAMID.CLIENT, ACA_PYRAMID.UNIT_ID'
+        name: PYRAMID_MAX_LEVEL
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

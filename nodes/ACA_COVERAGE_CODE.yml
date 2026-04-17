@@ -1,0 +1,46 @@
+fileVersion: 1
+id: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+name: ACA_COVERAGE_CODE
+type: Node
+operation:
+  name: ACA_COVERAGE_CODE
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_REF
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a5a5a5a-5a5a-5a5a-5a5a-5a5a5a5a5a5b
+          stepCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a6a6a6a-6a6a-6a6a-6a6a-6a6a6a6a6a6b
+          stepCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLASS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1

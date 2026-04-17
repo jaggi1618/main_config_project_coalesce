@@ -1,0 +1,90 @@
+fileVersion: 1
+id: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+name: TMP_PAYMENT_RESERVE_TYPE
+type: Node
+operation:
+  name: TMP_PAYMENT_RESERVE_TYPE
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f7f7f7f-7f7f-7f7f-7f7f-7f7f7f7f7f23
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f2f2f2f-2f2f-2f2f-2f2f-2f2f2f2f2f23
+                stepCounter: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+            transform: T1.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f23
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a9a9a9a-9a9a-9a9a-9a9a-9a9a9a9a9a9b
+                stepCounter: a0b1c2d3-e4f5-a6b7-c8d9-e0f1a2b3c4d5
+            transform: RT.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f9f9f9f-9f9f-9f9f-9f9f-9f9f9f9f9f23
+          stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PAYMENT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f3f3f3f-3f3f-3f3f-3f3f-3f3f3f3f3f23
+                stepCounter: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+            transform: T1.PAYMENT_AMOUNT
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          T1: T1
+          RT: RT
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+            nodeName: TMP_PAYMENT_PIVOT
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_RESERVE_TYPE_GB
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGING'', ''TMP_PAYMENT_PIVOT'')
+            }} AS T1
+
+            INNER JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_RESERVE_TYPE_GB'')
+            }} AS RT ON T1.CLASS = RT.CLASS_CODE AND T1.RESERVE_TYPE_COLUMN_NUMBER
+            = RT.RESERVE_TYPE_COLUMN_NUMBER'
+        name: TMP_PAYMENT_RESERVE_TYPE
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

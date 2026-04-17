@@ -1,0 +1,157 @@
+fileVersion: 1
+id: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+name: TMP_RECOVERY
+type: Node
+operation:
+  name: TMP_RECOVERY
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c6c6c6c-6c6c-6c6c-6c6c-6c6c6c6c6c26
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c3c3c3c-3c3c-3c3c-3c3c-3c3c3c3c3c26
+                stepCounter: 1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c
+            transform: PVT.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c7c7c7c-7c7c-7c7c-7c7c-7c7c7c7c7c26
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_BI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'B. I.'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c8c8c8c-8c8c-8c8c-8c8c-8c8c8c8c8c26
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_COLLISION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'COLLISION'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c9c9c9c-9c9c-9c9c-9c9c-9c9c9c9c9c26
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_COMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'COMP'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d0d0d0d-0d0d-0d0d-0d0d-0d0d0d0d0d27
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_EXPENSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'EXPENSE'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d1d1d1d-1d1d-1d1d-1d1d-1d1d1d1d1d27
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_INDEMNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'INDEMNITY'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d2d2d2d-2d2d-2d2d-2d2d-2d2d2d2d2d27
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'MEDICAL'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d3d3d3d-3d3d-3d3d-3d3d-3d3d3d3d3d27
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_PD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'P. D.'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d4d4d4d-4d4d-4d4d-4d4d-4d4d4d4d4d27
+          stepCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: REC_REHAB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'REHAB'",0.00)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          T1: T1
+          PVT: PVT
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+            nodeName: TMP_RECOVERY_RESERVE_TYPE
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGING'', ''TMP_RECOVERY_RESERVE_TYPE'')
+            }} AS T1
+
+            PIVOT (SUM(RECOVERY_AMOUNT) FOR RESERVE_TYPE IN (''B. I.'', ''BUILDING'',
+            ''COLLISION'', ''COMP'', ''CONTENTS'', ''EXPENSE'', ''EXTD. COVG.'', ''INDEMNITY'',
+            ''LOSS'', ''MEDICAL'', ''P. D.'', ''REHAB'', ''V & M.M.'', ''WAGE LOSS'',
+            ''Zero (0)'')) AS PVT'
+        name: TMP_RECOVERY
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

@@ -1,0 +1,104 @@
+fileVersion: 1
+id: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+name: TMP_EXP_RESERVE_TYPE
+type: Node
+operation:
+  name: TMP_EXP_RESERVE_TYPE
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c9c9c9c-9c9c-9c9c-9c9c-9c9c9c9c9c20
+          stepCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c3c3c3c-3c3c-3c3c-3c3c-3c3c3c3c3c20
+                stepCounter: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+            transform: EP.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d0d0d0d-0d0d-0d0d-0d0d-0d0d0d0d0d21
+          stepCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a9a9a9a-9a9a-9a9a-9a9a-9a9a9a9a9a9b
+                stepCounter: a0b1c2d3-e4f5-a6b7-c8d9-e0f1a2b3c4d5
+            transform: RT.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d1d1d1d-1d1d-1d1d-1d1d-1d1d1d1d1d21
+          stepCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: EXPERIENCE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c4c4c4c-4c4c-4c4c-4c4c-4c4c4c4c4c20
+                stepCounter: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+            transform: EP.EXPERIENCE_AMOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d2d2d2d-2d2d-2d2d-2d2d-2d2d2d2d2d21
+          stepCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: TOTAL_EXPERIENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c7c7c7c-7c7c-7c7c-7c7c-7c7c7c7c7c20
+                stepCounter: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+            transform: EP.TOTAL_EXPERIENCE
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          EP: EP
+          RT: RT
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+            nodeName: TMP_EXP_PIVOT
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_RESERVE_TYPE_GB
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGING'', ''TMP_EXP_PIVOT'')
+            }} AS EP
+
+            INNER JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_RESERVE_TYPE_GB'')
+            }} AS RT ON EP.CLASS = RT.CLASS_CODE AND EP.RESERVE_TYPE_COLUMN_NUMBER
+            = RT.RESERVE_TYPE_COLUMN_NUMBER'
+        name: TMP_EXP_RESERVE_TYPE
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

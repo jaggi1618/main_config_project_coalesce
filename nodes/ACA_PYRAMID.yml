@@ -1,0 +1,106 @@
+fileVersion: 1
+id: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+name: ACA_PYRAMID
+type: Node
+operation:
+  name: ACA_PYRAMID
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7e7e7e-7e7e-7e7e-7e7e-7e7e7e7e7e7e
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLIENT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e8e8e8e-8e8e-8e8e-8e8e-8e8e8e8e8e8e
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: UNIT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e9e9e9e-9e9e-9e9e-9e9e-9e9e9e9e9e9e
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: LEVEL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f0f0f0f-0f0f-0f0f-0f0f-0f0f0f0f0f0f
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: INSURED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f1f1f1f-1f1f-1f1f-1f1f-1f1f1f1f1f1f
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: SUBSIDIARY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f2f2f2f-2f2f-2f2f-2f2f-2f2f2f2f2f2f
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: UNIT_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1

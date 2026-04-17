@@ -1,0 +1,731 @@
+fileVersion: 1
+id: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+name: CTECLAIM
+type: Node
+operation:
+  name: CTECLAIM
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d1d1d1d-1d1d-1d1d-1d1d-1d1d1d1d1d1e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_TRANSACTION_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.ACA_TRANSACTION_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d2d2d2d-2d2d-2d2d-2d2d-2d2d2d2d2d2e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: DATE
+        description: ''
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a2a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d3d3d3d-3d3d-3d3d-3d3d-3d3d3d3d3d3e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a3a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.CLIENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d4d4d4d-4d4d-4d4d-4d4d-4d4d4d4d4d4e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACCIDENT_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a4a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: YEAR(C.ACCIDENT_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d5d5d5d-5d5d-5d5d-5d5d-5d5d5d5d5d5e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a5a5a5a-5a5a-5a5a-5a5a-5a5a5a5a5a5a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d6d6d6d-6d6d-6d6d-6d6d-6d6d6d6d6d6e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: WORKERS_COMPENSATION_CLAIMTYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a6a6a6a-6a6a-6a6a-6a6a-6a6a6a6a6a6a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.WORKERS_COMPENSATION_CLAIMTYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d7d7d7d-7d7d-7d7d-7d7d-7d7d7d7d7d7e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ''
+        name: CLAIMANT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a7a7a7a-7a7a-7a7a-7a7a-7a7a7a7a7a7a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+              - columnCounter: 8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a8a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+              - columnCounter: 9a9a9a9a-9a9a-9a9a-9a9a-9a9a9a9a9a9a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+              - columnCounter: 0b0b0b0b-0b0b-0b0b-0b0b-0b0b0b0b0b0b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: CASE WHEN C.CLAIMANT_NAME_FORMAT = 'I' THEN CONCAT(RTRIM(CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'),
+              NULL, C.CLAIMANT_LASTNAME_ENCRYPTED,1,'123') AS VARCHAR(16777216))),',
+              ',RTRIM(C.CLAIMANT_FIRSTNAME)) WHEN C.CLAIMANT_NAME_FORMAT = 'O' THEN
+              RTRIM(CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, C.CLAIMANT_ORGANIZATION_NAME_ENCRYPTED,1,'123')
+              AS VARCHAR(16777216))) ELSE 'Unknown Name Format' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d8d8d8d-8d8d-8d8d-8d8d-8d8d8d8d8d8e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: EMPLOYEE_OCCUPATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b1b1b1b-1b1b-1b1b-1b1b-1b1b1b1b1b1b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.EMPLOYEE_OCCUPATION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d9d9d9d-9d9d-9d9d-9d9d-9d9d9d9d9d9e
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: DATE
+        description: ''
+        name: ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a4a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.ACCIDENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e0e0e0e-0e0e-0e0e-0e0e-0e0e0e0e0e0f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: DATE
+        description: ''
+        name: REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b2b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.REPORTED_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e1e1e1e-1e1e-1e1e-1e1e-1e1e1e1e1e1f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b3b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.CLAIM_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e2e2e2e-2e2e-2e2e-2e2e-2e2e2e2e2e2f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: DATE
+        description: ''
+        name: CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b3b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+              - columnCounter: 4b4b4b4b-4b4b-4b4b-4b4b-4b4b4b4b4b4b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: CASE WHEN C.CLAIM_STATUS = 'CL' THEN C.STATUS_DATE ELSE NULL
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b5b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e4e4e4e-4e4e-4e4e-4e4e-4e4e4e4e4e4f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b6b6b6b-6b6b-6b6b-6b6b-6b6b6b6b6b6b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e5e5e5e-5e5e-5e5e-5e5e-5e5e5e5e5e5f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: DATE
+        description: ''
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b7b7b7b-7b7b-7b7b-7b7b-7b7b7b7b7b7b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.POLICY_EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e6e6e6e-6e6e-6e6e-6e6e-6e6e6e6e6e6f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: DATE
+        description: ''
+        name: POLICY_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b8b8b8b-8b8b-8b8b-8b8b-8b8b8b8b8b8b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.POLICY_EXPIRATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e7e7e7e-7e7e-7e7e-7e7e-7e7e7e7e7e7f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLAIMANT_NCCI_JOB_CLASSIFICATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b9b9b9b-9b9b-9b9b-9b9b-9b9b9b9b9b9b
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.CLAIMANT_NCCI_JOB_CLASSIFICATION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e8e8e8e-8e8e-8e8e-8e8e-8e8e8e8e8e8f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: LITIG_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: 'NULL'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e9e9e9e-9e9e-9e9e-9e9e-9e9e9e9e9e9f
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: SIC_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c0c0c0c-0c0c-0c0c-0c0c-0c0c0c0c0c0c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.SIC_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f0f0f0f-0f0f-0f0f-0f0f-0f0f0f0f0f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: PART_OF_BODY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c1c1c1c-1c1c-1c1c-1c1c-1c1c1c1c1c1c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.PART_OF_BODY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f1f1f1f-1f1f-1f1f-1f1f-1f1f1f1f1f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: PART_OF_BODY_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9d9d9d9d-9d9d-9d9d-9d9d-9d9d9d9d9d9d
+                stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+            transform: BPC.DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f2f2f2f-2f2f-2f2f-2f2f-2f2f2f2f2f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c2c2c2c-2c2c-2c2c-2c2c-2c2c2c2c2c2c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.ACCIDENT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f3f3f3f-3f3f-3f3f-3f3f-3f3f3f3f3f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: ACCIDENT_TYPE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e1e1e1e-1e1e-1e1e-1e1e-1e1e1e1e1e1e
+                stepCounter: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+            transform: ATC.DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f4f4f4f-4f4f-4f4f-4f4f-4f4f4f4f4f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: NATURE_OF_LOSS_CODE_BODILY_INJURY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c3c3c3c-3c3c-3c3c-3c3c-3c3c3c3c3c3c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.NATURE_OF_LOSS_CODE_BODILY_INJURY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f5f5f5f-5f5f-5f5f-5f5f-5f5f5f5f5f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: NATURE_OF_LOSS_BODILY_INJURY_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3e
+                stepCounter: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+            transform: NC.DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f6f6f6f-6f6f-6f6f-6f6f-6f6f6f6f6f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4c4c4c4c-4c4c-4c4c-4c4c-4c4c4c4c4c4c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f7f7f7f-7f7f-7f7f-7f7f-7f7f7f7f7f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: NATURE_OF_LOSS_PROPERTY_DAMAGE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3e
+                stepCounter: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+            transform: NC1.DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: ACCIDENT_SOURCE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5c5c5c5c-5c5c-5c5c-5c5c-5c5c5c5c5c5c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.ACCIDENT_SOURCE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f9f9f9f-9f9f-9f9f-9f9f-9f9f9f9f9f10
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: ACCIDENT_SOURCE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e5e5e5e-5e5e-5e5e-5e5e-5e5e5e5e5e5e
+                stepCounter: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
+            transform: ACCS.ACCIDENT_SOURCE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a0a0a0a-0a0a-0a0a-0a0a-0a0a0a0a0a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ''
+        name: DESCRIPTION_OF_LOSS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c6c6c6c-6c6c-6c6c-6c6c-6c6c6c6c6c6c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: RTRIM(CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL,
+              C.DESCRIPTION_OF_LOSS_ENCRYPTED,1,'123') AS VARCHAR(16777216)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: ACCIDENT_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c7c7c7c-7c7c-7c7c-7c7c-7c7c7c7c7c7c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.ACCIDENT_STATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: BENEFIT_JURISDICTION_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c8c8c8c-8c8c-8c8c-8c8c-8c8c8c8c8c8c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.BENEFIT_JURISDICTION_STATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: EXPOSURE_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c9c9c9c-9c9c-9c9c-9c9c-9c9c9c9c9c9c
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.EXPOSURE_STATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: CLAIMANT_AVERAGE_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d0d0d0d-0d0d-0d0d-0d0d-0d0d0d0d0d0d
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.CLAIMANT_AVERAGE_WEEKLY_WAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a5a5a5a-5a5a-5a5a-5a5a-5a5a5a5a5a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLAIM_ADJUSTING_BRANCH_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d1d1d1d-1d1d-1d1d-1d1d-1d1d1d1d1d1d
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.CLAIM_ADJUSTING_BRANCH_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a6a6a6a-6a6a-6a6a-6a6a-6a6a6a6a6a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: BRNCH_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: 'NULL'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a7a7a7a-7a7a-7a7a-7a7a-7a7a7a7a7a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: ACCIDENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d2d2d2d-2d2d-2d2d-2d2d-2d2d2d2d2d2d
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.ACCIDENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: COMPENSATION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d3d3d3d-3d3d-3d3d-3d3d-3d3d3d3d3d3d
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: C.COMPENSATION_RATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a9a9a9a-9a9a-9a9a-9a9a-9a9a9a9a9a11
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CLIENT_OPTIONAL_CLAIM_CODES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d4d4d4d-4d4d-4d4d-4d4d-4d4d4d4d4d4d
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: RTRIM(C.CLIENT_OPTIONAL_CLAIM_CODES)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b0b0b0b-0b0b-0b0b-0b0b-0b0b0b0b0b12
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: LEVEL_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f0f0f0f-0f0f-0f0f-0f0f-0f0f0f0f0f0f
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: PD.INSURED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b1b1b1b-1b1b-1b1b-1b1b-1b1b1b1b1b12
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: LEVEL_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f1f1f1f-1f1f-1f1f-1f1f-1f1f1f1f1f1f
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: PD.SUBSIDIARY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b12
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: LEVEL_4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d5d5d5d-5d5d-5d5d-5d5d-5d5d5d5d5d5d
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: RTRIM(C.REPORTING_UNIT_NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b12
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIT_NAME_4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f2f2f2f-2f2f-2f2f-2f2f-2f2f2f2f2f2f
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: PD.UNIT_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b4b4b4b-4b4b-4b4b-4b4b-4b4b4b4b4b12
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: MAX_TRANS_DATE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '1'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b12
+          stepCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ''
+        name: ROW_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a5a5a5a-5a5a-5a5a-5a5a-5a5a5a5a5a5a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+              - columnCounter: 2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a2a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+              - columnCounter: 1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a
+                stepCounter: 1e5c2b9a-4c2d-4b8f-8d7e-9f3a1c5b4d6e
+            transform: ROW_NUMBER() OVER (PARTITION BY C.UNIQUE_CLAIM_ID ORDER BY
+              C.TRANSACTION_DATE DESC, C.ACA_TRANSACTION_CLAIM_ID DESC)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACCS: ACCS
+          ATC: ATC
+          BPC: BPC
+          C: C
+          L: L
+          NC: NC
+          NC1: NC1
+          PD: PD
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_TRANSACTION_CLAIM
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_BODY_PART_CODE
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_ACCIDENT_TYPE_CODE
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_NATURE_CODE
+          - locationName: ALLIANT_CLAIMS_ASTRUS_REF
+            nodeName: ACA_ACCIDENT_SOURCE_CODE
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+            nodeName: PYRAMID_MAX_LEVEL
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PYRAMID
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_TRANSACTION_CLAIM'')
+            }} AS C
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_BODY_PART_CODE'')
+            }} AS BPC ON C.PART_OF_BODY_CODE = BPC.PART_OF_BODY_CODE
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_ACCIDENT_TYPE_CODE'')
+            }} AS ATC ON C.ACCIDENT_TYPE_CODE = ATC.TYPE_CODE
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_NATURE_CODE'') }}
+            AS NC ON C.NATURE_OF_LOSS_CODE_BODILY_INJURY = NC.NATURE_CODE
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_NATURE_CODE'') }}
+            AS NC1 ON C.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE = NC1.NATURE_CODE
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_REF'', ''ACA_ACCIDENT_SOURCE_CODE'')
+            }} AS ACCS ON C.ACCIDENT_SOURCE_CODE = ACCS.ACCIDENT_SOURCE_CODE AND ACCS.ACA_SOURCE_SYSTEM_ID
+            = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'',
+            ''ACA_SOURCE_SYSTEM'') }} WHERE SOURCE_SYSTEM = ''GB'')
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGING'', ''PYRAMID_MAX_LEVEL'')
+            }} AS L ON L.CLIENT = C.CLIENT_NUMBER AND L.UNIT_ID = RTRIM(C.REPORTING_UNIT_NUMBER)
+
+            LEFT JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_PYRAMID'') }} AS
+            PD ON PD.CLIENT = L.CLIENT AND PD.UNIT_ID = L.UNIT_ID AND PD."LEVEL" =
+            L."LEVEL"
+
+            WHERE C.TRANSACTION_DATE <= {{ parameters.TRANSDATE }}'
+        name: CTECLAIM
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

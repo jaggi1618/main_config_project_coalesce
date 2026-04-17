@@ -1,0 +1,157 @@
+fileVersion: 1
+id: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+name: TMP_PAYMENT
+type: Node
+operation:
+  name: TMP_PAYMENT
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a0a0a0a-0a0a-0a0a-0a0a-0a0a0a0a0a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f7f7f7f-7f7f-7f7f-7f7f-7f7f7f7f7f23
+                stepCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+            transform: PVT.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_BI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'B. I.'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_COLLISION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'COLLISION'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a3a3a3a-3a3a-3a3a-3a3a-3a3a3a3a3a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_COMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'COMP'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a4a4a4a-4a4a-4a4a-4a4a-4a4a4a4a4a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_EXPENSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'EXPENSE'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a5a5a5a-5a5a-5a5a-5a5a-5a5a5a5a5a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_INDEMNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'INDEMNITY'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a6a6a6a-6a6a-6a6a-6a6a-6a6a6a6a6a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'MEDICAL'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a7a7a7a-7a7a-7a7a-7a7a-7a7a7a7a7a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_PD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'P. D.'",0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a24
+          stepCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ''
+        name: PMT_REHAB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: IFNULL(PVT."'REHAB'",0.00)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          T1: T1
+          PVT: PVT
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGING
+            nodeName: TMP_PAYMENT_RESERVE_TYPE
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGING'', ''TMP_PAYMENT_RESERVE_TYPE'')
+            }} AS T1
+
+            PIVOT (SUM(PAYMENT_AMOUNT) FOR RESERVE_TYPE IN (''B. I.'', ''BUILDING'',
+            ''COLLISION'', ''COMP'', ''CONTENTS'', ''EXPENSE'', ''EXTD. COVG.'', ''INDEMNITY'',
+            ''LOSS'', ''MEDICAL'', ''P. D.'', ''REHAB'', ''V & M.M.'', ''WAGE LOSS'',
+            ''Zero (0)'')) AS PVT'
+        name: TMP_PAYMENT
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1
