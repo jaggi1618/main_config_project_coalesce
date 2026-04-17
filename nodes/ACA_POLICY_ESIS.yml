@@ -1,0 +1,142 @@
+fileVersion: 1
+id: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+name: ACA_POLICY_ESIS
+type: Node
+operation:
+  name: ACA_POLICY_ESIS
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: EFFECTIVE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: EXPIRATION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1b2a3f4-e5d6-c7b8-a9f0-e1d2c3b4a5f6
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_POLICY_ESIS_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+          stepCounter: d5b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1
