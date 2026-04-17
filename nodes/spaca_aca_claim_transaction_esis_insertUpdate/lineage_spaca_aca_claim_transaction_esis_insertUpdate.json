@@ -1,0 +1,984 @@
+```json
+{
+  "pipelineName": "SPACA_ACA_CLAIM_TRANSACTION_ESIS_INSERTUPDATE",
+  "nodes": [
+    {
+      "nodeName": "ACA_CLAIM_TRANSACTION_STAGING_ESIS",
+      "nodeType": "source",
+      "sourceObject": "ALLIANT_CLAIMS_ASTRUS_STAGE.DBO.ACA_CLAIM_TRANSACTION_STAGING_ESIS",
+      "locationName": "ALLIANT_CLAIMS_ASTRUS_STAGE_DBO"
+    },
+    {
+      "nodeName": "ACA_DATE",
+      "nodeType": "source",
+      "sourceObject": "ALLIANT_CLAIMS_ASTRUS.DBO.ACA_DATE",
+      "locationName": "ALLIANT_CLAIMS_ASTRUS_DBO"
+    },
+    {
+      "nodeName": "TMP_ACA_CLAIM_TRANSACTION",
+      "nodeType": "stage",
+      "materializationType": "table",
+      "database": "ALLIANT_CLAIMS_ASTRUS_STAGE",
+      "schema": "DBO",
+      "locationName": "ALLIANT_CLAIMS_ASTRUS_STAGE_DBO",
+      "dependencies": [
+        "ACA_CLAIM_TRANSACTION_STAGING_ESIS",
+        "ACA_DATE"
+      ],
+      "sourceMappings": [
+        {
+          "sourceNode": "ACA_CLAIM_TRANSACTION_STAGING_ESIS",
+          "alias": "ctt"
+        },
+        {
+          "sourceNode": "ACA_DATE",
+          "alias": "d"
+        }
+      ],
+      "joinCondition": "FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS') }} AS ctt\n\tLEFT OUTER JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_DATE') }} AS d ON 1=1\n\t\tAND d.full_date BETWEEN ctt.source_system_transaction_date AND IFNULL(ctt.next_transaction_date, ctt.max_transaction_date_per_claim)",
+      "columns": [
+        {
+          "name": "ACA_POLICY_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_policy_id"
+        },
+        {
+          "name": "ACA_CLAIM_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_claim_id"
+        },
+        {
+          "name": "ACA_CLAIMANT_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_claimant_id"
+        },
+        {
+          "name": "ACA_CLAIM_ATTRIBUTE_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_claim_attribute_id"
+        },
+        {
+          "name": "ACA_DATE_ID_TRANSACTION_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "IFNULL(d.aca_date_id, ctt.aca_date_id_transaction_date)"
+        },
+        {
+          "name": "ACA_DATE_ID_STATUS_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_date_id_status_date"
+        },
+        {
+          "name": "ACA_DATE_ID_REPORTED_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_date_id_reported_date"
+        },
+        {
+          "name": "ACA_DATE_ID_ACCIDENT_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_date_id_accident_date"
+        },
+        {
+          "name": "ACA_ACCIDENT_SOURCE_CODE_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_accident_source_code_id"
+        },
+        {
+          "name": "ACA_SOURCE_SYSTEM_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.aca_source_system_id"
+        },
+        {
+          "name": "ACA_TRANSACTION_DATE",
+          "dataType": "DATE",
+          "transform": "IFNULL(d.full_date, ctt.aca_transaction_date)"
+        },
+        {
+          "name": "SOURCE_SYSTEM_CLAIM_ID",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.source_system_claim_id"
+        },
+        {
+          "name": "SOURCE_SYSTEM_TRANSACTION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.source_system_transaction_date"
+        },
+        {
+          "name": "SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.source_system_accident_source_code_id"
+        },
+        {
+          "name": "POLICY_NUMBER",
+          "dataType": "VARCHAR(100)",
+          "transform": "ctt.policy_number"
+        },
+        {
+          "name": "POLICY_EFFECTIVE_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.policy_effective_date"
+        },
+        {
+          "name": "POLICY_EXPIRATION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.policy_expiration_date"
+        },
+        {
+          "name": "CLAIM_STATUS_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.claim_status_code"
+        },
+        {
+          "name": "CLAIM_STATUS",
+          "dataType": "VARCHAR(8)",
+          "transform": "ctt.claim_status"
+        },
+        {
+          "name": "STATUS_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.status_date"
+        },
+        {
+          "name": "REPORTED_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.reported_date"
+        },
+        {
+          "name": "ACCIDENT_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.accident_date"
+        },
+        {
+          "name": "ACCIDENT_TYPE_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.accident_type_code"
+        },
+        {
+          "name": "ACCIDENT_SOURCE_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.accident_source_code"
+        },
+        {
+          "name": "ACCIDENT_CITY_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "NULL"
+        },
+        {
+          "name": "ACCIDENT_STATE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.accident_state_code"
+        },
+        {
+          "name": "ACCIDENT_ZIP_CODE",
+          "dataType": "VARCHAR(5)",
+          "transform": "ctt.accident_zip_code"
+        },
+        {
+          "name": "PART_OF_BODY_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.part_of_body_code"
+        },
+        {
+          "name": "NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.nature_of_loss_code_property_damage"
+        },
+        {
+          "name": "NATURE_OF_LOSS_CODE_BODILY_INJURY",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.nature_of_loss_code_bodily_injury"
+        },
+        {
+          "name": "METHOD_OF_SETTLEMENT_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.method_of_settlement_code"
+        },
+        {
+          "name": "NCCI_LOSS_COVERAGE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.ncci_loss_coverage_code"
+        },
+        {
+          "name": "DESCRIPTION_OF_LOSS_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.description_of_loss_encrypted"
+        },
+        {
+          "name": "BENEFIT_JURISDICTION_STATE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.benefit_jurisdiction_state_code"
+        },
+        {
+          "name": "EXPOSURE_STATE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.exposure_state_code"
+        },
+        {
+          "name": "EXPOSURE_COUNTRY_CODE",
+          "dataType": "VARCHAR(3)",
+          "transform": "ctt.exposure_country_code"
+        },
+        {
+          "name": "STATE_CLAIM_NUMBER",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.state_claim_number"
+        },
+        {
+          "name": "FULL_STATE_CLAIM_NUMBER",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.full_state_claim_number"
+        },
+        {
+          "name": "EMPLOYER_NOTIFICATION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.employer_notification_date"
+        },
+        {
+          "name": "VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.vehicle_identification_number_encrypted"
+        },
+        {
+          "name": "CLAIM_ADJUSTING_BRANCH_NUMBER",
+          "dataType": "VARCHAR(3)",
+          "transform": "ctt.claim_adjusting_branch_number"
+        },
+        {
+          "name": "ADJUSTER_NUMBER",
+          "dataType": "VARCHAR(6)",
+          "transform": "ctt.adjuster_number"
+        },
+        {
+          "name": "NUMBER_OF_DEPENDENTS",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.number_of_dependents"
+        },
+        {
+          "name": "CLAIMANT_TYPE",
+          "dataType": "VARCHAR(12)",
+          "transform": "ctt.claimant_type"
+        },
+        {
+          "name": "CLAIMANT_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.claimant_encrypted"
+        },
+        {
+          "name": "CLAIMANT_SSN_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.claimant_ssn_encrypted"
+        },
+        {
+          "name": "EMPLOYEE_LAST_WORK_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.employee_last_work_date"
+        },
+        {
+          "name": "COMPENSATION_RATE",
+          "dataType": "VARCHAR(12)",
+          "transform": "ctt.compensation_rate"
+        },
+        {
+          "name": "NCCI_INJURY_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.ncci_injury_code"
+        },
+        {
+          "name": "DISABILITY_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.disability_date"
+        },
+        {
+          "name": "RETURN_TO_WORK_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.return_to_work_date"
+        },
+        {
+          "name": "MAX_MEDICAL_IMPROVEMENT_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.max_medical_improvement_date"
+        },
+        {
+          "name": "POST_INJURY_WEEKLY_WAGE",
+          "dataType": "NUMBER(19,2)",
+          "transform": "ctt.post_injury_weekly_wage"
+        },
+        {
+          "name": "PERCENTAGE_OF_IMPAIRMENT",
+          "dataType": "VARCHAR(3)",
+          "transform": "ctt.percentage_of_impairment"
+        },
+        {
+          "name": "INSURER_NAME",
+          "dataType": "VARCHAR(40)",
+          "transform": "ctt.insurer_name"
+        },
+        {
+          "name": "OTHER_WEEKLY_PAYMENTS",
+          "dataType": "NUMBER(19,2)",
+          "transform": "ctt.other_weekly_payments"
+        },
+        {
+          "name": "ATTORNEY_DISCLOSURE_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.attorney_disclosure_date"
+        },
+        {
+          "name": "REPORTING_BASIS_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.reporting_basis_date"
+        },
+        {
+          "name": "OCCURRENCE_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.occurrence_date"
+        },
+        {
+          "name": "MULTI_CLAIM_OCCUR_CODE",
+          "dataType": "VARCHAR(14)",
+          "transform": "ctt.multi_claim_occur_code"
+        },
+        {
+          "name": "NCCI_METHOD_OF_SETTLEMENT_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.ncci_method_of_settlement_code"
+        },
+        {
+          "name": "LOSS_PROGRAM_NUMBER",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.loss_program_number"
+        },
+        {
+          "name": "DENIAL_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.denial_date"
+        },
+        {
+          "name": "WEEKLY_BENEFIT",
+          "dataType": "NUMBER(19,2)",
+          "transform": "ctt.weekly_benefit"
+        },
+        {
+          "name": "NCCI_TYPE_OF_LOSS_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.ncci_type_of_loss_code"
+        },
+        {
+          "name": "NCCI_PPO_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.ncci_ppo_code"
+        },
+        {
+          "name": "TOTAL_LOST_WORK_DAYS",
+          "dataType": "VARCHAR(8)",
+          "transform": "ctt.total_lost_work_days"
+        },
+        {
+          "name": "CLIENT_OPTIONAL_CLAIM_CODE",
+          "dataType": "VARCHAR(40)",
+          "transform": "ctt.client_optional_claim_code"
+        },
+        {
+          "name": "INSURED_VEHICLE_YEAR",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.insured_vehicle_year"
+        },
+        {
+          "name": "INSURED_VEHICLE_MAKE",
+          "dataType": "VARCHAR(15)",
+          "transform": "ctt.insured_vehicle_make"
+        },
+        {
+          "name": "BENEFICIARY_INFORMATION",
+          "dataType": "VARCHAR(50)",
+          "transform": "ctt.beneficiary_information"
+        },
+        {
+          "name": "REPORTING_UNIT_NUMBER",
+          "dataType": "VARCHAR(10)",
+          "transform": "ctt.reporting_unit_number"
+        },
+        {
+          "name": "RETURN_TO_WORK_FULL_DUTY_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.return_to_work_full_duty_date"
+        },
+        {
+          "name": "RETURN_TO_WORK_RELEASE_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.return_to_work_release_date"
+        },
+        {
+          "name": "REPRESENTATION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.representation_date"
+        },
+        {
+          "name": "SALARY_CONTINUED_START_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.salary_continued_start_date"
+        },
+        {
+          "name": "SALARY_CONTINUED_END_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.salary_continued_end_date"
+        },
+        {
+          "name": "MEDICAL_TO_INDEMNITY_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.medical_to_indemnity_date"
+        },
+        {
+          "name": "LAST_REVIEW_DATE",
+          "dataType": "DATE",
+          "transform": "NULL"
+        },
+        {
+          "name": "SOURCE_SYSTEM_CLAIMANT_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.source_system_claimant_id"
+        },
+        {
+          "name": "SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.source_system_claim_attribute_id"
+        },
+        {
+          "name": "SOURCE_SYSTEM_POLICY_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.source_system_policy_id"
+        },
+        {
+          "name": "SOURCE_SYSTEM",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.source_system"
+        },
+        {
+          "name": "ACA_CURRENT_FLAG",
+          "dataType": "VARCHAR(1)",
+          "transform": "ctt.aca_current_flag"
+        },
+        {
+          "name": "ACA_DATE_CREATED",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "current_timestamp()"
+        },
+        {
+          "name": "ACA_CREATE_USER",
+          "dataType": "VARCHAR(100)",
+          "transform": "'spaca_aca_claim_transaction_esis_insertUpdate'"
+        },
+        {
+          "name": "ACA_DATE_UPDATED",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "current_timestamp()"
+        },
+        {
+          "name": "ACA_UPDATE_USER",
+          "dataType": "VARCHAR(100)",
+          "transform": "'spaca_aca_claim_transaction_esis_insertUpdate'"
+        }
+      ]
+    },
+    {
+      "nodeName": "ACA_CLAIM_TRANSACTION",
+      "nodeType": "dimension",
+      "materializationType": "table",
+      "isFinalTarget": true,
+      "database": "ALLIANT_CLAIMS_ASTRUS",
+      "schema": "DBO",
+      "locationName": "ALLIANT_CLAIMS_ASTRUS_DBO",
+      "dependencies": [
+        "TMP_ACA_CLAIM_TRANSACTION"
+      ],
+      "sourceMappings": [
+        {
+          "sourceNode": "TMP_ACA_CLAIM_TRANSACTION",
+          "alias": "ctt"
+        }
+      ],
+      "columns": [
+        {
+          "name": "ACA_POLICY_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_POLICY_ID"
+        },
+        {
+          "name": "ACA_CLAIM_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_CLAIM_ID"
+        },
+        {
+          "name": "ACA_CLAIMANT_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_CLAIMANT_ID"
+        },
+        {
+          "name": "ACA_CLAIM_ATTRIBUTE_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_CLAIM_ATTRIBUTE_ID"
+        },
+        {
+          "name": "ACA_DATE_ID_TRANSACTION_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_DATE_ID_TRANSACTION_DATE"
+        },
+        {
+          "name": "ACA_DATE_ID_STATUS_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_DATE_ID_STATUS_DATE"
+        },
+        {
+          "name": "ACA_DATE_ID_REPORTED_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_DATE_ID_REPORTED_DATE"
+        },
+        {
+          "name": "ACA_DATE_ID_ACCIDENT_DATE",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_DATE_ID_ACCIDENT_DATE"
+        },
+        {
+          "name": "ACA_ACCIDENT_SOURCE_CODE_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_ACCIDENT_SOURCE_CODE_ID"
+        },
+        {
+          "name": "ACA_SOURCE_SYSTEM_ID",
+          "dataType": "NUMBER(10,0)",
+          "transform": "ctt.ACA_SOURCE_SYSTEM_ID",
+          "isBusinessKey": true
+        },
+        {
+          "name": "ACA_TRANSACTION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.ACA_TRANSACTION_DATE",
+          "isBusinessKey": true
+        },
+        {
+          "name": "SOURCE_SYSTEM_CLAIM_ID",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.SOURCE_SYSTEM_CLAIM_ID",
+          "isBusinessKey": true
+        },
+        {
+          "name": "SOURCE_SYSTEM_TRANSACTION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.SOURCE_SYSTEM_TRANSACTION_DATE"
+        },
+        {
+          "name": "SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID"
+        },
+        {
+          "name": "POLICY_NUMBER",
+          "dataType": "VARCHAR(100)",
+          "transform": "ctt.POLICY_NUMBER"
+        },
+        {
+          "name": "POLICY_EFFECTIVE_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.POLICY_EFFECTIVE_DATE"
+        },
+        {
+          "name": "POLICY_EXPIRATION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.POLICY_EXPIRATION_DATE"
+        },
+        {
+          "name": "CLAIM_STATUS_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.CLAIM_STATUS_CODE"
+        },
+        {
+          "name": "CLAIM_STATUS",
+          "dataType": "VARCHAR(8)",
+          "transform": "ctt.CLAIM_STATUS"
+        },
+        {
+          "name": "STATUS_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.STATUS_DATE"
+        },
+        {
+          "name": "REPORTED_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.REPORTED_DATE"
+        },
+        {
+          "name": "ACCIDENT_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.ACCIDENT_DATE"
+        },
+        {
+          "name": "ACCIDENT_TYPE_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.ACCIDENT_TYPE_CODE"
+        },
+        {
+          "name": "ACCIDENT_SOURCE_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.ACCIDENT_SOURCE_CODE"
+        },
+        {
+          "name": "ACCIDENT_CITY_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.ACCIDENT_CITY_CODE"
+        },
+        {
+          "name": "ACCIDENT_STATE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.ACCIDENT_STATE_CODE"
+        },
+        {
+          "name": "ACCIDENT_ZIP_CODE",
+          "dataType": "VARCHAR(5)",
+          "transform": "ctt.ACCIDENT_ZIP_CODE"
+        },
+        {
+          "name": "PART_OF_BODY_CODE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.PART_OF_BODY_CODE"
+        },
+        {
+          "name": "NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE"
+        },
+        {
+          "name": "NATURE_OF_LOSS_CODE_BODILY_INJURY",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.NATURE_OF_LOSS_CODE_BODILY_INJURY"
+        },
+        {
+          "name": "METHOD_OF_SETTLEMENT_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.METHOD_OF_SETTLEMENT_CODE"
+        },
+        {
+          "name": "NCCI_LOSS_COVERAGE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.NCCI_LOSS_COVERAGE_CODE"
+        },
+        {
+          "name": "DESCRIPTION_OF_LOSS_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.DESCRIPTION_OF_LOSS_ENCRYPTED"
+        },
+        {
+          "name": "BENEFIT_JURISDICTION_STATE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.BENEFIT_JURISDICTION_STATE_CODE"
+        },
+        {
+          "name": "EXPOSURE_STATE_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.EXPOSURE_STATE_CODE"
+        },
+        {
+          "name": "EXPOSURE_COUNTRY_CODE",
+          "dataType": "VARCHAR(3)",
+          "transform": "ctt.EXPOSURE_COUNTRY_CODE"
+        },
+        {
+          "name": "STATE_CLAIM_NUMBER",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.STATE_CLAIM_NUMBER"
+        },
+        {
+          "name": "FULL_STATE_CLAIM_NUMBER",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.FULL_STATE_CLAIM_NUMBER"
+        },
+        {
+          "name": "EMPLOYER_NOTIFICATION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.EMPLOYER_NOTIFICATION_DATE"
+        },
+        {
+          "name": "VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED"
+        },
+        {
+          "name": "CLAIM_ADJUSTING_BRANCH_NUMBER",
+          "dataType": "VARCHAR(3)",
+          "transform": "ctt.CLAIM_ADJUSTING_BRANCH_NUMBER"
+        },
+        {
+          "name": "ADJUSTER_NUMBER",
+          "dataType": "VARCHAR(6)",
+          "transform": "ctt.ADJUSTER_NUMBER"
+        },
+        {
+          "name": "NUMBER_OF_DEPENDENTS",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.NUMBER_OF_DEPENDENTS"
+        },
+        {
+          "name": "CLAIMANT_TYPE",
+          "dataType": "VARCHAR(12)",
+          "transform": "ctt.CLAIMANT_TYPE"
+        },
+        {
+          "name": "CLAIMANT_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.CLAIMANT_ENCRYPTED"
+        },
+        {
+          "name": "CLAIMANT_SSN_ENCRYPTED",
+          "dataType": "BINARY(8000)",
+          "transform": "ctt.CLAIMANT_SSN_ENCRYPTED"
+        },
+        {
+          "name": "EMPLOYEE_LAST_WORK_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.EMPLOYEE_LAST_WORK_DATE"
+        },
+        {
+          "name": "COMPENSATION_RATE",
+          "dataType": "VARCHAR(12)",
+          "transform": "ctt.COMPENSATION_RATE"
+        },
+        {
+          "name": "NCCI_INJURY_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.NCCI_INJURY_CODE"
+        },
+        {
+          "name": "DISABILITY_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.DISABILITY_DATE"
+        },
+        {
+          "name": "RETURN_TO_WORK_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.RETURN_TO_WORK_DATE"
+        },
+        {
+          "name": "MAX_MEDICAL_IMPROVEMENT_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.MAX_MEDICAL_IMPROVEMENT_DATE"
+        },
+        {
+          "name": "POST_INJURY_WEEKLY_WAGE",
+          "dataType": "NUMBER(19,2)",
+          "transform": "ctt.POST_INJURY_WEEKLY_WAGE"
+        },
+        {
+          "name": "PERCENTAGE_OF_IMPAIRMENT",
+          "dataType": "VARCHAR(3)",
+          "transform": "ctt.PERCENTAGE_OF_IMPAIRMENT"
+        },
+        {
+          "name": "INSURER_NAME",
+          "dataType": "VARCHAR(40)",
+          "transform": "ctt.INSURER_NAME"
+        },
+        {
+          "name": "OTHER_WEEKLY_PAYMENTS",
+          "dataType": "NUMBER(19,2)",
+          "transform": "ctt.OTHER_WEEKLY_PAYMENTS"
+        },
+        {
+          "name": "ATTORNEY_DISCLOSURE_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.ATTORNEY_DISCLOSURE_DATE"
+        },
+        {
+          "name": "REPORTING_BASIS_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.REPORTING_BASIS_DATE"
+        },
+        {
+          "name": "OCCURRENCE_DATE",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.OCCURRENCE_DATE"
+        },
+        {
+          "name": "MULTI_CLAIM_OCCUR_CODE",
+          "dataType": "VARCHAR(14)",
+          "transform": "ctt.MULTI_CLAIM_OCCUR_CODE"
+        },
+        {
+          "name": "NCCI_METHOD_OF_SETTLEMENT_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.NCCI_METHOD_OF_SETTLEMENT_CODE"
+        },
+        {
+          "name": "LOSS_PROGRAM_NUMBER",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.LOSS_PROGRAM_NUMBER"
+        },
+        {
+          "name": "DENIAL_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.DENIAL_DATE"
+        },
+        {
+          "name": "WEEKLY_BENEFIT",
+          "dataType": "NUMBER(19,2)",
+          "transform": "ctt.WEEKLY_BENEFIT"
+        },
+        {
+          "name": "NCCI_TYPE_OF_LOSS_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.NCCI_TYPE_OF_LOSS_CODE"
+        },
+        {
+          "name": "NCCI_PPO_CODE",
+          "dataType": "VARCHAR(2)",
+          "transform": "ctt.NCCI_PPO_CODE"
+        },
+        {
+          "name": "TOTAL_LOST_WORK_DAYS",
+          "dataType": "VARCHAR(8)",
+          "transform": "ctt.TOTAL_LOST_WORK_DAYS"
+        },
+        {
+          "name": "CLIENT_OPTIONAL_CLAIM_CODE",
+          "dataType": "VARCHAR(40)",
+          "transform": "ctt.CLIENT_OPTIONAL_CLAIM_CODE"
+        },
+        {
+          "name": "INSURED_VEHICLE_YEAR",
+          "dataType": "VARCHAR(4)",
+          "transform": "ctt.INSURED_VEHICLE_YEAR"
+        },
+        {
+          "name": "INSURED_VEHICLE_MAKE",
+          "dataType": "VARCHAR(15)",
+          "transform": "ctt.INSURED_VEHICLE_MAKE"
+        },
+        {
+          "name": "BENEFICIARY_INFORMATION",
+          "dataType": "VARCHAR(50)",
+          "transform": "ctt.BENEFICIARY_INFORMATION"
+        },
+        {
+          "name": "REPORTING_UNIT_NUMBER",
+          "dataType": "VARCHAR(10)",
+          "transform": "ctt.REPORTING_UNIT_NUMBER"
+        },
+        {
+          "name": "RETURN_TO_WORK_FULL_DUTY_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.RETURN_TO_WORK_FULL_DUTY_DATE"
+        },
+        {
+          "name": "RETURN_TO_WORK_RELEASE_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.RETURN_TO_WORK_RELEASE_DATE"
+        },
+        {
+          "name": "REPRESENTATION_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.REPRESENTATION_DATE"
+        },
+        {
+          "name": "SALARY_CONTINUED_START_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.SALARY_CONTINUED_START_DATE"
+        },
+        {
+          "name": "SALARY_CONTINUED_END_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.SALARY_CONTINUED_END_DATE"
+        },
+        {
+          "name": "MEDICAL_TO_INDEMNITY_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.MEDICAL_TO_INDEMNITY_DATE"
+        },
+        {
+          "name": "LAST_REVIEW_DATE",
+          "dataType": "DATE",
+          "transform": "ctt.LAST_REVIEW_DATE"
+        },
+        {
+          "name": "SOURCE_SYSTEM_CLAIMANT_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.SOURCE_SYSTEM_CLAIMANT_ID"
+        },
+        {
+          "name": "SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID"
+        },
+        {
+          "name": "SOURCE_SYSTEM_POLICY_ID",
+          "dataType": "BINARY(16)",
+          "transform": "ctt.SOURCE_SYSTEM_POLICY_ID"
+        },
+        {
+          "name": "SOURCE_SYSTEM",
+          "dataType": "VARCHAR(25)",
+          "transform": "ctt.SOURCE_SYSTEM"
+        },
+        {
+          "name": "ACA_CURRENT_FLAG",
+          "dataType": "VARCHAR(1)",
+          "transform": "ctt.ACA_CURRENT_FLAG"
+        },
+        {
+          "name": "ACA_DATE_CREATED",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.ACA_DATE_CREATED"
+        },
+        {
+          "name": "ACA_CREATE_USER",
+          "dataType": "VARCHAR(100)",
+          "transform": "ctt.ACA_CREATE_USER"
+        },
+        {
+          "name": "ACA_DATE_UPDATED",
+          "dataType": "TIMESTAMP_NTZ",
+          "transform": "ctt.ACA_DATE_UPDATED"
+        },
+        {
+          "name": "ACA_UPDATE_USER",
+          "dataType": "VARCHAR(100)",
+          "transform": "ctt.ACA_UPDATE_USER"
+        }
+      ],
+      "postSQL": "BEGIN\n    UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION AS t\n    SET \n        aca_current_flag = stg.aca_current_flag,\n        aca_update_user = 'spaca_aca_claim_transaction_esis_insertUpdate' || ' - flag update',\n        aca_date_updated = current_timestamp()\n    FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS') }} AS stg \n    WHERE t.source_system_claim_id = stg.source_system_claim_id\n      AND t.aca_source_system_id = stg.aca_source_system_id\n      AND t.aca_transaction_date = stg.aca_transaction_date\n      AND t.aca_current_flag <> stg.aca_current_flag;\nEND;"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "ACA_CLAIM_TRANSACTION_STAGING_ESIS",
+      "target": "TMP_ACA_CLAIM_TRANSACTION"
+    },
+    {
+      "source": "ACA_DATE",
+      "target": "TMP_ACA_CLAIM_TRANSACTION"
+    },
+    {
+      "source": "TMP_ACA_CLAIM_TRANSACTION",
+      "target": "ACA_CLAIM_TRANSACTION"
+    }
+  ]
+}
+### PIPELINE NODE STRUCTURE
+ACA_CLAIM_TRANSACTION_STAGING_ESIS      (Source)
+ACA_DATE      (Source)
+           ↓
+TMP_ACA_CLAIM_TRANSACTION
+           depends on → ACA_CLAIM_TRANSACTION_STAGING_ESIS
+                        ACA_DATE
+           ↓
+ACA_CLAIM_TRANSACTION
+           depends on → TMP_ACA_CLAIM_TRANSACTION
+           POST-SQL   → -- Post-insert flag update
+                        UPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM_TRANSACTION AS t
+                        SET 
+                            aca_current_flag = stg.aca_current_flag,
+                            aca_update_user = 'spaca_aca_claim_transaction_esis_insertUpdate' || ' - flag update',
+                            aca_date_updated = current_timestamp()
+                        FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS') }} AS stg 
+                        WHERE t.source_system_claim_id = stg.source_system_claim_id
+                          AND t.aca_source_system_id = stg.aca_source_system_id
+                          AND t.aca_transaction_date = stg.aca_transaction_date
+                          AND t.aca_current_flag <> stg.aca_current_flag;
+#End-DBShift
+```
