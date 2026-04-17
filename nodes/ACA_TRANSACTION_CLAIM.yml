@@ -1236,7 +1236,8 @@ operation:
                 stepCounter: 11c6d3b8-2a9f-431e-b8d9-3f3c4c9e123a
             transform: NCCI_INJURY_CODE
       - appliedColumnTests: {}
-        columnReference:          columnCounter: f0d1a2b3-c4d5-4e6f-7a8b-9c0d1e2f3a4b
+        columnReference:          
+          columnCounter: f0d1a2b3-c4d5-4e6f-7a8b-9c0d1e2f3a4b
           stepCounter: 509b5ab2-9952-4eaf-8b1e-61e8c9b3a32f
         config: {}
         dataType: BINARY
