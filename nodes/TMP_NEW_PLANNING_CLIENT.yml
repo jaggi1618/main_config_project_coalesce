@@ -1,0 +1,304 @@
+fileVersion: 1
+id: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+name: TMP_NEW_PLANNING_CLIENT
+type: Node
+operation:
+  name: TMP_NEW_PLANNING_CLIENT
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: "BEGIN\n    LET no_rows DECIMAL(8, 2) := 300.00;\n    LET max_group_id\
+      \ INT;\n    LET count_of_max_group_id INT;\n    LET counter INT;\n\n    SELECT\
+      \ MAX(TRY_CAST(SUBSTRING(PARENT_PLANNING_ID,1, CHARINDEX('_', PARENT_PLANNING_ID)-1)\
+      \ AS INT)) INTO :max_group_id FROM {{ ref_no_link('PLANNING_ALLIANT_DBO', 'PLANNING_FCCS_CLIENT')\
+      \ }};\n    SELECT COUNT(1) INTO :count_of_max_group_id FROM {{ ref_no_link('PLANNING_ALLIANT_DBO',\
+      \ 'PLANNING_FCCS_CLIENT') }} WHERE TRY_CAST(SUBSTRING(PARENT_PLANNING_ID,1,\
+      \ CHARINDEX('_', PARENT_PLANNING_ID)-1) AS INT) = :max_group_id;\n\n    IF (:max_group_id\
+      \ IS NOT NULL)\n    THEN\n        UPDATE PLANNING_ALLIANT.STG.TMP_NEW_PLANNING_CLIENT\
+      \ AS t\n        SET \n            GROUP_ID = :max_group_id,\n            GROUP_NAME\
+      \ =  CONCAT(:max_group_id, '_CLIENT_PARENT'),\n            PARENT_PLANNING_ID\
+      \ =  CONCAT(:max_group_id, '_CLIENT_PARENT')\n        FROM (\n            SELECT\
+      \ ROW_ID \n            FROM PLANNING_ALLIANT.STG.TMP_NEW_PLANNING_CLIENT \n\
+      \            WHERE GROUP_ID IS NULL\n            LIMIT (CAST(:no_rows AS INT)\
+      \ - :count_of_max_group_id)\n        ) AS s\n        WHERE t.ROW_ID = s.ROW_ID;\n\
+      \    END IF;\n\n    counter := COALESCE(:max_group_id, 0) + 1;\n    \n    WHILE\
+      \ ((SELECT COUNT(1) FROM PLANNING_ALLIANT.STG.TMP_NEW_PLANNING_CLIENT WHERE\
+      \ GROUP_ID IS NULL) > 0) DO\n        UPDATE PLANNING_ALLIANT.STG.TMP_NEW_PLANNING_CLIENT\
+      \ as t\n        SET \n            GROUP_ID = :counter,\n            GROUP_NAME\
+      \ =  CONCAT(:counter, '_CLIENT_PARENT'),\n            PARENT_PLANNING_ID = \
+      \ CONCAT(:counter, '_CLIENT_PARENT')\n        FROM (\n            SELECT ROW_ID\
+      \ \n            FROM PLANNING_ALLIANT.STG.TMP_NEW_PLANNING_CLIENT\n        \
+      \    WHERE GROUP_ID IS NULL\n            LIMIT CAST(:no_rows AS INT)\n     \
+      \   ) AS s\n        WHERE t.ROW_ID = s.ROW_ID;\n\n        counter := :counter\
+      \ + 1;\n    END WHILE;\nEND;"
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_STG
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b349dcf4-e5ad-4d10-85f7-8736a49c670a
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53c8c7db-0027-4a0b-ba62-f19b2241bb41
+                stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+            transform: B.PARENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c11dce59-67d7-463e-b855-9b2f69e6b5cd
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 18b76fc8-47bc-4dc5-b44e-a1fb92790757
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.CLIENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a61d2d9b-a01c-43f6-9fbc-df15ab070389
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(255)
+        description: ''
+        name: CLIENT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 429a1b6a-9cd4-406a-a5fb-3ec22d4f208c
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.CLIENT_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bce4d59a-11af-4c3e-89a0-d7f4ce9965eb
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bf8ca797-c81b-426b-9c59-b1dca0e588b3
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdc8f4eb-3d96-4180-b2cc-fbd6a9926ce5
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(10)
+        description: ''
+        name: CLIENT_STATUS_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6a2db84-8848-4dfb-9f1e-f3a8b41cd8ba
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.CLIENT_STATUS_INDICATOR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de25ef20-410f-4886-bad8-2e008a0d0141
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(255)
+        description: ''
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3f6153e-56e6-4279-bbdf-5f65bc7d0e41
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.CLIENT_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea8731b5-6f5d-4f7f-afbd-d3db9eb3ba5f
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3a5ed25-780c-4055-ab1b-2b4759ec1d0f
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb064436-bdc0-43e4-8d4e-b5eb29649b8d
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97f39446-24ba-4e94-bae7-bd2df3e2b950
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.DW_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c85cc8a-d5fa-4467-bc5b-426d116231bd
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 423b49eb-f852-4467-9154-ba5f4e64f8ad
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: REPLACE(IFF(LEFT(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, 1) =
+              '-', SUBSTRING(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, 2, LEN(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE)),
+              STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE), '*', '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1eb42cc-07f1-432a-bc91-236b284e3116
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c834a-95ee-4e5c-9c90-9f1709b43e5c
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.SOURCE_SYSTEM_CLIENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13170e6-a2ed-4cc2-8db8-1fc057c7b80f
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ecba9e3b-b70c-4ddc-b7f5-2efcde270509
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: STG.DW_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f317d605-6c7c-47b2-8419-411bd13ed2d0
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ''
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROW_NUMBER() OVER(ORDER BY STG.SOURCE_SYSTEM, STG.DW_CLIENT_MASTER_ID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1515cf44-77ab-43eb-ae9f-a8c6c9a3edda
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRY_CAST(SUBSTRING(B.PARENT_PLANNING_ID, 1, CHARINDEX('_',
+              B.PARENT_PLANNING_ID)-1) AS INT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d16198f1-85f0-46eb-a434-d021c5b8e963
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: GROUP_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53c8c7db-0027-4a0b-ba62-f19b2241bb41
+                stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+            transform: B.PARENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1ea8377-1d22-4809-b6dc-d477c77c68b6
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: DATE
+        description: ''
+        name: BEGIN_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b0c804f-01cc-4629-9e8c-55447a0b5a3c
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: MIN(STG.POST_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97f39414-b816-43b5-bb8f-e907a9b1c7ba
+          stepCounter: a01c0c00-3be2-4dc2-a7f4-d5f09cb8b9c2
+        config: {}
+        dataType: DATE
+        description: ''
+        name: END_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b0c804f-01cc-4629-9e8c-55447a0b5a3c
+                stepCounter: 5937a0c1-2f73-41bb-b8cf-df7a1926cf6f
+            transform: MAX(STG.POST_DATE)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          B: B
+          STG: STG
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: PLANNING_FCCS_ACTUALS_STAGING
+          - locationName: PLANNING_ALLIANT_DBO
+            nodeName: PLANNING_FCCS_CLIENT
+        join:
+          joinCondition: 'FROM {{ ref(''PLANNING_ALLIANT_DBO'', ''PLANNING_FCCS_ACTUALS_STAGING'')
+            }} AS STG
+
+            LEFT OUTER JOIN {{ ref(''PLANNING_ALLIANT_DBO'', ''PLANNING_FCCS_CLIENT'')
+            }} AS B ON STG.CLIENT_PLANNING_ID = B.PLANNING_ID
+
+            WHERE STG.CLIENT_PLANNING_ID <> ''NO_CLIENT'' AND COALESCE(STG.THRESHOLD_RULE_TYPE,
+            ''-1'') NOT IN (''THRESHOLD CLIENT'',''THRESHOLD STRUCTURE'')
+
+            GROUP BY B.PARENT_PLANNING_ID, STG.CLIENT_PLANNING_ID, STG.CLIENT_NAME,
+            STG.CLIENT_LOOKUP_CODE, STG.CLIENT_STATUS_INDICATOR, STG.CLIENT_ALIAS,
+            STG.SOURCE_SYSTEM, STG.DW_CLIENT_MASTER_ID, REPLACE(IFF(LEFT(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE,
+            1) = ''-'', SUBSTRING(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, 2, LEN(STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE)),
+            STG.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE), ''*'', ''''), STG.SOURCE_SYSTEM_CLIENT_ID,
+            STG.DW_SOURCE_SYSTEM_ID, TRY_CAST(SUBSTRING(B.PARENT_PLANNING_ID,1, CHARINDEX(''_'',
+            B.PARENT_PLANNING_ID)-1) AS INT), B.PARENT_PLANNING_ID'
+        name: TMP_NEW_PLANNING_CLIENT
+        noLinkRefs: []
+  overrideSQL: false
+  schema: STG
+  sqlType: Stage
+  version: 1

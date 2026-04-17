@@ -1,0 +1,105 @@
+fileVersion: 1
+id: ae8991f8-0f2c-4977-bc63-1d017b20ceea
+name: TMPCLIENTHIERARCHY
+type: Node
+operation:
+  name: TMPCLIENTHIERARCHY
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: PLANNING_ALLIANT
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_STG
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3180ad7-9f72-46fc-bdc3-11b22e1b1d1f
+          stepCounter: ae8991f8-0f2c-4977-bc63-1d017b20ceea
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ''
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROW_NUMBER() OVER (ORDER BY U.SORT_ORDER, U.GROUP_ID, U.PARENT,
+              U.MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc7d8b85-5df9-42b7-8ce6-a704257147ba
+          stepCounter: ae8991f8-0f2c-4977-bc63-1d017b20ceea
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: PARENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.PARENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5ad9f26-107f-4b08-8f5b-635b7194634f
+          stepCounter: ae8991f8-0f2c-4977-bc63-1d017b20ceea
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: MEMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.MEMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9dbce090-e555-45a8-b641-610ba1f3a74b
+          stepCounter: ae8991f8-0f2c-4977-bc63-1d017b20ceea
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.GROUP_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b0c2e63-7de0-4743-98ce-da0281b16263
+          stepCounter: ae8991f8-0f2c-4977-bc63-1d017b20ceea
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: SORT_ORDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: U.SORT_ORDER
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: PLANNING_ALLIANT_STG
+            nodeName: TMP_NEW_PLANNING_CLIENT
+        join:
+          joinCondition: "FROM (\n    SELECT DISTINCT 'TOTAL_EXISTING_AND_GENERAL_CLIENTS'\
+            \ AS PARENT, GROUP_NAME AS MEMBER, ABS(GROUP_ID) AS GROUP_ID, 3 AS SORT_ORDER\n\
+            \    FROM {{ ref('PLANNING_ALLIANT_STG', 'TMP_NEW_PLANNING_CLIENT') }}\n\
+            \    UNION\n    SELECT GROUP_NAME AS PARENT, PLANNING_ID AS MEMBER, ABS(GROUP_ID)\
+            \ AS GROUP_ID, 4 AS SORT_ORDER\n    FROM {{ ref('PLANNING_ALLIANT_STG',\
+            \ 'TMP_NEW_PLANNING_CLIENT') }}\n) AS U"
+        name: TMPCLIENTHIERARCHY
+        noLinkRefs: []
+  overrideSQL: false
+  schema: STG
+  sqlType: Stage
+  version: 1

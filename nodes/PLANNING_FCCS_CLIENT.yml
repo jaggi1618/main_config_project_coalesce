@@ -1,0 +1,121 @@
+fileVersion: 1
+id: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+name: PLANNING_FCCS_CLIENT
+type: Node
+operation:
+  name: PLANNING_FCCS_CLIENT
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ccde27ef-7b7e-4b47-ba63-0d5b128522e8
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ''
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53c8c7db-0027-4a0b-ba62-f19b2241bb41
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ''
+        description: ''
+        name: PARENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32626e2e-13c5-4424-9b8b-e85df6495ce6
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ''
+        description: ''
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1dd8c0e2-3df6-4f7d-8eb0-0082de5b7d99
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c41ecfcb-252a-4d2a-addc-e1a74d5386db
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bde320db-bcf5-4cf8-ae18-2e86095fc3e1
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: PLANNING_ALIAS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59e2b17a-c71c-4b53-93d3-7dc94301d0a5
+          stepCounter: bb03cd9f-3e9e-4db2-a27f-9cb4dce6aeb4
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1
