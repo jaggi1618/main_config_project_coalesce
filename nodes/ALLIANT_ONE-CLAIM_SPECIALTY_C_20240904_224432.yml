@@ -1,0 +1,1023 @@
+fileVersion: 1
+id: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+name: CLAIM_SPECIALTY_C_20240904_224432
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce92d603-864e-44ad-81f7-bb575c10e248
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a86d0e26-6b7e-44cd-af9f-9b5ebee5bc44
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ACCOUNT_NAME_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 705937ad-3bf0-4bde-b662-5b55c53bd2d3
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CARRIER_NAME_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88898f80-783b-4839-989c-7c79bca753bc
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: CLAIM_CLOSED_DATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b7c2a88-9564-45b4-9e2f-21b8ac70f6d8
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_MAJOR_CLASS_CODE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3e8b88c-d46f-46ee-83a0-640ebdb5784c
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_NUMBER_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09907ab2-a715-4263-a2e7-f63afec430d9
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(1300)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_NUMBER_LINK_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ed56372-b6fb-4568-96ee-1689bbdf9535
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: CLAIM_REPORTED_DATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d01e607-ccb9-4c16-9424-1f1602f7cd99
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLAIM_STATUS_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 075dc15b-0e1d-4c19-87b4-5a2f5c42f377
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLAIMANT_AGE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6bc6747a-5971-435d-99ee-611e37fd2471
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CLAIMANT_NAME_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6270690c-16c2-449a-b4d0-720cb45b50af
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CONNECTIONRECEIVEDID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f5773a8-7e8c-4d97-ae2a-406d4ed5fd11
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CONNECTIONSENTID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5aeae8de-cab5-48bb-9d2d-028695e7bf04
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CURRENCY_TYPE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9579304e-8948-4b77-9daa-4d0cb30452ea
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: EXPENSE_INCURRED_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1537eb97-2df9-406e-bd6b-30dad384e8d0
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: EXPENSE_PAID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82c1b253-2db2-4737-b9cc-0bae170db219
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: EXPENSE_RESERVE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: be63fc11-c6a4-4e4d-9895-93af3722e145
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: INDEMNITY_INCURRED_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9c1aa11-b973-44bb-a489-2ed2610f7519
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: INDEMNITY_PAID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c72c4dc8-1eb5-47b8-bdb6-f114f5100eff
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: INDEMNITY_RESERVE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6b307de-c744-459a-aa58-cd84b86a8ff7
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: ISDELETED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 309d40d0-08cd-421d-a6eb-09da17826e87
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: LEGAL_PAID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4cf1194a-7d0e-44a9-8b9b-f3cdddb23dbe
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(1000)
+        defaultValue: ""
+        description: ""
+        name: LOSS_ACCIDENT_DESCRIPTION_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fcfadb7b-8c71-4636-83a3-efe5b75fb611
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: LOSS_DATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0cbae83d-031c-4cc2-a9a1-a084df59ebcc
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LOSS_STATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83774cb4-d956-4e03-8051-9f1a003875fc
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LOSS_TYPE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4081640-e450-49aa-bc20-0e8a8b034955
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: MEDICAL_INCURRED_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c161c11-3b16-4481-bbc5-e6899f624d49
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: MEDICAL_PAID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08b66151-b93a-40d6-8131-824e962f5370
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: MEDICAL_RESERVE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b224181-d0b4-4090-b2fc-8ff8803e215d
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18184781-d983-4298-a059-7e77c878f37e
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICY_COVERAGE_TYPE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b71517cd-011e-4eaf-8f51-fbb98b991cbb
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICY_CUSTOMER_NAME_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1cb26305-8bff-481c-bbf1-5112bbdb6a09
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: POLICY_EFFECTIVE_DATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e2e3119-e802-418f-afa3-934ad785a8b3
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: POLICY_EXPIRATION_DATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a49a0502-7e77-4def-b566-4442c9225130
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb1d6e3e-6822-43ff-bd06-eb12d14c9b87
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICY_YEAR_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 312e725e-1169-4a68-bccd-0b480a4377f0
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: PROPERTY_INCURRED_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37400617-7595-4bb9-8f65-1844ffd218d0
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: PROPERTY_PAID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2ff3491-97d7-4dbb-854d-6dcaa10523e3
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: PROPERTY_RESERVE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94a1acc5-533f-47c5-89ab-e8b2bc13439d
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: TOTAL_INCURRED_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: beab6d35-17c0-49ae-b633-ae41c1ed5efb
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: TOTAL_PAID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96849b5e-fcb7-429f-bb7b-20265378a474
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: TOTAL_RECOVERY_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6b5bd64-3031-43d2-8dd9-646b714f5e4e
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: TOTAL_RESERVE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57a77c0-11ec-4688-9f3a-1173fca5fd45
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: VALUATION_DATE_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a7dcb6d-41ac-4d0a-b249-fcab869b0036
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1329670a-50de-4f2d-b78c-961138f70a71
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: OWNERID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9e302b5-478c-40a5-b6e6-6c6845a5745d
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICY_COVERAGE_KIND_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3940074f-5648-49c4-8a43-4c5c62dd4866
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_COMPANY_C
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 960ce172-1d20-4505-bd8f-2b5bb4d961f3
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: CREATEDBYID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7133737b-43de-4d6f-91ec-ccb5e4854629
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: CREATEDDATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 628cd7ab-313e-4198-8458-7483a11d17ac
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: LASTMODIFIEDBYID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4fb61474-6fd7-4950-94b9-9eb44cec6afe
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: LASTMODIFIEDDATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe1ef1eb-9e00-4ba3-9c16-75e40dedb57f
+          stepCounter: 36aba1e7-c987-4695-ab8e-2b1a1a3e9fed
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEMMODSTAMP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: CLAIM_SPECIALTY_C_20240904_224432
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

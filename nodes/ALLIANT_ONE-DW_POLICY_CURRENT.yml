@@ -1,0 +1,225 @@
+fileVersion: 1
+id: fd2792e6-9ae3-461b-974d-33d4e62c7495
+name: DW_POLICY_CURRENT
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5c1eca0-64ea-4427-b90f-5fe7ecc892ed
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_POLICY_ID
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02eb76e1-fa92-4bba-acda-e608c4c4006e
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66c2aebd-8c27-46b3-974a-9ad8dc884493
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1d782f2-59a0-493d-8536-c5c77f5f1da6
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: VARCHAR(200)
+        defaultValue: ""
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 738ef2e5-d49b-47a9-924f-27ca39c1606c
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: VARCHAR(200)
+        defaultValue: ""
+        description: ""
+        name: POLICY_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46b13ffa-1175-471a-8e4f-b95f39333a0c
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3fd75e02-2f63-4785-a120-a652813b1d4b
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: EXPIRATION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 356e3dee-cbb9-41c7-8ab8-651447299210
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: AO_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f517feff-5dac-4ea9-b3ba-718512e9ab74
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: AO_CREATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e56327a1-975f-405e-a611-9919f41e7272
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: AO_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef79774b-5f59-4f3a-9d2c-fe46a505c6fe
+          stepCounter: fd2792e6-9ae3-461b-974d-33d4e62c7495
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: AO_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_POLICY_CURRENT
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

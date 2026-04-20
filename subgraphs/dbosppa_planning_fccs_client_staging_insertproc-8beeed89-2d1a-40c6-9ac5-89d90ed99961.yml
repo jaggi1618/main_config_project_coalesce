@@ -2,14 +2,29 @@ fileVersion: 1
 id: 8beeed89-2d1a-40c6-9ac5-89d90ed99961
 name: dbo.sppa_planning_fccs_client_staging_insert.proc
 steps:
+  - 08262e4f-3c7d-d826-29b3-60614ec19f8c
   - 37166a10-e08e-455e-861f-d0691c6c096a
   - 47166a10-f19f-455e-861f-cfa80b5bfa59
   - 48277b21-e2a0-466f-8720-e07a2d7d1a7b
   - 5605590f-e08e-444d-950e-cfa80b5bfa59
   - 59388c30-f3b1-4770-9831-f18b3e8e2b8c
   - 5a2c2e1f-4b68-4f81-81f1-332e185e7a9e
+  - 5b4c3e8a-7d1f-492e-b6a1-0f8c7d9e2b34
   - 67166a10-f19f-455e-861f-d0691c6c096a
   - 6b3d3f2a-5c79-4a92-92f2-443f196f8b0f
+  - 6e7c84a5-92d3-4e8c-8f19-b6c7a421f5e2
   - 7c4e4a3b-6d8a-4b03-a3a3-554a2a7a9c1a
+  - 7f8d95b6-a3e4-4f9d-902a-c7d8b53206f3
+  - 809ea6c7-b4f5-50ae-a13b-d8e9c6431704
+  - 8f4e2b1c-9a3d-4c5b-7d6e-0f1a2b3c4d5e
+  - 91afb7d8-c506-61bf-b24c-e9fad7542815
   - 93734a65-d536-482a-76c7-037e8f90a1b2
+  - 9a641e7d-4668-4da9-81fd-09c4fb76b3db
+  - a2c0c8e9-d617-72c0-c35d-0a0be8653926
+  - b3d1d9fa-e728-83d1-d46e-1b1cf9764a37
+  - b99f8b47-8d18-40d7-9b1f-1e75d428ec5d
+  - c4e2ea0b-f839-94e2-e57f-2c2d0a875b48
+  - d5f3fb1c-094a-a5f3-f680-3d3e1b986c59
+  - e6040c2d-1a5b-b604-0791-4e4f2ca97d6a
+  - f7151d3e-2b6c-c715-18a2-5f503db08e7b
 type: Subgraph

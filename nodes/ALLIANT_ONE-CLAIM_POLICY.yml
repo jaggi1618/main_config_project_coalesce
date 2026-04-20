@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 98baf9c0-847a-4214-aefc-71b6c2904b20
+name: CLAIM_POLICY
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffc26c5e-b7c3-4038-a88d-68fcd6aebbad
+          stepCounter: 98baf9c0-847a-4214-aefc-71b6c2904b20
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: EPICPOLICYNUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a8de932-e9f8-49dc-92c4-021d36140d90
+          stepCounter: 98baf9c0-847a-4214-aefc-71b6c2904b20
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: POLICYYEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8ee40f3-c437-4b35-8776-842f5edaac73
+          stepCounter: 98baf9c0-847a-4214-aefc-71b6c2904b20
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: POLICY_KEY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b83e5be-9fd2-44c7-a0fc-cc7d47827a0e
+          stepCounter: 98baf9c0-847a-4214-aefc-71b6c2904b20
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: PREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: CLAIM_POLICY
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

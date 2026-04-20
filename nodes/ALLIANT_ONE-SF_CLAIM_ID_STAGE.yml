@@ -1,0 +1,168 @@
+fileVersion: 1
+id: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+name: SF_CLAIM_ID_STAGE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5df8487f-929c-45fe-9e96-3f03374e408b
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: CLAIMNUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0cdf40b8-9aa6-4a36-98f7-13abb31e7923
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: SF_ACCOUNT_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ac5d7b2-3d72-4fb2-98e8-eac14d9b7b2e
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d613d9e-0ca9-41de-858c-5eeca820ef04
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: VARCHAR(18)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_SALESFORCE_CLAIM_SPECIALTY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c59337c-e955-46e7-9b9d-88db5be69295
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: AO_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9cd0d537-9c8f-4803-ae3d-b973a49fd103
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: AO_CREATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b755e86-789c-4ce4-8b45-755dd39fedde
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: AO_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c383dcf-b0c9-44f3-be06-fa112c213203
+          stepCounter: 1693c923-b2b7-4d40-b4e8-3353844ab68b
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: AO_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SF_CLAIM_ID_STAGE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

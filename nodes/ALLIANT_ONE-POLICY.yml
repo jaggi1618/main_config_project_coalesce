@@ -1,0 +1,244 @@
+fileVersion: 1
+id: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+name: POLICY
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45ea062e-fddd-4082-be21-e5986ba77e50
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_POLICY_ID
+        nullable: false
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fc1bcbd-280c-40c7-a8fb-8836f40d35ae
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: EPICPOLICYNUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59bdcd1e-9503-43a3-a36d-65613e10fef2
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICYNAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d449dcb8-a81f-418d-8f99-9f5cfbb451a6
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: VARCHAR(2)
+        defaultValue: ""
+        description: ""
+        name: TYPEOFBUSINESSCODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b70a17d-652b-44ca-ae49-60df914655da
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: VARCHAR(4)
+        defaultValue: ""
+        description: ""
+        name: POLICYTYPECODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0494abca-58b1-402a-950f-5c623fb52f6f
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: POLICYTYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1af1c3f-a80c-4572-97b1-693c21201e1f
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: PREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29a9cc69-e5ac-42bf-9fc6-466790713bda
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: NUMBER(28,12)
+        defaultValue: ""
+        description: ""
+        name: ANNUALIZEDPREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef751320-5c46-4d36-b985-486e6707dbcc
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: POLICYYEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 082cc8fc-abff-4d2a-a81f-71face08e406
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: POLICYEFFECTIVEDATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b48ff853-a4f0-43fb-bee5-c8be7341ee8d
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: POLICYEXPIRATIONDATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5419c481-b118-4e3f-ba60-3359432aed69
+          stepCounter: 1dfd303c-bfa5-402f-bdaf-4cc2b9a86b46
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: POLICY_KEY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: POLICY
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

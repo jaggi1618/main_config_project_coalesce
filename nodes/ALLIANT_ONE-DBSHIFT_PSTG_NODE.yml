@@ -1,0 +1,149 @@
+fileVersion: 1
+id: a10535f4-515b-4132-8ba6-247d8df7b774
+name: DBSHIFT_PSTG_NODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: UPDATE-only conversion of spao_ao_response_feed_staging_update
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 620b5be2-61b6-449c-94ab-c5787fae51b3
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8788f460-9f7f-4762-a7ba-d26ce9e033e9
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37a7c435-a58d-4202-83f5-1854867d3ea6
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a943f9-342a-4fc6-9830-8050d3e1a9bd
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b3c2fe7-ddf3-42f2-8e9f-16005ca86053
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26a13f9d-afac-4f69-9d90-5ebc4ee43e5b
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12a41b50-2ac4-4e58-862b-b22f35e482f7
+          stepCounter: a10535f4-515b-4132-8ba6-247d8df7b774
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DBSHIFT_PSTG_NODE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

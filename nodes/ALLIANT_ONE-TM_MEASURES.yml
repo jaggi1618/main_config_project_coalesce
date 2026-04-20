@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 1bb1a8ed-0065-4b2e-aa9a-9cd10f3a661a
+name: TM_MEASURES
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: ALLIANT_ONE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 462128af-6d14-4e34-9dc8-5a0dc916c539
+          stepCounter: 1bb1a8ed-0065-4b2e-aa9a-9cd10f3a661a
+        config: {}
+        dataType: VARCHAR(500)
+        defaultValue: ""
+        description: ""
+        name: MEASURE_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a8e6856-0ffe-4d49-83d9-6f71394e217a
+          stepCounter: 1bb1a8ed-0065-4b2e-aa9a-9cd10f3a661a
+        config: {}
+        dataType: VARCHAR(500)
+        defaultValue: ""
+        description: ""
+        name: MEASURE2_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 765bb0c5-c866-4a08-8cc2-f7c7719e6f0d
+          stepCounter: 1bb1a8ed-0065-4b2e-aa9a-9cd10f3a661a
+        config: {}
+        dataType: VARCHAR(500)
+        defaultValue: ""
+        description: ""
+        name: MEASURE3_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TM_MEASURES
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
